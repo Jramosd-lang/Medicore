@@ -88,17 +88,16 @@ namespace VistaForm
         {
 
         }
-
-        private int ObtenerFilaSeleccionada(object sender, DataGridViewCellEventArgs e)
+        private int ObtenerFilaSeleccionada()
         {
-            
-            if (e.RowIndex >= 0 && e.RowIndex < TablaPacientes.Rows.Count)
+            if (TablaPacientes.SelectedRows.Count > 0)
             {
-
-                return e.RowIndex;
+                return TablaPacientes.SelectedRows[0].Index;
             }
-            return -1; 
+            return -1;
         }
+
+        
 
         private void BotonRegistro_Click(object sender, EventArgs e)
         {
@@ -129,16 +128,8 @@ namespace VistaForm
             // Aquí puedes agregar el código para guardar el paciente en la base de datos o en un archivo
 
             // Limpiar los campos después de agregar el paciente
-            txtNombre.Clear();
-            txtApe.Clear();
-            txtDireccion.Clear();
-            txtDoc.Clear();
-            txtTelefono.Clear();
 
-            comboBoxTipoDoc.SelectedIndex = -1;
-            comboSexo.SelectedIndex = -1;
-            comboBoxGrupoS.SelectedIndex = -1;
-            dateTimeFechaN.Value = DateTime.Now;
+            limpiarCampos();
 
             MessageBox.Show("Paciente registrado exitosamente.", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -211,15 +202,23 @@ namespace VistaForm
             string alergiasModificadas = "ninguna";
             string historiaClinicaModificada = "n/a";
             string grupoSanguineoModificado = comboBoxGrupoS.SelectedItem?.ToString() ?? string.Empty;
-            int filaSeleccionada = ObtenerFilaSeleccionada(sender, e as DataGridViewCellEventArgs);
+
+            int filaSeleccionada = ObtenerFilaSeleccionada(); // ? Corregido aquí
+
             if (filaSeleccionada != -1)
             {
                 int idPaciente = (int)TablaPacientes.Rows[filaSeleccionada].Cells["ID"].Value;
-                // Crear un nuevo objeto Paciente con los datos modificados
-                Paciente pacienteModificado = new Paciente(idPaciente, nombreModificado, apellidoModificado, direccionModificada, tipoDocumentoModificado, documentoModificado, telefonoModificado, DateOnly.FromDateTime(fechaNacimientoModificada), sexoModificado, alergiasModificadas, historiaClinicaModificada, grupoSanguineoModificado);
-                // Llamar al método de modificación en el servicio
+
+                Paciente pacienteModificado = new Paciente(
+                    idPaciente, nombreModificado, apellidoModificado, direccionModificada,
+                    tipoDocumentoModificado, documentoModificado, telefonoModificado,
+                    DateOnly.FromDateTime(fechaNacimientoModificada), sexoModificado,
+                    alergiasModificadas, historiaClinicaModificada, grupoSanguineoModificado
+                );
+
                 ServicioPaciente servicioPaciente = new ServicioPaciente();
                 servicioPaciente.modificarPaciente(pacienteModificado);
+
                 MessageBox.Show("Paciente modificado exitosamente.", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarPacientes();
             }
@@ -228,6 +227,20 @@ namespace VistaForm
                 MessageBox.Show("Por favor selecciona un paciente para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        public void limpiarCampos()
+        {
+            txtNombre.Clear();
+            txtApe.Clear();
+            txtDireccion.Clear();
+            txtDoc.Clear();
+            txtTelefono.Clear();
+            comboBoxTipoDoc.SelectedIndex = -1;
+            comboSexo.SelectedIndex = -1;
+            comboBoxGrupoS.SelectedIndex = -1;
+            dateTimeFechaN.Value = DateTime.Now;
+        }
+
     }
 
 }

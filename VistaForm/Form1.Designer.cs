@@ -118,6 +118,7 @@ namespace VistaForm
             TablaPacientes.Name = "TablaPacientes";
             TablaPacientes.RowHeadersWidth = 5;
             TablaPacientes.ScrollBars = ScrollBars.Vertical;
+            TablaPacientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             TablaPacientes.Size = new Size(856, 194);
             TablaPacientes.TabIndex = 20;
             TablaPacientes.CellContentClick += dataGridView2_CellContentClick;
@@ -319,7 +320,7 @@ namespace VistaForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            modificar(sender, e);
         }
 
         #endregion

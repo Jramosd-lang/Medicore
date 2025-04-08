@@ -107,7 +107,7 @@ namespace Datos
         public void cargarPacientes(List<Paciente> pacientes)
         {
             
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
                 foreach (var paciente in pacientes)
                 {
@@ -121,19 +121,22 @@ namespace Datos
         public void modificarPaciente(Paciente paciente) 
         {
             List<Paciente> pacientes = mostrarPacientes();
-          
-            foreach (var pac in pacientes)
-            {
-                if (pac.Id == paciente.Id)
-                {
-                    pacientes.Add(pac);
-                    pacientes.Remove(paciente);
-                    cargarPacientes(pacientes);
 
-                }
+            // Buscar el índice del paciente que quieres modificar
+            int index = pacientes.FindIndex(p => p.Id == paciente.Id);
+
+            if (index != -1)
+            {
+                // Reemplazar el objeto existente con el modificado
+                pacientes[index] = paciente;
+
+                // Guardar la lista modificada
+                cargarPacientes(pacientes);
             }
-            
+
         }
+
+        
 
     }
 
