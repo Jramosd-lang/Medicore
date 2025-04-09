@@ -27,7 +27,7 @@ namespace VistaForm
 
         }
 
-        
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -97,7 +97,7 @@ namespace VistaForm
             return -1;
         }
 
-        
+
 
         private void BotonRegistro_Click(object sender, EventArgs e)
         {
@@ -170,10 +170,10 @@ namespace VistaForm
                 // Limpiamos cualquier origen de datos previo
                 TablaPacientes.DataSource = null;
 
-               
+
                 TablaPacientes.DataSource = pacientesFiltrados;
 
-                
+
                 if (TablaPacientes.Columns.Contains("FechaNacimiento"))
                 {
                     TablaPacientes.Columns["FechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -241,6 +241,33 @@ namespace VistaForm
             dateTimeFechaN.Value = DateTime.Now;
         }
 
+        private void txtApe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult = MessageBox.Show("¿Está seguro de que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult == DialogResult.Yes)
+            {               
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 
 }
