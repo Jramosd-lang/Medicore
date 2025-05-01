@@ -307,7 +307,7 @@ namespace VistaForm
             groupBox1.Controls.Add(txtTelefono);
             groupBox1.Location = new Point(27, 88);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1739, 541);
+            groupBox1.Size = new Size(1739, 550);
             groupBox1.TabIndex = 23;
             groupBox1.TabStop = false;
             groupBox1.Text = "Agregar Pacientes";
@@ -316,7 +316,7 @@ namespace VistaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1768, 631);
+            ClientSize = new Size(1768, 664);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "Form1";
