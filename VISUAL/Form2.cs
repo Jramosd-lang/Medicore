@@ -62,5 +62,14 @@ namespace VISUAL
                 // Aquí podés guardar la ruta, copiar el archivo, leerlo, etc.
             }
         }
+
+
+
+        
+
+        private void BotonSalir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

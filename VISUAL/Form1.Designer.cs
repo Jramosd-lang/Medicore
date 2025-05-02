@@ -55,10 +55,10 @@ namespace VISUAL
             pictureBox2 = new PictureBox();
             PanelTitleBar = new Panel();
             BotonMaximizar = new Button();
-            BotonSalir = new Button();
             BotonMinimizar = new Button();
             pictureBox3 = new PictureBox();
             label1 = new Label();
+            BotonSalir = new Button();
             MenuLateral.SuspendLayout();
             PanelSubMenuApoyo.SuspendLayout();
             PanelSubMenuAgenda.SuspendLayout();
@@ -457,7 +457,7 @@ namespace VISUAL
             PanelContenedor.ForeColor = SystemColors.ControlLightLight;
             PanelContenedor.Location = new Point(300, 40);
             PanelContenedor.Name = "PanelContenedor";
-            PanelContenedor.Size = new Size(1100, 758);
+            PanelContenedor.Size = new Size(992, 758);
             PanelContenedor.TabIndex = 2;
             PanelContenedor.Paint += panel4_Paint;
             // 
@@ -465,7 +465,7 @@ namespace VISUAL
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(331, 260);
+            pictureBox2.Location = new Point(277, 260);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(448, 193);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -483,7 +483,7 @@ namespace VISUAL
             PanelTitleBar.Dock = DockStyle.Top;
             PanelTitleBar.Location = new Point(0, 0);
             PanelTitleBar.Name = "PanelTitleBar";
-            PanelTitleBar.Size = new Size(1400, 40);
+            PanelTitleBar.Size = new Size(1292, 40);
             PanelTitleBar.TabIndex = 3;
             PanelTitleBar.MouseDown += PanelTitleBar_MouseDown;
             // 
@@ -495,28 +495,12 @@ namespace VISUAL
             BotonMaximizar.FlatAppearance.BorderSize = 0;
             BotonMaximizar.FlatStyle = FlatStyle.Flat;
             BotonMaximizar.Image = (Image)resources.GetObject("BotonMaximizar.Image");
-            BotonMaximizar.Location = new Point(1314, 5);
+            BotonMaximizar.Location = new Point(1206, 5);
             BotonMaximizar.Name = "BotonMaximizar";
             BotonMaximizar.Size = new Size(40, 29);
             BotonMaximizar.TabIndex = 4;
             BotonMaximizar.UseVisualStyleBackColor = false;
             BotonMaximizar.Click += button12_Click;
-            // 
-            // BotonSalir
-            // 
-            BotonSalir.Anchor = AnchorStyles.Right;
-            BotonSalir.BackColor = Color.FromArgb(45, 91, 103);
-            BotonSalir.BackgroundImageLayout = ImageLayout.Zoom;
-            BotonSalir.Cursor = Cursors.Hand;
-            BotonSalir.FlatAppearance.BorderSize = 0;
-            BotonSalir.FlatStyle = FlatStyle.Flat;
-            BotonSalir.Image = (Image)resources.GetObject("BotonSalir.Image");
-            BotonSalir.Location = new Point(1357, 6);
-            BotonSalir.Name = "BotonSalir";
-            BotonSalir.Size = new Size(40, 29);
-            BotonSalir.TabIndex = 3;
-            BotonSalir.UseVisualStyleBackColor = false;
-            BotonSalir.Click += BotonSalir_Click;
             // 
             // BotonMinimizar
             // 
@@ -528,7 +512,7 @@ namespace VISUAL
             BotonMinimizar.FlatStyle = FlatStyle.Flat;
             BotonMinimizar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonMinimizar.Image = (Image)resources.GetObject("BotonMinimizar.Image");
-            BotonMinimizar.Location = new Point(1268, 6);
+            BotonMinimizar.Location = new Point(1160, 6);
             BotonMinimizar.Name = "BotonMinimizar";
             BotonMinimizar.Padding = new Padding(0, 8, 0, 8);
             BotonMinimizar.Size = new Size(40, 29);
@@ -558,12 +542,28 @@ namespace VISUAL
             label1.TabIndex = 0;
             label1.Text = "Medicore";
             // 
+            // BotonSalir
+            // 
+            BotonSalir.Anchor = AnchorStyles.Right;
+            BotonSalir.BackColor = Color.FromArgb(45, 91, 103);
+            BotonSalir.BackgroundImageLayout = ImageLayout.Zoom;
+            BotonSalir.Cursor = Cursors.Hand;
+            BotonSalir.FlatAppearance.BorderSize = 0;
+            BotonSalir.FlatStyle = FlatStyle.Flat;
+            BotonSalir.Image = (Image)resources.GetObject("BotonSalir.Image");
+            BotonSalir.Location = new Point(1249, 6);
+            BotonSalir.Name = "BotonSalir";
+            BotonSalir.Size = new Size(40, 29);
+            BotonSalir.TabIndex = 3;
+            BotonSalir.UseVisualStyleBackColor = false;
+            BotonSalir.Click += BotonSalir_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1400, 798);
+            ClientSize = new Size(1292, 798);
             Controls.Add(PanelContenedor);
             Controls.Add(MenuLateral);
             Controls.Add(PanelTitleBar);
@@ -617,9 +617,9 @@ namespace VISUAL
         private Panel PanelTitleBar;
         private Label label1;
         private Button BotonMaximizar;
-        private Button BotonSalir;
         private Button BotonMinimizar;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
+        private Button BotonSalir;
     }
 }

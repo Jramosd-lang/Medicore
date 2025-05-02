@@ -17,6 +17,23 @@ namespace VISUAL
 
         private Form formulario;
 
+        public void volver(Form formularioHijo)
+        {
+            if (formulario != null)
+            {
+                formulario.Close();
+            }
+            formulario = new Form1();
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            PanelContenedor.Controls.Clear();
+            PanelContenedor.Controls.Add(formulario);
+            PanelContenedor.Tag = formulario;
+            formulario.BringToFront();
+            formulario.Show();
+        }
+
         private void cambiarPanel(Form formularioHijo)
         {
 
