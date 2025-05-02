@@ -12,7 +12,6 @@ namespace VISUAL
         {
             InitializeComponent();
             EsconderMenu();
-
         }
 
         private Form formulario;
@@ -52,8 +51,6 @@ namespace VISUAL
             formularioHijo.BringToFront();
             formularioHijo.Show();
 
-
-
         }
         private void EsconderMenu()
         {
@@ -74,12 +71,6 @@ namespace VISUAL
                 subMenu.Visible = false;
             }
         }
-
-
-
-
-
-
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
