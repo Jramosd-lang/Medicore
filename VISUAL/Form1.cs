@@ -12,7 +12,6 @@ namespace VISUAL
         {
             InitializeComponent();
             EsconderMenu();
-
         }
 
         private Form formulario;
@@ -50,8 +49,6 @@ namespace VISUAL
             PanelContenedor.Tag = formularioHijo;
             formularioHijo.BringToFront();
             formularioHijo.Show();
-
-
 
         }
         private void EsconderMenu()
