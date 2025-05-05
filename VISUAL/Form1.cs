@@ -37,7 +37,6 @@ namespace VISUAL
         private void cambiarPanel(Form formularioHijo)
         {
 
-
             if (formulario != null)
             {
                 formulario.Close();
@@ -74,12 +73,6 @@ namespace VISUAL
                 subMenu.Visible = false;
             }
         }
-
-
-
-
-
-
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -118,7 +111,7 @@ namespace VISUAL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            cambiarPanel(new Form2());
+            cambiarPanel(new GestionPacientecs());
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -155,37 +148,35 @@ namespace VISUAL
 
         private void button4_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            cambiarPanel(new RecepcionDePaciente());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Este boton aun no funciona");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
+
 
         private void BotonGestionarPaciente_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Este boton aun no funciona");
         }
 
         private void BotonGestionarTrabajador_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Este boton aun no funciona");
         }
 
         private void BotonGestionarImplementos_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Este boton aun no funciona");
         }
 
         private void BotonGestionarDinero_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Este boton aun no funciona");
         }
 
         private void PanelTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -193,8 +184,6 @@ namespace VISUAL
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();

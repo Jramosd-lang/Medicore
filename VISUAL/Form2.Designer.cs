@@ -60,6 +60,7 @@
             label8 = new Label();
             groupBox3 = new GroupBox();
             groupBox4 = new GroupBox();
+            comboBox4 = new ComboBox();
             label16 = new Label();
             textBox9 = new TextBox();
             label17 = new Label();
@@ -69,7 +70,6 @@
             textBox8 = new TextBox();
             label14 = new Label();
             label13 = new Label();
-            BotonSeleccionar = new Button();
             panel1 = new Panel();
             GroupBoxDocumento.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -81,7 +81,7 @@
             // LblDocumento
             // 
             LblDocumento.AutoSize = true;
-            LblDocumento.Location = new Point(14, 52);
+            LblDocumento.Location = new Point(501, 54);
             LblDocumento.Name = "LblDocumento";
             LblDocumento.Size = new Size(127, 20);
             LblDocumento.TabIndex = 0;
@@ -126,7 +126,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(203, 45);
+            textBox1.Location = new Point(690, 47);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(157, 27);
             textBox1.TabIndex = 5;
@@ -149,21 +149,21 @@
             // 
             textBox4.Location = new Point(203, 74);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(157, 27);
+            textBox4.Size = new Size(268, 27);
             textBox4.TabIndex = 8;
             // 
             // textBox5
             // 
             textBox5.Location = new Point(203, 31);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(157, 27);
+            textBox5.Size = new Size(268, 27);
             textBox5.TabIndex = 9;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.FromArgb(79, 127, 140);
-            label1.Location = new Point(141, 52);
+            label1.Location = new Point(628, 54);
             label1.Name = "label1";
             label1.Size = new Size(25, 20);
             label1.TabIndex = 10;
@@ -193,7 +193,7 @@
             // 
             textBox6.Location = new Point(203, 26);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(157, 27);
+            textBox6.Size = new Size(268, 27);
             textBox6.TabIndex = 14;
             // 
             // LblCorreoElectronico
@@ -245,15 +245,15 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            comboBox1.Location = new Point(716, 44);
+            comboBox1.Location = new Point(203, 42);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(157, 28);
+            comboBox1.Size = new Size(268, 28);
             comboBox1.TabIndex = 19;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(530, 52);
+            label7.Location = new Point(17, 50);
             label7.Name = "label7";
             label7.Size = new Size(140, 20);
             label7.TabIndex = 20;
@@ -270,7 +270,7 @@
             GroupBoxDocumento.Controls.Add(textBox1);
             GroupBoxDocumento.Location = new Point(26, 26);
             GroupBoxDocumento.Name = "GroupBoxDocumento";
-            GroupBoxDocumento.Size = new Size(1003, 98);
+            GroupBoxDocumento.Size = new Size(982, 98);
             GroupBoxDocumento.TabIndex = 21;
             GroupBoxDocumento.TabStop = false;
             GroupBoxDocumento.Text = "Documento de identidad";
@@ -279,7 +279,7 @@
             // 
             label10.AutoSize = true;
             label10.ForeColor = Color.FromArgb(79, 127, 140);
-            label10.Location = new Point(676, 52);
+            label10.Location = new Point(163, 50);
             label10.Name = "label10";
             label10.Size = new Size(25, 20);
             label10.TabIndex = 16;
@@ -307,7 +307,7 @@
             groupBox2.Controls.Add(LblPrimerNombre);
             groupBox2.Location = new Point(26, 157);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1003, 229);
+            groupBox2.Size = new Size(982, 229);
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos generales";
@@ -338,7 +338,7 @@
             comboBox2.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
             comboBox2.Location = new Point(203, 170);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(157, 28);
+            comboBox2.Size = new Size(268, 28);
             comboBox2.TabIndex = 27;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
@@ -346,7 +346,7 @@
             // 
             dateTimePicker1.Location = new Point(203, 127);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(297, 27);
+            dateTimePicker1.Size = new Size(268, 27);
             dateTimePicker1.TabIndex = 25;
             // 
             // label9
@@ -380,7 +380,7 @@
             groupBox3.Controls.Add(LblCorreoElectronico);
             groupBox3.Location = new Point(26, 414);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1003, 320);
+            groupBox3.Size = new Size(982, 320);
             groupBox3.TabIndex = 23;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos de contacto";
@@ -388,6 +388,7 @@
             // groupBox4
             // 
             groupBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox4.Controls.Add(comboBox4);
             groupBox4.Controls.Add(label16);
             groupBox4.Controls.Add(textBox9);
             groupBox4.Controls.Add(label17);
@@ -399,17 +400,26 @@
             groupBox4.Controls.Add(label13);
             groupBox4.Location = new Point(17, 85);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(968, 181);
+            groupBox4.Size = new Size(947, 187);
             groupBox4.TabIndex = 25;
             groupBox4.TabStop = false;
             groupBox4.Text = "Datos de contacto de emergencia";
             groupBox4.Enter += groupBox4_Enter;
             // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
+            comboBox4.Location = new Point(212, 134);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(78, 28);
+            comboBox4.TabIndex = 35;
+            // 
             // label16
             // 
             label16.AutoSize = true;
             label16.ForeColor = Color.FromArgb(79, 127, 140);
-            label16.Location = new Point(112, 132);
+            label16.Location = new Point(112, 138);
             label16.Name = "label16";
             label16.Size = new Size(25, 20);
             label16.TabIndex = 34;
@@ -417,15 +427,15 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(212, 125);
+            textBox9.Location = new Point(296, 135);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(157, 27);
+            textBox9.Size = new Size(219, 27);
             textBox9.TabIndex = 33;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(36, 132);
+            label17.Location = new Point(36, 138);
             label17.Name = "label17";
             label17.Size = new Size(67, 20);
             label17.TabIndex = 32;
@@ -456,14 +466,14 @@
             comboBox3.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
             comboBox3.Location = new Point(212, 84);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(157, 28);
+            comboBox3.Size = new Size(303, 28);
             comboBox3.TabIndex = 30;
             // 
             // textBox8
             // 
             textBox8.Location = new Point(212, 41);
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(157, 27);
+            textBox8.Size = new Size(303, 27);
             textBox8.TabIndex = 26;
             // 
             // label14
@@ -485,21 +495,10 @@
             label13.TabIndex = 0;
             label13.Text = "Nombre completo";
             // 
-            // BotonSeleccionar
-            // 
-            BotonSeleccionar.Location = new Point(475, 773);
-            BotonSeleccionar.Name = "BotonSeleccionar";
-            BotonSeleccionar.Size = new Size(179, 29);
-            BotonSeleccionar.TabIndex = 35;
-            BotonSeleccionar.Text = "Boton seleccionar";
-            BotonSeleccionar.UseVisualStyleBackColor = true;
-            BotonSeleccionar.Click += button1_Click;
-            // 
             // panel1
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(BotonSeleccionar);
             panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(GroupBoxDocumento);
@@ -507,14 +506,14 @@
             panel1.ForeColor = Color.Black;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1082, 871);
+            panel1.Size = new Size(1082, 560);
             panel1.TabIndex = 24;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1082, 871);
+            ClientSize = new Size(1082, 560);
             Controls.Add(panel1);
             Name = "Form2";
             Text = "Form2";
@@ -575,6 +574,6 @@
         private Label label16;
         private TextBox textBox9;
         private Label label17;
-        private Button BotonSeleccionar;
+        private ComboBox comboBox4;
     }
 }

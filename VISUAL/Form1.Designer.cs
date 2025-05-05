@@ -55,10 +55,10 @@ namespace VISUAL
             pictureBox2 = new PictureBox();
             PanelTitleBar = new Panel();
             BotonMaximizar = new Button();
+            BotonSalir = new Button();
             BotonMinimizar = new Button();
             pictureBox3 = new PictureBox();
             label1 = new Label();
-            BotonSalir = new Button();
             MenuLateral.SuspendLayout();
             PanelSubMenuApoyo.SuspendLayout();
             PanelSubMenuAgenda.SuspendLayout();
@@ -99,7 +99,7 @@ namespace VISUAL
             BotonAyudaAtencion.FlatAppearance.MouseOverBackColor = Color.FromArgb(91, 136, 150);
             BotonAyudaAtencion.FlatStyle = FlatStyle.Flat;
             BotonAyudaAtencion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BotonAyudaAtencion.ForeColor = Color.FromArgb(124, 162, 177);
+            BotonAyudaAtencion.ForeColor = Color.FromArgb(185, 218, 233);
             BotonAyudaAtencion.Location = new Point(0, 619);
             BotonAyudaAtencion.Margin = new Padding(0, 10, 0, 0);
             BotonAyudaAtencion.Name = "BotonAyudaAtencion";
@@ -112,7 +112,7 @@ namespace VISUAL
             // 
             // PanelSubMenuApoyo
             // 
-            PanelSubMenuApoyo.BackColor = Color.FromArgb(124, 162, 177);
+            PanelSubMenuApoyo.BackColor = Color.FromArgb(185, 218, 233);
             PanelSubMenuApoyo.Controls.Add(button7);
             PanelSubMenuApoyo.Controls.Add(button8);
             PanelSubMenuApoyo.Controls.Add(button9);
@@ -128,7 +128,7 @@ namespace VISUAL
             button7.Dock = DockStyle.Top;
             button7.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             button7.FlatAppearance.BorderSize = 0;
-            button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button7.ForeColor = Color.FromArgb(45, 91, 103);
@@ -148,7 +148,7 @@ namespace VISUAL
             button8.Dock = DockStyle.Top;
             button8.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             button8.FlatStyle = FlatStyle.Flat;
             button8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button8.ForeColor = Color.FromArgb(45, 91, 103);
@@ -168,7 +168,7 @@ namespace VISUAL
             button9.Dock = DockStyle.Top;
             button9.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             button9.FlatAppearance.BorderSize = 0;
-            button9.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            button9.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             button9.FlatStyle = FlatStyle.Flat;
             button9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button9.ForeColor = Color.FromArgb(45, 91, 103);
@@ -191,7 +191,7 @@ namespace VISUAL
             button10.FlatAppearance.MouseOverBackColor = Color.FromArgb(91, 136, 150);
             button10.FlatStyle = FlatStyle.Flat;
             button10.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button10.ForeColor = Color.FromArgb(124, 162, 177);
+            button10.ForeColor = Color.FromArgb(185, 218, 233);
             button10.Location = new Point(0, 453);
             button10.Margin = new Padding(0, 10, 0, 0);
             button10.Name = "button10";
@@ -205,7 +205,7 @@ namespace VISUAL
             // 
             // PanelSubMenuAgenda
             // 
-            PanelSubMenuAgenda.BackColor = Color.FromArgb(124, 162, 177);
+            PanelSubMenuAgenda.BackColor = Color.FromArgb(185, 218, 233);
             PanelSubMenuAgenda.Controls.Add(button2);
             PanelSubMenuAgenda.Controls.Add(button3);
             PanelSubMenuAgenda.Controls.Add(button4);
@@ -225,7 +225,7 @@ namespace VISUAL
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.MouseOverBackColor = Color.Silver;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(0, 120);
+            button2.Location = new Point(0, 110);
             button2.Margin = new Padding(0, 10, 0, 0);
             button2.Name = "button2";
             button2.Padding = new Padding(40, 0, 0, 0);
@@ -241,7 +241,7 @@ namespace VISUAL
             button3.Dock = DockStyle.Top;
             button3.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button3.ForeColor = Color.FromArgb(45, 91, 103);
@@ -249,7 +249,7 @@ namespace VISUAL
             button3.Margin = new Padding(0, 10, 0, 0);
             button3.Name = "button3";
             button3.Padding = new Padding(40, 0, 0, 0);
-            button3.Size = new Size(300, 40);
+            button3.Size = new Size(300, 30);
             button3.TabIndex = 6;
             button3.Text = "Gestion de pacientes";
             button3.TextAlign = ContentAlignment.MiddleLeft;
@@ -262,7 +262,7 @@ namespace VISUAL
             button4.Dock = DockStyle.Top;
             button4.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             button4.FlatAppearance.BorderSize = 0;
-            button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button4.ForeColor = Color.FromArgb(45, 91, 103);
@@ -283,7 +283,7 @@ namespace VISUAL
             button5.Dock = DockStyle.Top;
             button5.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             button5.FlatAppearance.BorderSize = 0;
-            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button5.ForeColor = Color.FromArgb(45, 91, 103);
@@ -307,7 +307,7 @@ namespace VISUAL
             BotonAgendaYAtencion.FlatAppearance.MouseOverBackColor = Color.FromArgb(91, 136, 150);
             BotonAgendaYAtencion.FlatStyle = FlatStyle.Flat;
             BotonAgendaYAtencion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BotonAgendaYAtencion.ForeColor = Color.FromArgb(124, 162, 177);
+            BotonAgendaYAtencion.ForeColor = Color.FromArgb(185, 218, 233);
             BotonAgendaYAtencion.Location = new Point(0, 293);
             BotonAgendaYAtencion.Margin = new Padding(0, 10, 0, 0);
             BotonAgendaYAtencion.Name = "BotonAgendaYAtencion";
@@ -321,7 +321,7 @@ namespace VISUAL
             // 
             // PanelSubmenuGestion
             // 
-            PanelSubmenuGestion.BackColor = Color.FromArgb(124, 162, 177);
+            PanelSubmenuGestion.BackColor = Color.FromArgb(185, 218, 233);
             PanelSubmenuGestion.Controls.Add(BotonGestionarDinero);
             PanelSubmenuGestion.Controls.Add(BotonGestionarImplementos);
             PanelSubmenuGestion.Controls.Add(BotonGestionarTrabajador);
@@ -338,7 +338,7 @@ namespace VISUAL
             BotonGestionarDinero.Dock = DockStyle.Top;
             BotonGestionarDinero.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             BotonGestionarDinero.FlatAppearance.BorderSize = 0;
-            BotonGestionarDinero.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            BotonGestionarDinero.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             BotonGestionarDinero.FlatStyle = FlatStyle.Flat;
             BotonGestionarDinero.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             BotonGestionarDinero.ForeColor = Color.FromArgb(45, 91, 103);
@@ -359,7 +359,7 @@ namespace VISUAL
             BotonGestionarImplementos.Dock = DockStyle.Top;
             BotonGestionarImplementos.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             BotonGestionarImplementos.FlatAppearance.BorderSize = 0;
-            BotonGestionarImplementos.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            BotonGestionarImplementos.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             BotonGestionarImplementos.FlatStyle = FlatStyle.Flat;
             BotonGestionarImplementos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             BotonGestionarImplementos.ForeColor = Color.FromArgb(45, 91, 103);
@@ -380,7 +380,7 @@ namespace VISUAL
             BotonGestionarTrabajador.Dock = DockStyle.Top;
             BotonGestionarTrabajador.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             BotonGestionarTrabajador.FlatAppearance.BorderSize = 0;
-            BotonGestionarTrabajador.FlatAppearance.MouseOverBackColor = Color.FromArgb(185, 218, 233);
+            BotonGestionarTrabajador.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
             BotonGestionarTrabajador.FlatStyle = FlatStyle.Flat;
             BotonGestionarTrabajador.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             BotonGestionarTrabajador.ForeColor = Color.FromArgb(45, 91, 103);
@@ -404,7 +404,7 @@ namespace VISUAL
             BotonGestionar.FlatAppearance.MouseOverBackColor = Color.FromArgb(91, 136, 150);
             BotonGestionar.FlatStyle = FlatStyle.Flat;
             BotonGestionar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BotonGestionar.ForeColor = Color.FromArgb(124, 162, 177);
+            BotonGestionar.ForeColor = Color.FromArgb(185, 218, 233);
             BotonGestionar.Location = new Point(0, 125);
             BotonGestionar.Margin = new Padding(0, 10, 0, 0);
             BotonGestionar.Name = "BotonGestionar";
@@ -432,7 +432,7 @@ namespace VISUAL
             // 
             LblMedicore.AutoSize = true;
             LblMedicore.Font = new Font("Book Antiqua", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblMedicore.ForeColor = Color.FromArgb(124, 162, 177);
+            LblMedicore.ForeColor = Color.FromArgb(185, 218, 233);
             LblMedicore.Location = new Point(91, 80);
             LblMedicore.Name = "LblMedicore";
             LblMedicore.Size = new Size(145, 35);
@@ -502,6 +502,22 @@ namespace VISUAL
             BotonMaximizar.UseVisualStyleBackColor = false;
             BotonMaximizar.Click += button12_Click;
             // 
+            // BotonSalir
+            // 
+            BotonSalir.Anchor = AnchorStyles.Right;
+            BotonSalir.BackColor = Color.FromArgb(45, 91, 103);
+            BotonSalir.BackgroundImageLayout = ImageLayout.Zoom;
+            BotonSalir.Cursor = Cursors.Hand;
+            BotonSalir.FlatAppearance.BorderSize = 0;
+            BotonSalir.FlatStyle = FlatStyle.Flat;
+            BotonSalir.Image = (Image)resources.GetObject("BotonSalir.Image");
+            BotonSalir.Location = new Point(1249, 6);
+            BotonSalir.Name = "BotonSalir";
+            BotonSalir.Size = new Size(40, 29);
+            BotonSalir.TabIndex = 3;
+            BotonSalir.UseVisualStyleBackColor = false;
+            BotonSalir.Click += BotonSalir_Click;
+            // 
             // BotonMinimizar
             // 
             BotonMinimizar.AccessibleRole = AccessibleRole.TitleBar;
@@ -542,22 +558,6 @@ namespace VISUAL
             label1.TabIndex = 0;
             label1.Text = "Medicore";
             // 
-            // BotonSalir
-            // 
-            BotonSalir.Anchor = AnchorStyles.Right;
-            BotonSalir.BackColor = Color.FromArgb(45, 91, 103);
-            BotonSalir.BackgroundImageLayout = ImageLayout.Zoom;
-            BotonSalir.Cursor = Cursors.Hand;
-            BotonSalir.FlatAppearance.BorderSize = 0;
-            BotonSalir.FlatStyle = FlatStyle.Flat;
-            BotonSalir.Image = (Image)resources.GetObject("BotonSalir.Image");
-            BotonSalir.Location = new Point(1249, 6);
-            BotonSalir.Name = "BotonSalir";
-            BotonSalir.Size = new Size(40, 29);
-            BotonSalir.TabIndex = 3;
-            BotonSalir.UseVisualStyleBackColor = false;
-            BotonSalir.Click += BotonSalir_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -572,7 +572,7 @@ namespace VISUAL
             MinimumSize = new Size(950, 600);
             Name = "Form1";
             Text = "A";
-            Load += Form1_Load;
+           
             MenuLateral.ResumeLayout(false);
             PanelSubMenuApoyo.ResumeLayout(false);
             PanelSubMenuAgenda.ResumeLayout(false);
