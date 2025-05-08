@@ -10,14 +10,11 @@ using System.Windows.Forms;
 
 namespace VISUAL
 {
-    public partial class RecepcionDePaciente : Form
+    public partial class FormJoin: Form
     {
-        public RecepcionDePaciente()
+        public FormJoin()
         {
             InitializeComponent();
         }
-
-        
-        
     }
 }
