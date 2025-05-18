@@ -61,6 +61,7 @@ namespace TelegramBot
             if (int.TryParse(text, out _))
             {
                 var paciente = await _pacienteSvc.GetByDocumentoAsync(text);
+
                 if (paciente == null)
                 {
                     await _bot.SendRequest(new SendMessageRequest
@@ -70,24 +71,11 @@ namespace TelegramBot
                     });
                     return;
                 }
-
-                // Menú de opciones
-                var menu = new InlineKeyboardMarkup(new[]
+                else
                 {
-                    new[]
-                    {
-                        InlineKeyboardButton.WithCallbackData("📄 Historial", "historial|" + text),
-                        InlineKeyboardButton.WithCallbackData("👨‍⚕️ Doctor", "doctor|" + text)
-                    }
-                });
-
-                await _bot.SendRequest(new SendMessageRequest
-                {
-                    ChatId = chatId,
-                    Text = "Elige una opción:",
-                    ReplyMarkup = menu
-                });
-                return;
+                    await MostrarMenuPrincipal(chatId, paciente);
+                    return;
+                }
             }
 
             // Para cualquier otro texto, responde siempre con la bienvenida y petición de ID
@@ -124,6 +112,47 @@ namespace TelegramBot
                         Text = doc != null ? $"Tu doctor: {doc}" : "Doctor no asignado"
                     });
                     break;
+
+                case "citas":
+                    await _bot.SendRequest(new SendMessageRequest
+                    {
+                        ChatId = chatId,
+                        Text = "🔔 Próximamente podrás ver y gestionar tus citas desde aquí."
+                    });
+                    break;
+
+                case "actualizar":
+                    await _bot.SendRequest(new SendMessageRequest
+                    {
+                        ChatId = chatId,
+                        Text = "Para actualizar tus datos, por favor comunícate con la recepción del consultorio."
+                    });
+                    break;
+
+                case "ayuda":
+                    await _bot.SendRequest(new SendMessageRequest
+                    {
+                        ChatId = chatId,
+                        Text = "Si tienes dudas, puedes escribirnos a: soporte@medicore.com o llamar al 3106933004."
+                    });
+                    break;
+
+                case "volver":
+                    // Buscar de nuevo el paciente para mostrar el menú principal
+                    var paciente = await _pacienteSvc.GetByDocumentoAsync(documento);
+                    if (paciente != null)
+                    {
+                        await MostrarMenuPrincipal(chatId, paciente);
+                    }
+                    else
+                    {
+                        await _bot.SendRequest(new SendMessageRequest
+                        {
+                            ChatId = chatId,
+                            Text = "Sesión finalizada o paciente no encontrado. Por favor ingresa tu ID nuevamente."
+                        });
+                    }
+                    break;
             }
 
             var callbackRequest = new AnswerCallbackQueryRequest
@@ -131,6 +160,44 @@ namespace TelegramBot
                 CallbackQueryId = query.Id
             };
             await _bot.SendRequest(callbackRequest);
+        }
+
+        private async Task MostrarMenuPrincipal(long chatId, Entity.Paciente paciente)
+        {
+            await _bot.SendRequest(new SendMessageRequest
+            {
+                ChatId = chatId,
+                Text = $"¡Bienvenido, {paciente.Nombre} {paciente.Apellido}! ¿Qué deseas consultar?"
+            });
+
+            var menu = new InlineKeyboardMarkup(new[]
+            {
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData("📄 Historial", $"historial|{paciente.NumeroDocumento}"),
+                    InlineKeyboardButton.WithCallbackData("👨‍⚕️ Doctor", $"doctor|{paciente.NumeroDocumento}")
+                },
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData("📅 Próximas citas", $"citas|{paciente.NumeroDocumento}")
+                },
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData("🔄 Actualizar datos", $"actualizar|{paciente.NumeroDocumento}"),
+                    InlineKeyboardButton.WithCallbackData("❓ Ayuda", $"ayuda|{paciente.NumeroDocumento}")
+                },
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData("⬅️ Volver al menú", $"volver|{paciente.NumeroDocumento}")
+                }
+            });
+
+            await _bot.SendRequest(new SendMessageRequest
+            {
+                ChatId = chatId,
+                Text = "Elige una opción:",
+                ReplyMarkup = menu
+            });
         }
     }
 }

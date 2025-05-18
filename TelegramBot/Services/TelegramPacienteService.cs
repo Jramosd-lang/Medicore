@@ -7,16 +7,14 @@ namespace TelegramBot.Services
 {
     public class TelegramPacienteService : IPacienteService
     {
-        private readonly PacienteService _pacienteService = new(); // Ya conecta con DAL
+        private readonly PacienteService _pacienteService = new();
 
         public async Task<Paciente?> GetByDocumentoAsync(string documento)
         {
-            if (!int.TryParse(documento, out int id))
-                return null;
-
-            // Si tienes BuscarPorDocumento(string doc) en vez de BuscarId(int id), cámbialo aquí.
-            var paciente = _pacienteService.BuscarId(id);
+            // Busca por NumeroDocumento (string), no por ID
+            var paciente = _pacienteService.BuscarPorNumeroDocumento(documento);
             return await Task.FromResult(paciente);
         }
+
     }
 }

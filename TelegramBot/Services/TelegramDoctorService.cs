@@ -10,16 +10,17 @@ namespace TelegramBot.Services
 
         public async Task<string?> GetDoctorByPacienteDocumento(string documento)
         {
+            // Tu sistema trabaja con ID numérico igual que en PacienteService
             if (!int.TryParse(documento, out int id))
                 return null;
 
-            // Si aún no tienes la relación paciente-doctor, puedes dejarlo como "No asignado"
-            // Si la creas luego, aquí la implementas. Por ahora, busca un doctor con el mismo ID (ejemplo).
+            // Busca al doctor usando el ID proporcionado
             var doctor = _doctorService.BuscarId(id);
 
             if (doctor == null)
                 return null;
 
+            // Retorna el nombre y apellido concatenados
             return await Task.FromResult($"{doctor.Nombre} {doctor.Apellido}");
         }
     }

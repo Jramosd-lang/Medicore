@@ -17,8 +17,8 @@ namespace TelegramBot.Services
             if (paciente == null)
                 return "Paciente no encontrado.";
 
-            // Si no existe la propiedad, puedes devolver "Sin historial" o agregar luego el campo.
-            return await Task.FromResult(paciente.RutaHistorialPdf ?? "Sin historial disponible.");
+            // Retorna la ruta real al PDF (puede ser una URL o una ruta local)
+            return await Task.FromResult(paciente.RutaHistorialPdf);
         }
     }
 }
