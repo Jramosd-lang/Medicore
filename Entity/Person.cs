@@ -27,7 +27,7 @@ namespace Entity
             string numeroDocumento,
             string tipoDocumento)
         {
-            if (id < 1)
+            if (id < 0)
                 throw new ArgumentException("Id no puede estar vacío", nameof(id));
             if (string.IsNullOrWhiteSpace(nombre))
                 throw new ArgumentException("Nombre no puede estar vacío", nameof(nombre));
