@@ -141,7 +141,7 @@ namespace VISUAL
             button5.TabIndex = 6;
             button5.Text = "Eliminar";
             button5.UseVisualStyleBackColor = false;
-            button5.Click += this.button5_Click;
+            button5.Click += button5_Click;
             // 
             // label3
             // 

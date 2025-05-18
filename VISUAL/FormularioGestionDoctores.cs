@@ -131,7 +131,7 @@ namespace VISUAL
                 especialidad,
                 numeroLicencia);
 
-            DoctorService doctorService = new DoctorService();
+              DoctorService doctorService = new DoctorService();
 
             
 

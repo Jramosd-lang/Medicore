@@ -34,14 +34,14 @@ namespace DAL
             private Paciente Mappear(MySqlDataReader reader)
             {
                 // Obtén los ordinales una sola vez
-                int ordId = reader.GetOrdinal("id_doctor");
+                int ordId = reader.GetOrdinal("id_paciente");
                 int ordNombre = reader.GetOrdinal("nombre");
                 int ordApellido = reader.GetOrdinal("apellido");
                 int ordFecha = reader.GetOrdinal("fecha_nacimiento");
                 int ordNumDoc = reader.GetOrdinal("numero_documento");
                 int ordTipDOc = reader.GetOrdinal("tipo_documento");
-                int ordEsp = reader.GetOrdinal("especialidad");
-                int ordLic = reader.GetOrdinal("numero_licencia");
+                int ordRut = reader.GetOrdinal("ruta_historial_pdf");
+          
 
                 int id = !reader.IsDBNull(ordId)
                     ? reader.GetInt32(ordId)
@@ -67,8 +67,8 @@ namespace DAL
                     ? reader.GetString(ordTipDOc)
                     : string.Empty;
 
-                string rutaHistorialPdf = !reader.IsDBNull(ordEsp)
-                    ? reader.GetString(ordEsp)
+                string rutaHistorialPdf = !reader.IsDBNull(ordRut)
+                    ? reader.GetString(ordRut)
                     : string.Empty;
 
                 
@@ -90,7 +90,7 @@ namespace DAL
                 if (id <= 0)
                     return "ID inválido";
 
-                string sentencia = "DELETE FROM doctores WHERE id_doctor = @Id";
+                string sentencia = "DELETE FROM pacientes WHERE id_paciente = @Id";
 
                 using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
                 {
@@ -118,7 +118,7 @@ namespace DAL
                 if (entity == null || string.IsNullOrWhiteSpace(entity.Nombre))
                     return "Datos inválidos";
 
-                string sentencia = "INSERT INTO doctores (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, especialidad, numero_licencia) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @especialidad, @numero_licencia)";
+                string sentencia = "INSERT INTO pacientes (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, ruta_historial_pdf) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @ruta_historial_pdf)";
 
                 using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
                 {
@@ -127,7 +127,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@fecha_nacimiento", entity.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@tipo_documento", entity.TipoDocumento);
                     cmd.Parameters.AddWithValue("@numero_documento", entity.NumeroDocumento);
-                    cmd.Parameters.AddWithValue("@especialidad", entity.RutaHistorialPdf);
+                    cmd.Parameters.AddWithValue("@ruta_hitorial_pdf", entity.RutaHistorialPdf);
                     
 
                     try
@@ -167,14 +167,13 @@ namespace DAL
                 if (entity == null || entity.Id <= 0)
                     return "Datos inválidos o ID no válido";
 
-                string sentencia = "UPDATE doctores SET " +
+                string sentencia = "UPDATE pacientes SET " +
                                   "nombre = @nombre, " +
                                   "apellido = @apellido, " +
                                   "fecha_nacimiento = @fecha_nacimiento, " +
                                   "tipo_documento = @tipo_documento, " +
                                   "numero_documento = @numero_documento, " +
-                                  "especialidad = @especialidad, " +
-                                  "numero_licencia = @numero_licencia " +
+                                  "ruta_historial_pdf = @ruta_historial_pdf, " +
                                   "WHERE id_doctor = @id";
 
                 using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
@@ -185,7 +184,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@fecha_nacimiento", entity.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@tipo_documento", entity.TipoDocumento);
                     cmd.Parameters.AddWithValue("@numero_documento", entity.NumeroDocumento);
-                    cmd.Parameters.AddWithValue("@especialidad", entity.RutaHistorialPdf);
+                    cmd.Parameters.AddWithValue("@ruta_historial_pdf", entity.RutaHistorialPdf);
                     
 
                     try

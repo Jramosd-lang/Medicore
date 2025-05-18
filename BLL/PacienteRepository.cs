@@ -7,23 +7,23 @@ using Entity;
 
 namespace BLL
 {
-    public class DoctorService : IService<Doctor>
+    public class PacienteService : IService<Paciente>
     {
         //private readonly EspecieRepository repoEspecie;
-         DAL.DoctorRepository repoDoctor = new DAL.DoctorRepository();
+        DAL.PacienteRepository repoPaciente = new DAL.PacienteRepository();
 
-        public DoctorService()
+        public PacienteService()
         {
             //repoEspecie = new EspecieRepository(Archivos.ARC_ESPECIE);
             //repoEspecie = new EspecieRepository(Archivos.ARC_ESPECIE);
         }
 
-        public List<Doctor> Consultar()
+        public List<Paciente> Consultar()
         {
-            return repoDoctor.Consultar();
+            return repoPaciente.Consultar();
         }
 
-        public string Guardar(Doctor entity)
+        public string Guardar(Paciente entity)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace BLL
                     throw new NullReferenceException("Error... la especie no puede ser nula");
                 }
 
-                return repoDoctor.Guardar(entity);
+                return repoPaciente.Guardar(entity);
             }
             catch (Exception ex)
             {
@@ -40,7 +40,7 @@ namespace BLL
             }
         }
 
-        public string Modificar(Doctor entity)
+        public string Modificar(Paciente entity)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace BLL
                     throw new NullReferenceException("Error... la especie no puede ser nula");
                 }
 
-                return repoDoctor.Modificar(entity);
+                return repoPaciente.Modificar(entity);
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace BLL
                     throw new ArgumentException("Error... el id debe ser mayor a cero");
                 }
 
-                return repoDoctor.Eliminar(id);
+                return repoPaciente.Eliminar(id);
             }
             catch (Exception ex)
             {
@@ -74,9 +74,9 @@ namespace BLL
             }
         }
 
-        public Doctor BuscarId(int id)
+        public Paciente BuscarId(int id)
         {
-            return repoDoctor.BuscarPorId(id);
+            return repoPaciente.BuscarPorId(id);
         }
     }
 }
