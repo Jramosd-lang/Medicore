@@ -1,4 +1,5 @@
-﻿namespace VISUAL
+﻿
+namespace VISUAL
 {
     partial class GestionPacientecs
     {
@@ -140,6 +141,7 @@
             button5.TabIndex = 6;
             button5.Text = "Eliminar";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += this.button5_Click;
             // 
             // label3
             // 
@@ -170,6 +172,7 @@
             button1.TabIndex = 9;
             button1.Text = "consultar datos";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // comboBox1
             // 
@@ -217,6 +220,11 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

@@ -6,9 +6,9 @@ using System.Drawing.Drawing2D;
 
 namespace VISUAL
 {
-    public partial class Form1 : Form
+    public partial class FormMenu : Form
     {
-        public Form1()
+        public FormMenu()
         {
             InitializeComponent();
             EsconderMenu();
@@ -22,7 +22,7 @@ namespace VISUAL
             {
                 formulario.Close();
             }
-            formulario = new Form1();
+            formulario = new FormMenu();
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
@@ -33,6 +33,30 @@ namespace VISUAL
             formulario.Show();
         }
 
+        private void seleccionarBoton(Button botonSeleccionado)
+        {
+            
+            Color colorSeleccionado = Color.FromArgb(79,127,140);
+            Color colorNormal = Color.FromArgb(185,218,233);
+
+        
+            Button[] botones = { BotonGestionarDoctores,
+                BotonGestionarImplementos,
+                BotonGestionarDinero,
+                BotonGestionarCItas,
+                BotonRecepcion,
+                BotonGestionarPacientes,
+                BotonProveedores,
+                BotonComunicados};
+
+            
+            foreach (Button btn in botones)
+            {
+                btn.BackColor = (btn == botonSeleccionado) ? colorSeleccionado : colorNormal;
+            }
+        }
+        
+        
         private void cambiarPanel(Form formularioHijo)
         {
 
@@ -49,6 +73,8 @@ namespace VISUAL
             PanelContenedor.Tag = formularioHijo;
             formularioHijo.BringToFront();
             formularioHijo.Show();
+
+
 
         }
         private void EsconderMenu()
@@ -106,9 +132,10 @@ namespace VISUAL
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BotonGestionarPaciente_Click(object sender, EventArgs e)
         {
             cambiarPanel(new GestionPacientecs());
+            seleccionarBoton(BotonGestionarPacientes);
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -156,24 +183,28 @@ namespace VISUAL
         
 
 
-        private void BotonGestionarPaciente_Click(object sender, EventArgs e)
+        private void BotonGestionarPacientes_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Este boton aun no funciona");
+            seleccionarBoton(BotonGestionarPacientes);
         }
 
         private void BotonGestionarTrabajador_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Este boton aun no funciona");
+            cambiarPanel(new GestionDoctores());
+            seleccionarBoton(BotonGestionarDoctores);
+
         }
 
         private void BotonGestionarImplementos_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Este boton aun no funciona");
+            seleccionarBoton(BotonGestionarImplementos);
         }
 
         private void BotonGestionarDinero_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Este boton aun no funciona");
+            seleccionarBoton(BotonGestionarDinero);
         }
 
         private void PanelTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -201,6 +232,7 @@ namespace VISUAL
         private void button10_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(PanelSubMenuApoyo);
+            
         }
 
         private void PanelSubMenuAgenda_Paint(object sender, PaintEventArgs e)

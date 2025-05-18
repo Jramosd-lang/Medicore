@@ -6,19 +6,48 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class Doctor:Trabajador
+    public class Doctor : Person
     {
-        private string especialidad { get; set; }
-        public Doctor(int id, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido,
-                          string numeroDocumento, string tipoDocumento, string fechaNacimiento, string sexo, string telefono,
-                          string direccion, string correoElectronico, decimal deuda, string cargo, string horaIngreso,
-                          string horaSalida, string estado, string tipoDeContrato, decimal salario, string especialidad):base(
-                          id, primerNombre, segundoNombre, primerApellido, segundoApellido,
-                          numeroDocumento, tipoDocumento, fechaNacimiento, sexo, telefono,
-                          direccion, correoElectronico, deuda, cargo, horaIngreso,
-                          horaSalida, estado, tipoDeContrato, salario)
-        {
+        
 
+        public string Especialidad { get; private set; }
+        public string NumeroLicencia { get; private set; }
+
+    
+        public Doctor(
+            int id,
+            string nombre,
+            string apellido,
+            DateTime fechaNacimiento,
+            string numeroDocumento,
+            string tipoDocumento,
+            string especialidad,
+            string numeroLicencia)
+            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento)
+        {
+            if (string.IsNullOrWhiteSpace(especialidad))
+                throw new ArgumentException("Especialidad no puede estar vacía", nameof(especialidad));
+            if (string.IsNullOrWhiteSpace(numeroLicencia))
+                throw new ArgumentException("Número de licencia no puede estar vacío", nameof(numeroLicencia));
+
+            Especialidad = especialidad;
+            NumeroLicencia = numeroLicencia;
+        }
+
+
+
+        public void ValidarLicencia()
+        {
+            const int LongitudMinima = 5;
+            if (NumeroLicencia.Length < LongitudMinima)
+                throw new InvalidOperationException($"Número de licencia debe tener al menos {LongitudMinima} caracteres.");
+        }
+
+       
+        public bool EstaDisponible(DateTime fechaHora)
+        {
+            throw new NotImplementedException("La disponibilidad se valida en un servicio de agenda.");
         }
     }
 }
+

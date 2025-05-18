@@ -1,7 +1,7 @@
 ﻿
 namespace VISUAL
 {
-    partial class Form1
+    partial class FormMenu
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,24 +29,24 @@ namespace VISUAL
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             MenuLateral = new Panel();
             BotonAyudaAtencion = new Button();
             PanelSubMenuApoyo = new Panel();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
+            BotonReportes = new Button();
+            BotonComunicados = new Button();
+            BotonProveedores = new Button();
             button10 = new Button();
             PanelSubMenuAgenda = new Panel();
             button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            BotonGestionarPacientes = new Button();
+            BotonRecepcion = new Button();
+            BotonGestionarCItas = new Button();
             BotonAgendaYAtencion = new Button();
             PanelSubmenuGestion = new Panel();
             BotonGestionarDinero = new Button();
             BotonGestionarImplementos = new Button();
-            BotonGestionarTrabajador = new Button();
+            BotonGestionarDoctores = new Button();
             BotonGestionar = new Button();
             PanelLogo = new Panel();
             LblMedicore = new Label();
@@ -113,74 +113,74 @@ namespace VISUAL
             // PanelSubMenuApoyo
             // 
             PanelSubMenuApoyo.BackColor = Color.FromArgb(185, 218, 233);
-            PanelSubMenuApoyo.Controls.Add(button7);
-            PanelSubMenuApoyo.Controls.Add(button8);
-            PanelSubMenuApoyo.Controls.Add(button9);
+            PanelSubMenuApoyo.Controls.Add(BotonReportes);
+            PanelSubMenuApoyo.Controls.Add(BotonComunicados);
+            PanelSubMenuApoyo.Controls.Add(BotonProveedores);
             PanelSubMenuApoyo.Dock = DockStyle.Top;
             PanelSubMenuApoyo.Location = new Point(0, 493);
             PanelSubMenuApoyo.Name = "PanelSubMenuApoyo";
             PanelSubMenuApoyo.Size = new Size(300, 126);
             PanelSubMenuApoyo.TabIndex = 9;
             // 
-            // button7
+            // BotonReportes
             // 
-            button7.BackColor = Color.Transparent;
-            button7.Dock = DockStyle.Top;
-            button7.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button7.ForeColor = Color.FromArgb(45, 91, 103);
-            button7.Location = new Point(0, 80);
-            button7.Margin = new Padding(0, 10, 0, 0);
-            button7.Name = "button7";
-            button7.Padding = new Padding(40, 0, 0, 0);
-            button7.Size = new Size(300, 40);
-            button7.TabIndex = 6;
-            button7.Text = "Reportes diarios";
-            button7.TextAlign = ContentAlignment.MiddleLeft;
-            button7.UseVisualStyleBackColor = false;
+            BotonReportes.BackColor = Color.Transparent;
+            BotonReportes.Dock = DockStyle.Top;
+            BotonReportes.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            BotonReportes.FlatAppearance.BorderSize = 0;
+            BotonReportes.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            BotonReportes.FlatStyle = FlatStyle.Flat;
+            BotonReportes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BotonReportes.ForeColor = Color.FromArgb(45, 91, 103);
+            BotonReportes.Location = new Point(0, 80);
+            BotonReportes.Margin = new Padding(0, 10, 0, 0);
+            BotonReportes.Name = "BotonReportes";
+            BotonReportes.Padding = new Padding(40, 0, 0, 0);
+            BotonReportes.Size = new Size(300, 40);
+            BotonReportes.TabIndex = 6;
+            BotonReportes.Text = "Reportes diarios";
+            BotonReportes.TextAlign = ContentAlignment.MiddleLeft;
+            BotonReportes.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // BotonComunicados
             // 
-            button8.BackColor = Color.Transparent;
-            button8.Dock = DockStyle.Top;
-            button8.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button8.ForeColor = Color.FromArgb(45, 91, 103);
-            button8.Location = new Point(0, 40);
-            button8.Margin = new Padding(0, 10, 0, 0);
-            button8.Name = "button8";
-            button8.Padding = new Padding(40, 0, 0, 0);
-            button8.Size = new Size(300, 40);
-            button8.TabIndex = 5;
-            button8.Text = "Comunicados";
-            button8.TextAlign = ContentAlignment.MiddleLeft;
-            button8.UseVisualStyleBackColor = false;
+            BotonComunicados.BackColor = Color.Transparent;
+            BotonComunicados.Dock = DockStyle.Top;
+            BotonComunicados.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            BotonComunicados.FlatAppearance.BorderSize = 0;
+            BotonComunicados.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            BotonComunicados.FlatStyle = FlatStyle.Flat;
+            BotonComunicados.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BotonComunicados.ForeColor = Color.FromArgb(45, 91, 103);
+            BotonComunicados.Location = new Point(0, 40);
+            BotonComunicados.Margin = new Padding(0, 10, 0, 0);
+            BotonComunicados.Name = "BotonComunicados";
+            BotonComunicados.Padding = new Padding(40, 0, 0, 0);
+            BotonComunicados.Size = new Size(300, 40);
+            BotonComunicados.TabIndex = 5;
+            BotonComunicados.Text = "Comunicados";
+            BotonComunicados.TextAlign = ContentAlignment.MiddleLeft;
+            BotonComunicados.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // BotonProveedores
             // 
-            button9.BackColor = Color.Transparent;
-            button9.Dock = DockStyle.Top;
-            button9.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            button9.FlatStyle = FlatStyle.Flat;
-            button9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button9.ForeColor = Color.FromArgb(45, 91, 103);
-            button9.Location = new Point(0, 0);
-            button9.Margin = new Padding(0, 10, 0, 0);
-            button9.Name = "button9";
-            button9.Padding = new Padding(40, 0, 0, 0);
-            button9.Size = new Size(300, 40);
-            button9.TabIndex = 4;
-            button9.Text = "Proveedores y compras";
-            button9.TextAlign = ContentAlignment.MiddleLeft;
-            button9.UseVisualStyleBackColor = false;
+            BotonProveedores.BackColor = Color.Transparent;
+            BotonProveedores.Dock = DockStyle.Top;
+            BotonProveedores.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            BotonProveedores.FlatAppearance.BorderSize = 0;
+            BotonProveedores.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            BotonProveedores.FlatStyle = FlatStyle.Flat;
+            BotonProveedores.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BotonProveedores.ForeColor = Color.FromArgb(45, 91, 103);
+            BotonProveedores.Location = new Point(0, 0);
+            BotonProveedores.Margin = new Padding(0, 10, 0, 0);
+            BotonProveedores.Name = "BotonProveedores";
+            BotonProveedores.Padding = new Padding(40, 0, 0, 0);
+            BotonProveedores.Size = new Size(300, 40);
+            BotonProveedores.TabIndex = 4;
+            BotonProveedores.Text = "Proveedores y compras";
+            BotonProveedores.TextAlign = ContentAlignment.MiddleLeft;
+            BotonProveedores.UseVisualStyleBackColor = false;
             // 
             // button10
             // 
@@ -207,9 +207,9 @@ namespace VISUAL
             // 
             PanelSubMenuAgenda.BackColor = Color.FromArgb(185, 218, 233);
             PanelSubMenuAgenda.Controls.Add(button2);
-            PanelSubMenuAgenda.Controls.Add(button3);
-            PanelSubMenuAgenda.Controls.Add(button4);
-            PanelSubMenuAgenda.Controls.Add(button5);
+            PanelSubMenuAgenda.Controls.Add(BotonGestionarPacientes);
+            PanelSubMenuAgenda.Controls.Add(BotonRecepcion);
+            PanelSubMenuAgenda.Controls.Add(BotonGestionarCItas);
             PanelSubMenuAgenda.Dock = DockStyle.Top;
             PanelSubMenuAgenda.ForeColor = SystemColors.ControlDarkDark;
             PanelSubMenuAgenda.Location = new Point(0, 333);
@@ -235,68 +235,69 @@ namespace VISUAL
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // BotonGestionarPacientes
             // 
-            button3.BackColor = Color.Transparent;
-            button3.Dock = DockStyle.Top;
-            button3.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button3.ForeColor = Color.FromArgb(45, 91, 103);
-            button3.Location = new Point(0, 80);
-            button3.Margin = new Padding(0, 10, 0, 0);
-            button3.Name = "button3";
-            button3.Padding = new Padding(40, 0, 0, 0);
-            button3.Size = new Size(300, 30);
-            button3.TabIndex = 6;
-            button3.Text = "Gestion de pacientes";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            BotonGestionarPacientes.BackColor = Color.Transparent;
+            BotonGestionarPacientes.Dock = DockStyle.Top;
+            BotonGestionarPacientes.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            BotonGestionarPacientes.FlatAppearance.BorderSize = 0;
+            BotonGestionarPacientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            BotonGestionarPacientes.FlatStyle = FlatStyle.Flat;
+            BotonGestionarPacientes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BotonGestionarPacientes.ForeColor = Color.FromArgb(45, 91, 103);
+            BotonGestionarPacientes.Location = new Point(0, 80);
+            BotonGestionarPacientes.Margin = new Padding(0, 10, 0, 0);
+            BotonGestionarPacientes.Name = "BotonGestionarPacientes";
+            BotonGestionarPacientes.Padding = new Padding(40, 0, 0, 0);
+            BotonGestionarPacientes.Size = new Size(300, 30);
+            BotonGestionarPacientes.TabIndex = 6;
+            BotonGestionarPacientes.Text = "Gestion de pacientes";
+            BotonGestionarPacientes.TextAlign = ContentAlignment.MiddleLeft;
+            BotonGestionarPacientes.UseVisualStyleBackColor = false;
+            BotonGestionarPacientes.Click += BotonGestionarPaciente_Click;
             // 
-            // button4
+            // BotonRecepcion
             // 
-            button4.BackColor = Color.Transparent;
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button4.ForeColor = Color.FromArgb(45, 91, 103);
-            button4.Location = new Point(0, 40);
-            button4.Margin = new Padding(0, 10, 0, 0);
-            button4.Name = "button4";
-            button4.Padding = new Padding(40, 0, 0, 0);
-            button4.Size = new Size(300, 40);
-            button4.TabIndex = 5;
-            button4.Text = "Recepcion de pacientes";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            BotonRecepcion.BackColor = Color.Transparent;
+            BotonRecepcion.BackgroundImageLayout = ImageLayout.None;
+            BotonRecepcion.Dock = DockStyle.Top;
+            BotonRecepcion.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            BotonRecepcion.FlatAppearance.BorderSize = 0;
+            BotonRecepcion.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            BotonRecepcion.FlatStyle = FlatStyle.Flat;
+            BotonRecepcion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BotonRecepcion.ForeColor = Color.FromArgb(45, 91, 103);
+            BotonRecepcion.Location = new Point(0, 40);
+            BotonRecepcion.Margin = new Padding(0, 10, 0, 0);
+            BotonRecepcion.Name = "BotonRecepcion";
+            BotonRecepcion.Padding = new Padding(40, 0, 0, 0);
+            BotonRecepcion.Size = new Size(300, 40);
+            BotonRecepcion.TabIndex = 5;
+            BotonRecepcion.Text = "Recepcion de pacientes";
+            BotonRecepcion.TextAlign = ContentAlignment.MiddleLeft;
+            BotonRecepcion.UseVisualStyleBackColor = false;
+            BotonRecepcion.Click += button4_Click;
             // 
-            // button5
+            // BotonGestionarCItas
             // 
-            button5.BackColor = Color.Transparent;
-            button5.Dock = DockStyle.Top;
-            button5.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button5.ForeColor = Color.FromArgb(45, 91, 103);
-            button5.Location = new Point(0, 0);
-            button5.Margin = new Padding(0, 10, 0, 0);
-            button5.Name = "button5";
-            button5.Padding = new Padding(40, 0, 0, 0);
-            button5.Size = new Size(300, 40);
-            button5.TabIndex = 4;
-            button5.Text = "Gestion de citas";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            BotonGestionarCItas.BackColor = Color.Transparent;
+            BotonGestionarCItas.Dock = DockStyle.Top;
+            BotonGestionarCItas.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            BotonGestionarCItas.FlatAppearance.BorderSize = 0;
+            BotonGestionarCItas.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            BotonGestionarCItas.FlatStyle = FlatStyle.Flat;
+            BotonGestionarCItas.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BotonGestionarCItas.ForeColor = Color.FromArgb(45, 91, 103);
+            BotonGestionarCItas.Location = new Point(0, 0);
+            BotonGestionarCItas.Margin = new Padding(0, 10, 0, 0);
+            BotonGestionarCItas.Name = "BotonGestionarCItas";
+            BotonGestionarCItas.Padding = new Padding(40, 0, 0, 0);
+            BotonGestionarCItas.Size = new Size(300, 40);
+            BotonGestionarCItas.TabIndex = 4;
+            BotonGestionarCItas.Text = "Gestion de citas";
+            BotonGestionarCItas.TextAlign = ContentAlignment.MiddleLeft;
+            BotonGestionarCItas.UseVisualStyleBackColor = false;
+            BotonGestionarCItas.Click += button5_Click;
             // 
             // BotonAgendaYAtencion
             // 
@@ -324,7 +325,7 @@ namespace VISUAL
             PanelSubmenuGestion.BackColor = Color.FromArgb(185, 218, 233);
             PanelSubmenuGestion.Controls.Add(BotonGestionarDinero);
             PanelSubmenuGestion.Controls.Add(BotonGestionarImplementos);
-            PanelSubmenuGestion.Controls.Add(BotonGestionarTrabajador);
+            PanelSubmenuGestion.Controls.Add(BotonGestionarDoctores);
             PanelSubmenuGestion.Dock = DockStyle.Top;
             PanelSubmenuGestion.Location = new Point(0, 165);
             PanelSubmenuGestion.Name = "PanelSubmenuGestion";
@@ -374,26 +375,26 @@ namespace VISUAL
             BotonGestionarImplementos.UseVisualStyleBackColor = false;
             BotonGestionarImplementos.Click += BotonGestionarImplementos_Click;
             // 
-            // BotonGestionarTrabajador
+            // BotonGestionarDoctores
             // 
-            BotonGestionarTrabajador.BackColor = Color.Transparent;
-            BotonGestionarTrabajador.Dock = DockStyle.Top;
-            BotonGestionarTrabajador.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            BotonGestionarTrabajador.FlatAppearance.BorderSize = 0;
-            BotonGestionarTrabajador.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            BotonGestionarTrabajador.FlatStyle = FlatStyle.Flat;
-            BotonGestionarTrabajador.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BotonGestionarTrabajador.ForeColor = Color.FromArgb(45, 91, 103);
-            BotonGestionarTrabajador.Location = new Point(0, 0);
-            BotonGestionarTrabajador.Margin = new Padding(0, 10, 0, 0);
-            BotonGestionarTrabajador.Name = "BotonGestionarTrabajador";
-            BotonGestionarTrabajador.Padding = new Padding(40, 0, 0, 0);
-            BotonGestionarTrabajador.Size = new Size(300, 40);
-            BotonGestionarTrabajador.TabIndex = 1;
-            BotonGestionarTrabajador.Text = "Gestion de trabajadores";
-            BotonGestionarTrabajador.TextAlign = ContentAlignment.MiddleLeft;
-            BotonGestionarTrabajador.UseVisualStyleBackColor = false;
-            BotonGestionarTrabajador.Click += BotonGestionarTrabajador_Click;
+            BotonGestionarDoctores.BackColor = Color.Transparent;
+            BotonGestionarDoctores.Dock = DockStyle.Top;
+            BotonGestionarDoctores.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            BotonGestionarDoctores.FlatAppearance.BorderSize = 0;
+            BotonGestionarDoctores.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            BotonGestionarDoctores.FlatStyle = FlatStyle.Flat;
+            BotonGestionarDoctores.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BotonGestionarDoctores.ForeColor = Color.FromArgb(45, 91, 103);
+            BotonGestionarDoctores.Location = new Point(0, 0);
+            BotonGestionarDoctores.Margin = new Padding(0, 10, 0, 0);
+            BotonGestionarDoctores.Name = "BotonGestionarDoctores";
+            BotonGestionarDoctores.Padding = new Padding(40, 0, 0, 0);
+            BotonGestionarDoctores.Size = new Size(300, 40);
+            BotonGestionarDoctores.TabIndex = 1;
+            BotonGestionarDoctores.Text = "Gestion de doctores";
+            BotonGestionarDoctores.TextAlign = ContentAlignment.MiddleLeft;
+            BotonGestionarDoctores.UseVisualStyleBackColor = false;
+            BotonGestionarDoctores.Click += BotonGestionarTrabajador_Click;
             // 
             // BotonGestionar
             // 
@@ -558,7 +559,7 @@ namespace VISUAL
             label1.TabIndex = 0;
             label1.Text = "Medicore";
             // 
-            // Form1
+            // FormMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -570,9 +571,8 @@ namespace VISUAL
             ForeColor = SystemColors.ControlDarkDark;
             FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(950, 600);
-            Name = "Form1";
+            Name = "FormMenu";
             Text = "A";
-           
             MenuLateral.ResumeLayout(false);
             PanelSubMenuApoyo.ResumeLayout(false);
             PanelSubMenuAgenda.ResumeLayout(false);
@@ -597,19 +597,19 @@ namespace VISUAL
         private Panel PanelSubmenuGestion;
         private Button BotonGestionarDinero;
         private Button BotonGestionarImplementos;
-        private Button BotonGestionarTrabajador;
+        private Button BotonGestionarDoctores;
         private Panel PanelSubMenuAgenda;
         private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button BotonGestionarPacientes;
+        private Button BotonRecepcion;
+        private Button BotonGestionarCItas;
         private Button BotonAgendaYAtencion;
         private Button button10;
         private Button BotonAyudaAtencion;
         private Panel PanelSubMenuApoyo;
-        private Button button7;
-        private Button button8;
-        private Button button9;
+        private Button BotonReportes;
+        private Button BotonComunicados;
+        private Button BotonProveedores;
         private Panel PanelContenedor;
         private Panel PanelLogo;
         private PictureBox pictureBox1;

@@ -1,17 +1,33 @@
 ﻿namespace Entity
 {
-    public class Paciente:Person
+    public class Paciente : Person
     {
-        private string historiaClinica {get; set;}
-        private Doctor doctor { get; set; }
+        public string RutaHistorialPdf { get; private set; }
 
-        private string estadoPago { get; set; }
-
-        public Paciente(int id, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido, string numeroDocumento, string tipoDocumento, string fechaNacimiento, string sexo, string telefono, string direccion, string correoElectronico, string tipoDocumento1, decimal deuda, string historiaClinica, Doctor doctor) : base(id, primerNombre, segundoNombre, primerApellido, segundoApellido, numeroDocumento, tipoDocumento, fechaNacimiento, sexo, telefono, direccion, correoElectronico, deuda)
+     
+        public Paciente(
+            int id,
+            string nombre,
+            string apellido,
+            DateTime fechaNacimiento,
+            string numeroDocumento,
+            string tipoDocumento,
+            string rutaHistorialPdf)
+            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento)
         {
-            this.historiaClinica = historiaClinica;
-            this.doctor = doctor;
+            if (string.IsNullOrWhiteSpace(rutaHistorialPdf))
+                throw new ArgumentException("La ruta del historial médico no puede estar vacía", nameof(rutaHistorialPdf));
+
+            RutaHistorialPdf = rutaHistorialPdf;
         }
 
+ 
+        public void ActualizarRutaHistorialPdf(string nuevaRuta)
+        {
+            if (string.IsNullOrWhiteSpace(nuevaRuta))
+                throw new ArgumentException("La ruta del historial médico no puede estar vacía", nameof(nuevaRuta));
+
+            RutaHistorialPdf = nuevaRuta;
+        }
     }
 }

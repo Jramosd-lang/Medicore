@@ -6,33 +6,56 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class Person
+    public abstract class Person
     {
-        protected int id { get; set; }
-        protected string nombre { get; set; }
-        protected string tipoDeDocumento { get; set; }
-        protected string numeroDocumento { get; set; }
-        protected string fechaNacimiento { get; set; }
-        protected string sexo { get; set; }
-        protected string telefono { get; set; }
-        protected string direccion { get; set; }
-        protected string correoElectronico { get; set; }
-        protected PersonaEmergencia personaEmergencia { get; set; }
+      
+        public int Id { get; private set; }
+
+       
+        public string Nombre { get; private set; }
+        public string Apellido { get; private set; }
+        public DateTime FechaNacimiento { get; private set; }
+        public string NumeroDocumento { get; private set; }
+        public string TipoDocumento { get; private set; }
 
 
-        public Person(int id, string nombre, string numeroDocumento, string tipoDeDocumento, string fechaNacimiento, string sexo, 
-            string telefono, string direccion, string correoElectronico, PersonaEmergencia personaEmergencia)
+        protected Person(
+            int id,
+            string nombre,
+            string apellido,
+            DateTime fechaNacimiento,
+            string numeroDocumento,
+            string tipoDocumento)
         {
-            this.id = id;
-            this.nombre = nombre;
-            this.numeroDocumento = numeroDocumento;
-            this.tipoDeDocumento = tipoDeDocumento;
-            this.fechaNacimiento = fechaNacimiento;
-            this.sexo = sexo;
-            this.telefono = telefono;
-            this.direccion = direccion;
-            this.correoElectronico = correoElectronico;
-            this.personaEmergencia = personaEmergencia;
+            if (id < 1)
+                throw new ArgumentException("Id no puede estar vacío", nameof(id));
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("Nombre no puede estar vacío", nameof(nombre));
+            if (string.IsNullOrWhiteSpace(apellido))
+                throw new ArgumentException("Apellido no puede estar vacío", nameof(apellido));
+            if (fechaNacimiento > DateTime.Today)
+                throw new ArgumentException("Fecha de nacimiento no puede ser en el futuro", nameof(fechaNacimiento));
+            if (string.IsNullOrWhiteSpace(numeroDocumento))
+                throw new ArgumentException("Número de documento no puede estar vacío", nameof(numeroDocumento));
+            if (string.IsNullOrWhiteSpace(tipoDocumento))
+                throw new ArgumentException("Tipo de documento no puede estar vacío", nameof(tipoDocumento));
+
+            Id = id;
+            Nombre = nombre;
+            Apellido = apellido;
+            FechaNacimiento = fechaNacimiento;
+            NumeroDocumento = numeroDocumento;
+            TipoDocumento = tipoDocumento;
+        }
+
+      
+        public int CalcularEdad()
+        {
+            var hoy = DateTime.Today;
+            var edad = hoy.Year - FechaNacimiento.Year;
+            if (hoy < FechaNacimiento.AddYears(edad))
+                edad--;
+            return edad;
         }
     }
 
