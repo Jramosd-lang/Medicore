@@ -177,7 +177,7 @@ namespace VISUAL
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Este boton aun no funciona");
+            cambiarPanel(new FormularioCitacs());
         }
 
         

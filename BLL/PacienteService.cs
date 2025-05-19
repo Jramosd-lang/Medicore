@@ -23,7 +23,7 @@ namespace BLL
             return repoPaciente.Consultar();
         }
 
-        public string Guardar(Paciente entity)
+        public string Agregar(Paciente entity)
         {
             try
             {

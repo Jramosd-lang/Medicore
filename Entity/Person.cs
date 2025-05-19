@@ -10,13 +10,14 @@ namespace Entity
     {
       
         public int Id { get; private set; }
-
-       
         public string Nombre { get; private set; }
         public string Apellido { get; private set; }
         public DateTime FechaNacimiento { get; private set; }
         public string NumeroDocumento { get; private set; }
         public string TipoDocumento { get; private set; }
+        public string Correo { get; private set; }
+        public string Telefono { get; private set; }
+
 
 
         protected Person(
@@ -25,7 +26,9 @@ namespace Entity
             string apellido,
             DateTime fechaNacimiento,
             string numeroDocumento,
-            string tipoDocumento)
+            string tipoDocumento,
+            string correo,
+            string telefono)
         {
             if (id < 1)
                 throw new ArgumentException("Id no puede estar vacío", nameof(id));
@@ -39,6 +42,10 @@ namespace Entity
                 throw new ArgumentException("Número de documento no puede estar vacío", nameof(numeroDocumento));
             if (string.IsNullOrWhiteSpace(tipoDocumento))
                 throw new ArgumentException("Tipo de documento no puede estar vacío", nameof(tipoDocumento));
+            if (string.IsNullOrWhiteSpace(correo))
+                throw new ArgumentException("Correo no puede estar vacío", nameof(correo));
+            if (string.IsNullOrWhiteSpace(telefono))
+                throw new ArgumentException("Teléfono no puede estar vacío", nameof(telefono));
 
             Id = id;
             Nombre = nombre;
@@ -46,16 +53,8 @@ namespace Entity
             FechaNacimiento = fechaNacimiento;
             NumeroDocumento = numeroDocumento;
             TipoDocumento = tipoDocumento;
-        }
-
-      
-        public int CalcularEdad()
-        {
-            var hoy = DateTime.Today;
-            var edad = hoy.Year - FechaNacimiento.Year;
-            if (hoy < FechaNacimiento.AddYears(edad))
-                edad--;
-            return edad;
+            Correo = correo;
+            Telefono = telefono;
         }
     }
 

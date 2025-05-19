@@ -29,6 +29,7 @@ namespace VISUAL
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             label1 = new Label();
             label2 = new Label();
@@ -46,15 +47,28 @@ namespace VISUAL
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(185, 218, 233);
             dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(45, 91, 103);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(165, 197, 213);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(45, 91, 103);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(36, 182);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(726, 291);
             dataGridView1.TabIndex = 2;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -222,10 +236,7 @@ namespace VISUAL
             PerformLayout();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
 
         #endregion
         private DataGridView dataGridView1;

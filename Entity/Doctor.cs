@@ -21,9 +21,11 @@ namespace Entity
             DateTime fechaNacimiento,
             string numeroDocumento,
             string tipoDocumento,
+            string correo,
+            string telefono,
             string especialidad,
             string numeroLicencia)
-            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento)
+            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento, correo, telefono)
         {
             if (string.IsNullOrWhiteSpace(especialidad))
                 throw new ArgumentException("Especialidad no puede estar vacía", nameof(especialidad));

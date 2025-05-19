@@ -41,9 +41,11 @@ namespace DAL
                 int ordNumDoc = reader.GetOrdinal("numero_documento");
                 int ordTipDOc = reader.GetOrdinal("tipo_documento");
                 int ordRut = reader.GetOrdinal("ruta_historial_pdf");
-          
+                int ordCor = reader.GetOrdinal("correo");
+                int ordTel = reader.GetOrdinal("telefono");
 
-                int id = !reader.IsDBNull(ordId)
+
+            int id = !reader.IsDBNull(ordId)
                     ? reader.GetInt32(ordId)
                     : throw new InvalidOperationException("id_doctor no puede ser nulo");
 
@@ -70,18 +72,27 @@ namespace DAL
                 string rutaHistorialPdf = !reader.IsDBNull(ordRut)
                     ? reader.GetString(ordRut)
                     : string.Empty;
+                string correo = !reader.IsDBNull(ordCor)
+                    ? reader.GetString(ordCor)
+                    : string.Empty;
+                string telefono = !reader.IsDBNull(ordTel)
+                    ? reader.GetString(ordTel)
+                    : string.Empty;
+           
 
-                
 
-                return new Paciente(
+
+
+            return new Paciente(
                     id: id,
                     nombre: nombre,
                     apellido: apellido,
                     fechaNacimiento: fechaNac,
                     numeroDocumento: numeroDoc,
                     tipoDocumento: tipoDoc,
-                    rutaHistorialPdf: rutaHistorialPdf
-                    
+                    rutaHistorialPdf: rutaHistorialPdf,
+                    correo:correo,
+                    telefono:telefono
                 );
             }
 
@@ -118,7 +129,7 @@ namespace DAL
                 if (entity == null || string.IsNullOrWhiteSpace(entity.Nombre))
                     return "Datos inválidos";
 
-                string sentencia = "INSERT INTO pacientes (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, ruta_historial_pdf) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @ruta_historial_pdf)";
+                string sentencia = "INSERT INTO pacientes (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento,correo,telefono, ruta_historial_pdf) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @correo, @telefono, @ruta_historial_pdf)";
 
                 using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
                 {
@@ -127,10 +138,12 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@fecha_nacimiento", entity.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@tipo_documento", entity.TipoDocumento);
                     cmd.Parameters.AddWithValue("@numero_documento", entity.NumeroDocumento);
-                    cmd.Parameters.AddWithValue("@ruta_hitorial_pdf", entity.RutaHistorialPdf);
-                    
+                    cmd.Parameters.AddWithValue("@ruta_historial_pdf", entity.RutaHistorialPdf);
+                    cmd.Parameters.AddWithValue("@correo", entity.Correo);
+                    cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
 
-                    try
+
+                try
                     {
                         AbrirConexion();
                         int filasAfectadas = cmd.ExecuteNonQuery();
@@ -162,53 +175,58 @@ namespace DAL
                 }
             }
 
-            public string Modificar(Paciente entity)
+         public string Modificar(Paciente entity)
+        {
+            if (entity == null || entity.Id <= 0)
+                return "Datos inválidos o ID no válido";
+
+            const string sql = @"UPDATE pacientes
+               SET nombre            = @nombre,
+               apellido          = @apellido,
+               fecha_nacimiento  = @fecha_nacimiento,
+               tipo_documento    = @tipo_documento,
+               numero_documento  = @numero_documento,
+               correo            = @correo,
+               telefono          = @telefono,
+               ruta_historial_pdf = @ruta_historial_pdf
+               WHERE id_paciente      = @id;
+               ";
+
+            using var cmd = new MySqlCommand(sql, conexion);
+            cmd.Parameters.AddWithValue("@id", entity.Id);
+            cmd.Parameters.AddWithValue("@nombre", entity.Nombre);
+            cmd.Parameters.AddWithValue("@apellido", entity.Apellido);
+            cmd.Parameters.AddWithValue("@fecha_nacimiento", entity.FechaNacimiento);
+            cmd.Parameters.AddWithValue("@tipo_documento", entity.TipoDocumento);
+            cmd.Parameters.AddWithValue("@numero_documento", entity.NumeroDocumento);
+            cmd.Parameters.AddWithValue("@correo", entity.Correo);
+            cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
+            cmd.Parameters.AddWithValue("@ruta_historial_pdf", entity.RutaHistorialPdf);
+
+            try
             {
-                if (entity == null || entity.Id <= 0)
-                    return "Datos inválidos o ID no válido";
-
-                string sentencia = "UPDATE pacientes SET " +
-                                  "nombre = @nombre, " +
-                                  "apellido = @apellido, " +
-                                  "fecha_nacimiento = @fecha_nacimiento, " +
-                                  "tipo_documento = @tipo_documento, " +
-                                  "numero_documento = @numero_documento, " +
-                                  "ruta_historial_pdf = @ruta_historial_pdf, " +
-                                  "WHERE id_doctor = @id";
-
-                using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@id", entity.Id);
-                    cmd.Parameters.AddWithValue("@nombre", entity.Nombre);
-                    cmd.Parameters.AddWithValue("@apellido", entity.Apellido);
-                    cmd.Parameters.AddWithValue("@fecha_nacimiento", entity.FechaNacimiento);
-                    cmd.Parameters.AddWithValue("@tipo_documento", entity.TipoDocumento);
-                    cmd.Parameters.AddWithValue("@numero_documento", entity.NumeroDocumento);
-                    cmd.Parameters.AddWithValue("@ruta_historial_pdf", entity.RutaHistorialPdf);
-                    
-
-                    try
-                    {
-                        AbrirConexion();
-                        int filasAfectadas = cmd.ExecuteNonQuery();
-                        return filasAfectadas > 0 ? "Registro actualizado correctamente" : "No se encontró el registro para actualizar";
-                    }
-                    catch (MySqlException ex)
-                    {
-                        return $"Error de MySQL: {ex.Message}";
-                    }
-                    catch (Exception ex)
-                    {
-                        return $"Error general: {ex.Message}";
-                    }
-                    finally
-                    {
-                        CerrarConexion();
-                    }
-                }
+                AbrirConexion();
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0
+                    ? "Registro actualizado correctamente"
+                    : "No se encontró el registro para actualizar";
             }
+            catch (MySqlException ex)
+            {
+                return $"Error de MySQL #{ex.Number}: {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                return $"Error general: {ex.Message}";
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
 
-            public Paciente BuscarPorId(int id)
+
+        public Paciente BuscarPorId(int id)
             {
                 return Consultar().FirstOrDefault(x => x.Id == id);
             }

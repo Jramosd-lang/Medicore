@@ -432,20 +432,20 @@ namespace VISUAL
             // LblMedicore
             // 
             LblMedicore.AutoSize = true;
-            LblMedicore.Font = new Font("Book Antiqua", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblMedicore.Font = new Font("Century", 18F, FontStyle.Bold);
             LblMedicore.ForeColor = Color.FromArgb(185, 218, 233);
-            LblMedicore.Location = new Point(91, 80);
+            LblMedicore.Location = new Point(93, 78);
             LblMedicore.Name = "LblMedicore";
-            LblMedicore.Size = new Size(145, 35);
+            LblMedicore.Size = new Size(157, 35);
             LblMedicore.TabIndex = 1;
-            LblMedicore.Text = "Medicore";
+            LblMedicore.Text = "MediCore";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(46, 43);
+            pictureBox1.Location = new Point(21, 23);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(65, 56);
+            pictureBox1.Size = new Size(113, 79);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -464,12 +464,11 @@ namespace VISUAL
             // 
             // pictureBox2
             // 
-            pictureBox2.Anchor = AnchorStyles.None;
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(277, 260);
+            pictureBox2.Location = new Point(295, 260);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(448, 193);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.Size = new Size(433, 273);
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
@@ -619,7 +618,7 @@ namespace VISUAL
         private Button BotonMaximizar;
         private Button BotonMinimizar;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
         private Button BotonSalir;
+        private PictureBox pictureBox2;
     }
 }

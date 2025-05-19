@@ -20,6 +20,7 @@ namespace VISUAL
         {
             InitializeComponent();
             BotonModificar.Visible = false;
+            
         }
 
         public FormularioGestionDoctores(Doctor doctor)
@@ -45,7 +46,9 @@ namespace VISUAL
             ComboBoxTipoDoc.Text = doctor.TipoDocumento;
             txtEspecialidad.Text = doctor.Especialidad;
             txtNroLicencia.Text = doctor.NumeroLicencia;
-            
+            txtCorreo.Text = doctor.Correo;
+            txtTelefono.Text = doctor.Telefono;
+
         }
 
         
@@ -63,29 +66,33 @@ namespace VISUAL
 
         private void agregarDoctor()
         {
-            
+            int id = 1;
             string nombre = txtPrimerNombre.Text + " " + txtSegundoNombre.Text;
             string apellido = txtPrimerApellido.Text + " " + txtSegundoApellido.Text;
             DateTime fechaNac = DateTime.Parse(dateNacimiento.Text);
             string numeroDoc = txtNumDoc.Text;
             string tipoDoc = ComboBoxTipoDoc.Text;
             string especialidad = txtEspecialidad.Text;
+            string correo = txtCorreo.Text;
+            string telefono = txtTelefono.Text;
 
             string numeroLicencia = txtNroLicencia.Text;
 
             Doctor doctor = new Doctor(
-                identificacion,
+                id,
                 nombre,
                 apellido,
                 fechaNac,
                 numeroDoc,
                 tipoDoc,
+                correo,
+                telefono,
                 especialidad,
                 numeroLicencia);
 
             DoctorService doctorService = new DoctorService();
 
-            doctorService.Guardar(doctor);
+            doctorService.Agregar(doctor);
 
         }
 
@@ -120,6 +127,9 @@ namespace VISUAL
             string tipoDoc = ComboBoxTipoDoc.Text;
             string especialidad = txtEspecialidad.Text;
             string numeroLicencia = txtNroLicencia.Text;
+            string correo = txtCorreo.Text;
+            string telefono = txtTelefono.Text;
+
 
             Doctor doctor = new Doctor(
                 identificacion,
@@ -128,6 +138,8 @@ namespace VISUAL
                 fechaNac,
                 numeroDoc,
                 tipoDoc,
+                correo,
+                telefono,
                 especialidad,
                 numeroLicencia);
 

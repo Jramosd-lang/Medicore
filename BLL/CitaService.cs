@@ -8,23 +8,23 @@ using Entity;
 
 namespace BLL
 {
-    public class DoctorService : IService<Doctor>
+    public class CitaService : IService<Cita>
     {
         //private readonly EspecieRepository repoEspecie;
-         DoctorRepository repoDoctor = new DoctorRepository();
+        CitaRepository repoCita = new CitaRepository();
 
-        public DoctorService()
+        public CitaService()
         {
             //repoEspecie = new EspecieRepository(Archivos.ARC_ESPECIE);
             //repoEspecie = new EspecieRepository(Archivos.ARC_ESPECIE);
         }
 
-        public List<Doctor> Consultar()
+        public List<Cita> Consultar()
         {
-            return repoDoctor.Consultar();
+            return repoCita.Consultar();
         }
 
-        public string Agregar(Doctor entity)
+        public string Agregar(Cita entity)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace BLL
                     throw new NullReferenceException("Error... la especie no puede ser nula");
                 }
 
-                return repoDoctor.Guardar(entity);
+                return repoCita.Guardar(entity);
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace BLL
             }
         }
 
-        public string Modificar(Doctor entity)
+        public string Modificar(Cita entity)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace BLL
                     throw new NullReferenceException("Error... la especie no puede ser nula");
                 }
 
-                return repoDoctor.Modificar(entity);
+                return repoCita.Modificar(entity);
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace BLL
                     throw new ArgumentException("Error... el id debe ser mayor a cero");
                 }
 
-                return repoDoctor.Eliminar(id);
+                return repoCita.Eliminar(id);
             }
             catch (Exception ex)
             {
@@ -75,9 +75,9 @@ namespace BLL
             }
         }
 
-        public Doctor BuscarId(int id)
+        public Cita BuscarId(int id)
         {
-            return repoDoctor.BuscarPorId(id);
+            return repoCita.BuscarPorId(id);
         }
     }
 }

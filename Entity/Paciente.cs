@@ -12,8 +12,10 @@
             DateTime fechaNacimiento,
             string numeroDocumento,
             string tipoDocumento,
+            string correo,
+            string telefono,
             string rutaHistorialPdf)
-            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento)
+            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento,correo, telefono)
         {
             if (string.IsNullOrWhiteSpace(rutaHistorialPdf))
                 throw new ArgumentException("La ruta del historial médico no puede estar vacía", nameof(rutaHistorialPdf));
@@ -29,5 +31,7 @@
 
             RutaHistorialPdf = nuevaRuta;
         }
+
+        
     }
 }

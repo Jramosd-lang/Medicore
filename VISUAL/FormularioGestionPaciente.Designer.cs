@@ -1,6 +1,6 @@
 ﻿namespace VISUAL
 {
-    partial class Form2
+    partial class FormularioGestionPaciente
     {
         /// <summary>
         /// Required designer variable.
@@ -33,29 +33,29 @@
             LblSegundoNombre = new Label();
             LblPrimerApellido = new Label();
             LblSegundoApellido = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            txtNumDoc = new TextBox();
+            txtSegundoApellido = new TextBox();
+            txtPrimerApellido = new TextBox();
+            txtSegundoNombre = new TextBox();
+            txtPrimerNombre = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox6 = new TextBox();
+            txtCorreo = new TextBox();
             LblCorreoElectronico = new Label();
-            textBox7 = new TextBox();
+            txtTelefono = new TextBox();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            comboBox1 = new ComboBox();
+            ComboBoxTipoDoc = new ComboBox();
             label7 = new Label();
             GroupBoxDocumento = new GroupBox();
             label10 = new Label();
             groupBox2 = new GroupBox();
             label11 = new Label();
             label12 = new Label();
-            comboBox2 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
+            ComboBoxSexo = new ComboBox();
+            dateNacimiento = new DateTimePicker();
             label9 = new Label();
             label8 = new Label();
             groupBox3 = new GroupBox();
@@ -71,6 +71,8 @@
             label14 = new Label();
             label13 = new Label();
             panel1 = new Panel();
+            BotonModificar = new Button();
+            BotonAgregar = new Button();
             GroupBoxDocumento.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -124,40 +126,40 @@
             LblSegundoApellido.TabIndex = 4;
             LblSegundoApellido.Text = "Segundo apellido";
             // 
-            // textBox1
+            // txtNumDoc
             // 
-            textBox1.Location = new Point(690, 47);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(157, 27);
-            textBox1.TabIndex = 5;
+            txtNumDoc.Location = new Point(690, 47);
+            txtNumDoc.Name = "txtNumDoc";
+            txtNumDoc.Size = new Size(157, 27);
+            txtNumDoc.TabIndex = 5;
             // 
-            // textBox2
+            // txtSegundoApellido
             // 
-            textBox2.Location = new Point(716, 74);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(157, 27);
-            textBox2.TabIndex = 6;
+            txtSegundoApellido.Location = new Point(716, 74);
+            txtSegundoApellido.Name = "txtSegundoApellido";
+            txtSegundoApellido.Size = new Size(157, 27);
+            txtSegundoApellido.TabIndex = 6;
             // 
-            // textBox3
+            // txtPrimerApellido
             // 
-            textBox3.Location = new Point(716, 31);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(157, 27);
-            textBox3.TabIndex = 7;
+            txtPrimerApellido.Location = new Point(716, 31);
+            txtPrimerApellido.Name = "txtPrimerApellido";
+            txtPrimerApellido.Size = new Size(157, 27);
+            txtPrimerApellido.TabIndex = 7;
             // 
-            // textBox4
+            // txtSegundoNombre
             // 
-            textBox4.Location = new Point(203, 74);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(268, 27);
-            textBox4.TabIndex = 8;
+            txtSegundoNombre.Location = new Point(203, 74);
+            txtSegundoNombre.Name = "txtSegundoNombre";
+            txtSegundoNombre.Size = new Size(268, 27);
+            txtSegundoNombre.TabIndex = 8;
             // 
-            // textBox5
+            // txtPrimerNombre
             // 
-            textBox5.Location = new Point(203, 31);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(268, 27);
-            textBox5.TabIndex = 9;
+            txtPrimerNombre.Location = new Point(203, 31);
+            txtPrimerNombre.Name = "txtPrimerNombre";
+            txtPrimerNombre.Size = new Size(268, 27);
+            txtPrimerNombre.TabIndex = 9;
             // 
             // label1
             // 
@@ -189,12 +191,12 @@
             label3.TabIndex = 12;
             label3.Text = "(*)";
             // 
-            // textBox6
+            // txtCorreo
             // 
-            textBox6.Location = new Point(203, 26);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(268, 27);
-            textBox6.TabIndex = 14;
+            txtCorreo.Location = new Point(203, 26);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(268, 27);
+            txtCorreo.TabIndex = 14;
             // 
             // LblCorreoElectronico
             // 
@@ -205,12 +207,12 @@
             LblCorreoElectronico.TabIndex = 13;
             LblCorreoElectronico.Text = "Correo Electronico";
             // 
-            // textBox7
+            // txtTelefono
             // 
-            textBox7.Location = new Point(716, 26);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(157, 27);
-            textBox7.TabIndex = 16;
+            txtTelefono.Location = new Point(716, 26);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(157, 27);
+            txtTelefono.TabIndex = 16;
             // 
             // label4
             // 
@@ -241,14 +243,14 @@
             label6.TabIndex = 18;
             label6.Text = "(*)";
             // 
-            // comboBox1
+            // ComboBoxTipoDoc
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            comboBox1.Location = new Point(203, 42);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(268, 28);
-            comboBox1.TabIndex = 19;
+            ComboBoxTipoDoc.FormattingEnabled = true;
+            ComboBoxTipoDoc.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
+            ComboBoxTipoDoc.Location = new Point(203, 51);
+            ComboBoxTipoDoc.Name = "ComboBoxTipoDoc";
+            ComboBoxTipoDoc.Size = new Size(268, 28);
+            ComboBoxTipoDoc.TabIndex = 19;
             // 
             // label7
             // 
@@ -265,9 +267,9 @@
             GroupBoxDocumento.Controls.Add(LblDocumento);
             GroupBoxDocumento.Controls.Add(label10);
             GroupBoxDocumento.Controls.Add(label7);
-            GroupBoxDocumento.Controls.Add(comboBox1);
+            GroupBoxDocumento.Controls.Add(ComboBoxTipoDoc);
             GroupBoxDocumento.Controls.Add(label1);
-            GroupBoxDocumento.Controls.Add(textBox1);
+            GroupBoxDocumento.Controls.Add(txtNumDoc);
             GroupBoxDocumento.Location = new Point(26, 26);
             GroupBoxDocumento.Name = "GroupBoxDocumento";
             GroupBoxDocumento.Size = new Size(982, 98);
@@ -291,16 +293,16 @@
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(comboBox2);
-            groupBox2.Controls.Add(dateTimePicker1);
+            groupBox2.Controls.Add(ComboBoxSexo);
+            groupBox2.Controls.Add(dateNacimiento);
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(textBox5);
-            groupBox2.Controls.Add(textBox4);
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(txtPrimerNombre);
+            groupBox2.Controls.Add(txtSegundoNombre);
+            groupBox2.Controls.Add(txtPrimerApellido);
+            groupBox2.Controls.Add(txtSegundoApellido);
             groupBox2.Controls.Add(LblSegundoApellido);
             groupBox2.Controls.Add(LblPrimerApellido);
             groupBox2.Controls.Add(LblSegundoNombre);
@@ -332,22 +334,22 @@
             label12.TabIndex = 28;
             label12.Text = "Sexo";
             // 
-            // comboBox2
+            // ComboBoxSexo
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            comboBox2.Location = new Point(203, 170);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(268, 28);
-            comboBox2.TabIndex = 27;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            ComboBoxSexo.FormattingEnabled = true;
+            ComboBoxSexo.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
+            ComboBoxSexo.Location = new Point(203, 170);
+            ComboBoxSexo.Name = "ComboBoxSexo";
+            ComboBoxSexo.Size = new Size(268, 28);
+            ComboBoxSexo.TabIndex = 27;
+            ComboBoxSexo.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
-            // dateTimePicker1
+            // dateNacimiento
             // 
-            dateTimePicker1.Location = new Point(203, 127);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(268, 27);
-            dateTimePicker1.TabIndex = 25;
+            dateNacimiento.Location = new Point(203, 127);
+            dateNacimiento.Name = "dateNacimiento";
+            dateNacimiento.Size = new Size(268, 27);
+            dateNacimiento.TabIndex = 25;
             // 
             // label9
             // 
@@ -374,9 +376,9 @@
             groupBox3.Controls.Add(groupBox4);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(textBox7);
+            groupBox3.Controls.Add(txtTelefono);
             groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(textBox6);
+            groupBox3.Controls.Add(txtCorreo);
             groupBox3.Controls.Add(LblCorreoElectronico);
             groupBox3.Location = new Point(26, 414);
             groupBox3.Name = "groupBox3";
@@ -499,6 +501,8 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(BotonModificar);
+            panel1.Controls.Add(BotonAgregar);
             panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(GroupBoxDocumento);
@@ -506,16 +510,50 @@
             panel1.ForeColor = Color.Black;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1082, 560);
+            panel1.Size = new Size(1082, 878);
             panel1.TabIndex = 24;
             // 
-            // Form2
+            // BotonModificar
+            // 
+            BotonModificar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BotonModificar.BackColor = Color.FromArgb(45, 91, 103);
+            BotonModificar.FlatAppearance.BorderSize = 0;
+            BotonModificar.FlatStyle = FlatStyle.Flat;
+            BotonModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BotonModificar.ForeColor = Color.FromArgb(165, 197, 213);
+            BotonModificar.Location = new Point(841, 808);
+            BotonModificar.Margin = new Padding(0);
+            BotonModificar.Name = "BotonModificar";
+            BotonModificar.Size = new Size(167, 34);
+            BotonModificar.TabIndex = 39;
+            BotonModificar.Text = "+ modificar doctor";
+            BotonModificar.UseVisualStyleBackColor = false;
+            BotonModificar.Click += BotonModificar_Click;
+            // 
+            // BotonAgregar
+            // 
+            BotonAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BotonAgregar.BackColor = Color.FromArgb(45, 91, 103);
+            BotonAgregar.FlatAppearance.BorderSize = 0;
+            BotonAgregar.FlatStyle = FlatStyle.Flat;
+            BotonAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BotonAgregar.ForeColor = Color.FromArgb(165, 197, 213);
+            BotonAgregar.Location = new Point(841, 761);
+            BotonAgregar.Margin = new Padding(0);
+            BotonAgregar.Name = "BotonAgregar";
+            BotonAgregar.Size = new Size(167, 34);
+            BotonAgregar.TabIndex = 26;
+            BotonAgregar.Text = "+ Nuevo doctor";
+            BotonAgregar.UseVisualStyleBackColor = false;
+            BotonAgregar.Click += BotonAgregar_Click;
+            // 
+            // FormularioGestionPaciente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1082, 560);
+            ClientSize = new Size(1082, 878);
             Controls.Add(panel1);
-            Name = "Form2";
+            Name = "FormularioGestionPaciente";
             Text = "Form2";
             Load += Form2_Load;
             GroupBoxDocumento.ResumeLayout(false);
@@ -537,33 +575,33 @@
         private Label LblSegundoNombre;
         private Label LblPrimerApellido;
         private Label LblSegundoApellido;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox txtNumDoc;
+        private TextBox txtSegundoApellido;
+        private TextBox txtPrimerApellido;
+        private TextBox txtSegundoNombre;
+        private TextBox txtPrimerNombre;
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox6;
+        private TextBox txtCorreo;
         private Label LblCorreoElectronico;
-        private TextBox textBox7;
+        private TextBox txtTelefono;
         private Label label4;
         private Label label5;
         private Label label6;
-        private ComboBox comboBox1;
+        private ComboBox ComboBoxTipoDoc;
         private Label label7;
         private GroupBox GroupBoxDocumento;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private Panel panel1;
         private Label label10;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateNacimiento;
         private Label label9;
         private Label label8;
         private Label label11;
         private Label label12;
-        private ComboBox comboBox2;
+        private ComboBox ComboBoxSexo;
         private GroupBox groupBox4;
         private TextBox textBox8;
         private Label label14;
@@ -575,5 +613,7 @@
         private TextBox textBox9;
         private Label label17;
         private ComboBox comboBox4;
+        private Button BotonAgregar;
+        private Button BotonModificar;
     }
 }
