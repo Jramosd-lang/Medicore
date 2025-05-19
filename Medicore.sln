@@ -11,7 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{56BFACC4-E4F5-438B-9E22-AAE4A3206660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{8745158C-3071-43E9-835B-D32596FFC9C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBot", "TelegramBot\TelegramBot.csproj", "{98B36BFC-87D1-4705-834C-D4CB88AA5666}"
+	ProjectSection(ProjectDependencies) = postProject
+		{56BFACC4-E4F5-438B-9E22-AAE4A3206660} = {56BFACC4-E4F5-438B-9E22-AAE4A3206660}
+		{AA8DEAFA-50BD-457E-8AA9-C0B351DBECAB} = {AA8DEAFA-50BD-457E-8AA9-C0B351DBECAB}
+		{BA0619C2-804B-492B-9464-114A7A08AF7E} = {BA0619C2-804B-492B-9464-114A7A08AF7E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +40,10 @@ Global
 		{56BFACC4-E4F5-438B-9E22-AAE4A3206660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56BFACC4-E4F5-438B-9E22-AAE4A3206660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56BFACC4-E4F5-438B-9E22-AAE4A3206660}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8745158C-3071-43E9-835B-D32596FFC9C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8745158C-3071-43E9-835B-D32596FFC9C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8745158C-3071-43E9-835B-D32596FFC9C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8745158C-3071-43E9-835B-D32596FFC9C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B36BFC-87D1-4705-834C-D4CB88AA5666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B36BFC-87D1-4705-834C-D4CB88AA5666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B36BFC-87D1-4705-834C-D4CB88AA5666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B36BFC-87D1-4705-834C-D4CB88AA5666}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

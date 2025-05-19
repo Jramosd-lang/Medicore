@@ -78,5 +78,10 @@ namespace BLL
         {
             return repoPaciente.BuscarPorId(id);
         }
+        public Paciente BuscarPorNumeroDocumento(string numeroDocumento)
+        {
+            return repoPaciente.BuscarPorNumeroDocumento(numeroDocumento);
+        }
+
     }
 }

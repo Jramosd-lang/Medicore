@@ -230,8 +230,12 @@ namespace DAL
             {
                 return Consultar().FirstOrDefault(x => x.Id == id);
             }
-
-            
+            public Paciente BuscarPorNumeroDocumento(string numeroDocumento)
+        {
+            return Consultar().FirstOrDefault(p => p.NumeroDocumento == numeroDocumento);
         }
+
+
+    }
     
 }
