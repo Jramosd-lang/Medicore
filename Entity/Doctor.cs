@@ -26,8 +26,9 @@ namespace Entity
             string telefono,
             string especialidad,
             string numeroLicencia,
-            string password)
-            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento, correo, telefono)
+            string password,
+            string sexo)
+            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento, correo, telefono, sexo)
         {
             if (string.IsNullOrWhiteSpace(especialidad))
                 throw new ArgumentException("Especialidad no puede estar vacía", nameof(especialidad));
@@ -48,11 +49,7 @@ namespace Entity
                 throw new InvalidOperationException($"Número de licencia debe tener al menos {LongitudMinima} caracteres.");
         }
 
-       
-        public bool EstaDisponible(DateTime fechaHora)
-        {
-            throw new NotImplementedException("La disponibilidad se valida en un servicio de agenda.");
-        }
+      
     }
 }
 

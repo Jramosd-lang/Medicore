@@ -40,9 +40,12 @@ namespace DAL
                 int ordFecha = reader.GetOrdinal("fecha_nacimiento");
                 int ordNumDoc = reader.GetOrdinal("numero_documento");
                 int ordTipDOc = reader.GetOrdinal("tipo_documento");
-                int ordRut = reader.GetOrdinal("ruta_historial_pdf");
                 int ordCor = reader.GetOrdinal("correo");
                 int ordTel = reader.GetOrdinal("telefono");
+                int ordOcupacion = reader.GetOrdinal("ocupacion");
+                int ordReligion = reader.GetOrdinal("religion");
+                int ordSex = reader.GetOrdinal("sexo");
+
 
 
             int id = !reader.IsDBNull(ordId)
@@ -69,16 +72,26 @@ namespace DAL
                     ? reader.GetString(ordTipDOc)
                     : string.Empty;
 
-                string rutaHistorialPdf = !reader.IsDBNull(ordRut)
-                    ? reader.GetString(ordRut)
-                    : string.Empty;
                 string correo = !reader.IsDBNull(ordCor)
                     ? reader.GetString(ordCor)
                     : string.Empty;
+
                 string telefono = !reader.IsDBNull(ordTel)
                     ? reader.GetString(ordTel)
                     : string.Empty;
-           
+
+                string ocupacion = !reader.IsDBNull(ordOcupacion)
+                    ? reader.GetString(ordOcupacion)
+                    : string.Empty;
+
+                string religion = !reader.IsDBNull(ordReligion)
+                    ? reader.GetString(ordReligion)
+                    : string.Empty;
+                string sexo = !reader.IsDBNull(ordSex)
+                    ? reader.GetString(ordSex)
+                    : string.Empty;
+    
+
 
 
 
@@ -90,9 +103,11 @@ namespace DAL
                     fechaNacimiento: fechaNac,
                     numeroDocumento: numeroDoc,
                     tipoDocumento: tipoDoc,
-                    rutaHistorialPdf: rutaHistorialPdf,
                     correo:correo,
-                    telefono:telefono
+                    telefono:telefono,
+                    ocupacion: ocupacion,
+                    religion: religion,
+                    sexo: sexo
                 );
             }
 
@@ -129,7 +144,7 @@ namespace DAL
                 if (entity == null || string.IsNullOrWhiteSpace(entity.Nombre))
                     return "Datos inválidos";
 
-                string sentencia = "INSERT INTO pacientes (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento,correo,telefono, ruta_historial_pdf) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @correo, @telefono, @ruta_historial_pdf)";
+                string sentencia = "INSERT INTO pacientes (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento,correo,telefono, ocupacion, religion, sexo) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @correo, @telefono, @ocupacion, @religion, @sexo)";
 
                 using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
                 {
@@ -141,6 +156,8 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@ruta_historial_pdf", entity.RutaHistorialPdf);
                     cmd.Parameters.AddWithValue("@correo", entity.Correo);
                     cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
+                    cmd.Parameters.AddWithValue("@ocupacion", entity.Ocupacion);
+                    cmd.Parameters.AddWithValue("@religion", entity.Religion);
 
 
                 try
@@ -175,33 +192,37 @@ namespace DAL
                 }
             }
 
-         public string Modificar(Paciente entity)
+         public string Modificar(Paciente paciente)
         {
-            if (entity == null || entity.Id <= 0)
+            if (paciente == null || paciente.Id <= 0)
                 return "Datos inválidos o ID no válido";
 
             const string sql = @"UPDATE pacientes
-               SET nombre            = @nombre,
+               SET nombre        = @nombre,
                apellido          = @apellido,
                fecha_nacimiento  = @fecha_nacimiento,
                tipo_documento    = @tipo_documento,
                numero_documento  = @numero_documento,
                correo            = @correo,
                telefono          = @telefono,
-               ruta_historial_pdf = @ruta_historial_pdf
+               ocupacion         = @ocupacion,
+               religion          = @religion
+               sexo              = @sexo
                WHERE id_paciente      = @id;
                ";
 
             using var cmd = new MySqlCommand(sql, conexion);
-            cmd.Parameters.AddWithValue("@id", entity.Id);
-            cmd.Parameters.AddWithValue("@nombre", entity.Nombre);
-            cmd.Parameters.AddWithValue("@apellido", entity.Apellido);
-            cmd.Parameters.AddWithValue("@fecha_nacimiento", entity.FechaNacimiento);
-            cmd.Parameters.AddWithValue("@tipo_documento", entity.TipoDocumento);
-            cmd.Parameters.AddWithValue("@numero_documento", entity.NumeroDocumento);
-            cmd.Parameters.AddWithValue("@correo", entity.Correo);
-            cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
-            cmd.Parameters.AddWithValue("@ruta_historial_pdf", entity.RutaHistorialPdf);
+            cmd.Parameters.AddWithValue("@id", paciente.Id);
+            cmd.Parameters.AddWithValue("@nombre", paciente.Nombre);
+            cmd.Parameters.AddWithValue("@apellido", paciente.Apellido);
+            cmd.Parameters.AddWithValue("@fecha_nacimiento", paciente.FechaNacimiento);
+            cmd.Parameters.AddWithValue("@tipo_documento", paciente.TipoDocumento);
+            cmd.Parameters.AddWithValue("@numero_documento", paciente.NumeroDocumento);
+            cmd.Parameters.AddWithValue("@correo", paciente.Correo);
+            cmd.Parameters.AddWithValue("@telefono", paciente.Telefono);
+            cmd.Parameters.AddWithValue("@ocupacion", paciente.Ocupacion);
+            cmd.Parameters.AddWithValue("@religion", paciente.Religion);
+            cmd.Parameters.AddWithValue("@sexo", paciente.Sexo);
 
             try
             {
@@ -226,14 +247,19 @@ namespace DAL
         }
 
 
-        public Paciente BuscarPorId(int id)
+             public Paciente BuscarPorId(int id)
             {
+
                 return Consultar().FirstOrDefault(x => x.Id == id);
+
             }
+
             public Paciente BuscarPorNumeroDocumento(string numeroDocumento)
-        {
-            return Consultar().FirstOrDefault(p => p.NumeroDocumento == numeroDocumento);
-        }
+            {
+
+                return Consultar().FirstOrDefault(p => p.NumeroDocumento == numeroDocumento);
+
+            }
 
 
         

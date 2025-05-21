@@ -4,7 +4,10 @@
     {
         public string RutaHistorialPdf { get; private set; }
 
-     
+        public string Ocupacion { get; set; }
+        public string Religion { get; set; }
+
+
         public Paciente(
             int id,
             string nombre,
@@ -14,13 +17,16 @@
             string tipoDocumento,
             string correo,
             string telefono,
-            string rutaHistorialPdf)
-            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento,correo, telefono)
+            string ocupacion,
+            string religion,
+            string sexo
+            )
+            : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento,correo, telefono, sexo)
         {
-            if (string.IsNullOrWhiteSpace(rutaHistorialPdf))
-                throw new ArgumentException("La ruta del historial médico no puede estar vacía", nameof(rutaHistorialPdf));
 
-            RutaHistorialPdf = rutaHistorialPdf;
+            Ocupacion = ocupacion;
+            Religion = religion;
+            
         }
 
  

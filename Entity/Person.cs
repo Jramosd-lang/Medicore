@@ -17,6 +17,7 @@ namespace Entity
         public string TipoDocumento { get; private set; }
         public string Correo { get; private set; }
         public string Telefono { get; private set; }
+        public string Sexo { get; private set; }
 
 
 
@@ -28,7 +29,8 @@ namespace Entity
             string numeroDocumento,
             string tipoDocumento,
             string correo,
-            string telefono)
+            string telefono,
+            string sexo)
         {
             if (id < 0)
                 throw new ArgumentException("Id no puede estar vacío", nameof(id));
@@ -46,6 +48,8 @@ namespace Entity
                 throw new ArgumentException("Correo no puede estar vacío", nameof(correo));
             if (string.IsNullOrWhiteSpace(telefono))
                 throw new ArgumentException("Teléfono no puede estar vacío", nameof(telefono));
+            if (string.IsNullOrWhiteSpace(sexo))
+                throw new ArgumentException("Sexo no puede estar vacío", nameof(sexo));
 
             Id = id;
             Nombre = nombre;
@@ -55,6 +59,7 @@ namespace Entity
             TipoDocumento = tipoDocumento;
             Correo = correo;
             Telefono = telefono;
+            Sexo = sexo;
         }
     }
 
