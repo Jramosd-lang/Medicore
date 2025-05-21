@@ -48,6 +48,7 @@ namespace VISUAL
             txtNroLicencia.Text = doctor.NumeroLicencia;
             txtCorreo.Text = doctor.Correo;
             txtTelefono.Text = doctor.Telefono;
+            ComboBoxSexo.Text = doctor.Sexo;
 
         }
 
@@ -75,6 +76,7 @@ namespace VISUAL
             string especialidad = txtEspecialidad.Text;
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
+            string sexo = ComboBoxSexo.Text;
 
             string numeroLicencia = txtNroLicencia.Text;
 
@@ -89,7 +91,8 @@ namespace VISUAL
                 telefono,
                 especialidad,
                 numeroLicencia,
-                numeroDoc);
+                numeroDoc,
+                sexo);
 
             DoctorService doctorService = new DoctorService();
 
@@ -130,7 +133,9 @@ namespace VISUAL
             string numeroLicencia = txtNroLicencia.Text;
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
-            string password = txtNumDoc.Text;
+            string password = "";
+            string sexo = ComboBoxSexo.Text;
+
 
 
             Doctor doctor = new Doctor(
@@ -144,7 +149,8 @@ namespace VISUAL
                 telefono,
                 especialidad,
                 numeroLicencia,
-                password);
+                password,
+                sexo);
 
               DoctorService doctorService = new DoctorService();
 

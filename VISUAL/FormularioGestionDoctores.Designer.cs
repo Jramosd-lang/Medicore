@@ -39,7 +39,7 @@ namespace VISUAL
             groupBox2 = new GroupBox();
             label11 = new Label();
             label12 = new Label();
-            ComboBoxSex = new ComboBox();
+            ComboBoxSexo = new ComboBox();
             dateNacimiento = new DateTimePicker();
             label9 = new Label();
             label8 = new Label();
@@ -166,7 +166,7 @@ namespace VISUAL
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(ComboBoxSex);
+            groupBox2.Controls.Add(ComboBoxSexo);
             groupBox2.Controls.Add(dateNacimiento);
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
@@ -207,15 +207,15 @@ namespace VISUAL
             label12.TabIndex = 28;
             label12.Text = "Sexo";
             // 
-            // ComboBoxSex
+            // ComboBoxSexo
             // 
-            ComboBoxSex.FormattingEnabled = true;
-            ComboBoxSex.Items.AddRange(new object[] { "Femenino", "Masculino" });
-            ComboBoxSex.Location = new Point(203, 170);
-            ComboBoxSex.Name = "ComboBoxSex";
-            ComboBoxSex.Size = new Size(268, 28);
-            ComboBoxSex.TabIndex = 27;
-            ComboBoxSex.Text = "                     -elija su sexo-";
+            ComboBoxSexo.FormattingEnabled = true;
+            ComboBoxSexo.Items.AddRange(new object[] { "Femenino", "Masculino" });
+            ComboBoxSexo.Location = new Point(203, 170);
+            ComboBoxSexo.Name = "ComboBoxSexo";
+            ComboBoxSexo.Size = new Size(268, 28);
+            ComboBoxSexo.TabIndex = 27;
+            ComboBoxSexo.Text = "                     -elija su sexo-";
             // 
             // dateNacimiento
             // 
@@ -683,7 +683,7 @@ namespace VISUAL
         private GroupBox groupBox2;
         private Label label11;
         private Label label12;
-        private ComboBox ComboBoxSex;
+        private ComboBox ComboBoxSexo;
         private DateTimePicker dateNacimiento;
         private Label label9;
         private Label label8;

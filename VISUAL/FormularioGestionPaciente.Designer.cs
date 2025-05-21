@@ -60,14 +60,10 @@
             label8 = new Label();
             groupBox3 = new GroupBox();
             groupBox4 = new GroupBox();
-            comboBox4 = new ComboBox();
-            label16 = new Label();
-            textBox9 = new TextBox();
-            label17 = new Label();
             label15 = new Label();
             lblParentesco = new Label();
-            comboBox3 = new ComboBox();
-            textBox8 = new TextBox();
+            ComboBoxReligion = new ComboBox();
+            txtOcupacion = new TextBox();
             label14 = new Label();
             label13 = new Label();
             panel1 = new Panel();
@@ -382,7 +378,7 @@
             groupBox3.Controls.Add(LblCorreoElectronico);
             groupBox3.Location = new Point(26, 414);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(982, 320);
+            groupBox3.Size = new Size(982, 260);
             groupBox3.TabIndex = 23;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos de contacto";
@@ -390,58 +386,19 @@
             // groupBox4
             // 
             groupBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox4.Controls.Add(comboBox4);
-            groupBox4.Controls.Add(label16);
-            groupBox4.Controls.Add(textBox9);
-            groupBox4.Controls.Add(label17);
             groupBox4.Controls.Add(label15);
             groupBox4.Controls.Add(lblParentesco);
-            groupBox4.Controls.Add(comboBox3);
-            groupBox4.Controls.Add(textBox8);
+            groupBox4.Controls.Add(ComboBoxReligion);
+            groupBox4.Controls.Add(txtOcupacion);
             groupBox4.Controls.Add(label14);
             groupBox4.Controls.Add(label13);
             groupBox4.Location = new Point(17, 85);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(947, 187);
+            groupBox4.Size = new Size(947, 141);
             groupBox4.TabIndex = 25;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Datos de contacto de emergencia";
+            groupBox4.Text = "Datos extras";
             groupBox4.Enter += groupBox4_Enter;
-            // 
-            // comboBox4
-            // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            comboBox4.Location = new Point(212, 134);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(78, 28);
-            comboBox4.TabIndex = 35;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.ForeColor = Color.FromArgb(79, 127, 140);
-            label16.Location = new Point(112, 138);
-            label16.Name = "label16";
-            label16.Size = new Size(25, 20);
-            label16.TabIndex = 34;
-            label16.Text = "(*)";
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(296, 135);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(219, 27);
-            textBox9.TabIndex = 33;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(36, 138);
-            label17.Name = "label17";
-            label17.Size = new Size(67, 20);
-            label17.TabIndex = 32;
-            label17.Text = "Telefono";
             // 
             // label15
             // 
@@ -458,25 +415,25 @@
             lblParentesco.AutoSize = true;
             lblParentesco.Location = new Point(36, 92);
             lblParentesco.Name = "lblParentesco";
-            lblParentesco.Size = new Size(80, 20);
+            lblParentesco.Size = new Size(64, 20);
             lblParentesco.TabIndex = 31;
-            lblParentesco.Text = "Parentesco";
+            lblParentesco.Text = "Religion";
             // 
-            // comboBox3
+            // ComboBoxReligion
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            comboBox3.Location = new Point(212, 84);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(303, 28);
-            comboBox3.TabIndex = 30;
+            ComboBoxReligion.FormattingEnabled = true;
+            ComboBoxReligion.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
+            ComboBoxReligion.Location = new Point(212, 84);
+            ComboBoxReligion.Name = "ComboBoxReligion";
+            ComboBoxReligion.Size = new Size(303, 28);
+            ComboBoxReligion.TabIndex = 30;
             // 
-            // textBox8
+            // txtOcupacion
             // 
-            textBox8.Location = new Point(212, 41);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(303, 27);
-            textBox8.TabIndex = 26;
+            txtOcupacion.Location = new Point(212, 41);
+            txtOcupacion.Name = "txtOcupacion";
+            txtOcupacion.Size = new Size(303, 27);
+            txtOcupacion.TabIndex = 26;
             // 
             // label14
             // 
@@ -493,9 +450,9 @@
             label13.AutoSize = true;
             label13.Location = new Point(36, 48);
             label13.Name = "label13";
-            label13.Size = new Size(132, 20);
+            label13.Size = new Size(80, 20);
             label13.TabIndex = 0;
-            label13.Text = "Nombre completo";
+            label13.Text = "Ocupacion";
             // 
             // panel1
             // 
@@ -603,16 +560,12 @@
         private Label label12;
         private ComboBox ComboBoxSexo;
         private GroupBox groupBox4;
-        private TextBox textBox8;
+        private TextBox txtOcupacion;
         private Label label14;
         private Label label13;
         private Label label15;
         private Label lblParentesco;
-        private ComboBox comboBox3;
-        private Label label16;
-        private TextBox textBox9;
-        private Label label17;
-        private ComboBox comboBox4;
+        private ComboBox ComboBoxReligion;
         private Button BotonAgregar;
         private Button BotonModificar;
     }

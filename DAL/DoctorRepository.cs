@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity;
 using MySql.Data.MySqlClient;
+using Mysqlx.Sql;
 
 namespace DAL
 {
@@ -41,6 +42,7 @@ namespace DAL
             int ordCor = reader.GetOrdinal("correo");
             int ordTel = reader.GetOrdinal("telefono");
             int ordPas = reader.GetOrdinal("password");
+            int ordSex = reader.GetOrdinal("sexo"); 
 
             int id = !reader.IsDBNull(ordId)
                 ? reader.GetInt32(ordId)
@@ -83,6 +85,10 @@ namespace DAL
                 ? reader.GetString(ordPas)
                 : string.Empty;
 
+            string sexo = !reader.IsDBNull(ordSex)
+                ? reader.GetString(ordSex)
+                : string.Empty;
+
             return new Doctor(
                 id: id,
                 nombre: nombre,
@@ -92,9 +98,11 @@ namespace DAL
                 tipoDocumento: tipoDoc,
                 especialidad: especialidad,
                 numeroLicencia: numeroLicencia,
-                correo:correo,
+                correo: correo,
                 telefono: telefono,
-                password: contrasena
+                password: contrasena,
+                sexo: sexo
+
             );
         }
 

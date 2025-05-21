@@ -70,6 +70,9 @@ namespace VISUAL
             string ruta_historia_clinica = " asdfasdfasdfa";
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
+            string ocupacion = txtOcupacion.Text;
+            string religion = ComboBoxReligion.Text;
+            string sexo = ComboBoxSexo.Text;
 
             Paciente doctor = new Paciente(
                 identificacion,
@@ -80,7 +83,9 @@ namespace VISUAL
                 tipoDoc,
                 correo,
                 telefono,
-                ruta_historia_clinica
+                ocupacion,
+                religion,
+                sexo
                 );
 
             PacienteService pacienteService = new PacienteService();
@@ -152,6 +157,9 @@ namespace VISUAL
             string ruta_historia_clinica = " asdfasdfasdfa";
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
+            string religion = ComboBoxReligion.Text;
+            string ocupacion = txtOcupacion.Text;
+            string sexo = ComboBoxSexo.Text;
 
             Paciente paciente = new Paciente(
                 id,
@@ -162,7 +170,9 @@ namespace VISUAL
                 tipoDoc,
                 correo,
                 telefono,
-                ruta_historia_clinica);
+                ocupacion,
+                religion,
+                sexo);
 
             PacienteService pacienteService = new PacienteService();
 
