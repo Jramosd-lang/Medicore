@@ -40,6 +40,7 @@ namespace DAL
             int ordLic = reader.GetOrdinal("numero_licencia");
             int ordCor = reader.GetOrdinal("correo");
             int ordTel = reader.GetOrdinal("telefono");
+            int ordPas = reader.GetOrdinal("password");
 
             int id = !reader.IsDBNull(ordId)
                 ? reader.GetInt32(ordId)
@@ -78,6 +79,9 @@ namespace DAL
             string telefono = !reader.IsDBNull(ordTel)
                 ? reader.GetString(ordTel)
                 : string.Empty;
+            string contrasena = !reader.IsDBNull(ordPas)
+                ? reader.GetString(ordPas)
+                : string.Empty;
 
             return new Doctor(
                 id: id,
@@ -89,7 +93,8 @@ namespace DAL
                 especialidad: especialidad,
                 numeroLicencia: numeroLicencia,
                 correo:correo,
-                telefono: telefono
+                telefono: telefono,
+                password: contrasena
             );
         }
 
@@ -126,7 +131,7 @@ namespace DAL
             if (entity == null || string.IsNullOrWhiteSpace(entity.Nombre))
                 return "Datos inválidos";
 
-            string sentencia = "INSERT INTO doctores (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, especialidad, numero_licencia,correo,telefono) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @especialidad, @numero_licencia, @correo, @telefono)";
+            string sentencia = "INSERT INTO doctores (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, especialidad, numero_licencia,correo,telefono,password) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @especialidad, @numero_licencia, @correo, @telefono,@password)";
 
             using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
             {
@@ -139,6 +144,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@numero_licencia", entity.NumeroLicencia);
                 cmd.Parameters.AddWithValue("@correo", entity.Correo);
                 cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
+                cmd.Parameters.AddWithValue("@password", entity.Password);
 
                 try
                 {
@@ -186,7 +192,7 @@ namespace DAL
                               "correo = @correo, " +
                               "telefono = @telefono, " +
                               "especialidad = @especialidad, " +
-                              "numero_licencia = @numero_licencia " +
+                              "numero_licencia = @numero_licencia "+
                               "WHERE id_doctor = @id";
 
             using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
@@ -201,6 +207,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@numero_licencia", entity.NumeroLicencia);
                 cmd.Parameters.AddWithValue("@correo", entity.Correo);
                 cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
+              
 
                 try
                 {

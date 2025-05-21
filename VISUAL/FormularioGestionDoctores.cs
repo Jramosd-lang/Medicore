@@ -88,7 +88,8 @@ namespace VISUAL
                 correo,
                 telefono,
                 especialidad,
-                numeroLicencia);
+                numeroLicencia,
+                numeroDoc);
 
             DoctorService doctorService = new DoctorService();
 
@@ -129,6 +130,7 @@ namespace VISUAL
             string numeroLicencia = txtNroLicencia.Text;
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
+            string password = txtNumDoc.Text;
 
 
             Doctor doctor = new Doctor(
@@ -141,7 +143,8 @@ namespace VISUAL
                 correo,
                 telefono,
                 especialidad,
-                numeroLicencia);
+                numeroLicencia,
+                password);
 
               DoctorService doctorService = new DoctorService();
 

@@ -22,7 +22,8 @@ namespace TelegramBot
             botClient,
             new TelegramPacienteService(),
             new TelegramDoctorService(),
-            new HistorialService()
+            new HistorialService(),
+            new CitaServiceBot()
 );
 
 

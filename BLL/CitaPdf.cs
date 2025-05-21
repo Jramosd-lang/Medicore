@@ -128,7 +128,7 @@ namespace BLL
                     column.Item().BorderBottom(1).Padding(padding).Text("Comprobante de cita").SemiBold();
                     column.Item().Padding(padding).Text("ID Cita: " + Cita.IdCita.ToString()).FontSize(12);
                     column.Item().Padding(padding).Text("nombre del paciente: " + Paciente.Nombre.ToString() + "  " + Paciente.Apellido).FontSize(12);
-                    column.Item().Padding(padding).Text("Fecha de venncimiento del comprobante: " + Cita.FechaCita.ToString("dd/MM/yyyy")).FontSize(12);
+                    column.Item().Padding(padding).Text("Fecha de vencimiento del comprobante: " + Cita.FechaCita.ToString("dd/MM/yyyy")).FontSize(12);
 
                     
                 });

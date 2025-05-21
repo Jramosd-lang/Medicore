@@ -79,5 +79,10 @@ namespace BLL
         {
             return repoCita.BuscarPorId(id);
         }
+
+        public void modificarEstado(int id)
+        {
+            repoCita.modificarEstado(id);
+        }
     }
 }

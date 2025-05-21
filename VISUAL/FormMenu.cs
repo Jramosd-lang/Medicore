@@ -35,11 +35,11 @@ namespace VISUAL
 
         private void seleccionarBoton(Button botonSeleccionado)
         {
-            
-            Color colorSeleccionado = Color.FromArgb(79,127,140);
-            Color colorNormal = Color.FromArgb(185,218,233);
 
-        
+            Color colorSeleccionado = Color.FromArgb(79, 127, 140);
+            Color colorNormal = Color.FromArgb(185, 218, 233);
+
+
             Button[] botones = { BotonGestionarDoctores,
                 BotonGestionarImplementos,
                 BotonGestionarDinero,
@@ -49,14 +49,14 @@ namespace VISUAL
                 BotonProveedores,
                 BotonComunicados};
 
-            
+
             foreach (Button btn in botones)
             {
                 btn.BackColor = (btn == botonSeleccionado) ? colorSeleccionado : colorNormal;
             }
         }
-        
-        
+
+
         private void cambiarPanel(Form formularioHijo)
         {
 
@@ -122,10 +122,7 @@ namespace VISUAL
             MostrarSubMenu(PanelSubMenuAgenda);
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -173,14 +170,16 @@ namespace VISUAL
         private void button4_Click(object sender, EventArgs e)
         {
             cambiarPanel(new RecepcionDePaciente());
+            seleccionarBoton(BotonRecepcion);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             cambiarPanel(new FormularioCitacs());
+            seleccionarBoton(BotonGestionarCItas);
         }
 
-        
+
 
 
         private void BotonGestionarPacientes_Click(object sender, EventArgs e)
@@ -232,7 +231,7 @@ namespace VISUAL
         private void button10_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(PanelSubMenuApoyo);
-            
+
         }
 
         private void PanelSubMenuAgenda_Paint(object sender, PaintEventArgs e)
@@ -243,6 +242,21 @@ namespace VISUAL
         private void pictureBox2_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void BotonProveedores_Click(object sender, EventArgs e)
+        {
+            seleccionarBoton(BotonProveedores);
+        }
+
+        private void BotonComunicados_Click(object sender, EventArgs e)
+        {
+            seleccionarBoton(BotonComunicados);
+        }
+
+        private void BotonReportes_Click(object sender, EventArgs e)
+        {
+            seleccionarBoton(BotonReportes);
         }
     }
 }

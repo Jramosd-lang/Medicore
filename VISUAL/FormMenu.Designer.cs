@@ -87,7 +87,7 @@ namespace VISUAL
             MenuLateral.Dock = DockStyle.Left;
             MenuLateral.Location = new Point(0, 40);
             MenuLateral.Name = "MenuLateral";
-            MenuLateral.Size = new Size(300, 758);
+            MenuLateral.Size = new Size(300, 760);
             MenuLateral.TabIndex = 0;
             // 
             // BotonAyudaAtencion
@@ -136,11 +136,12 @@ namespace VISUAL
             BotonReportes.Margin = new Padding(0, 10, 0, 0);
             BotonReportes.Name = "BotonReportes";
             BotonReportes.Padding = new Padding(40, 0, 0, 0);
-            BotonReportes.Size = new Size(300, 40);
+            BotonReportes.Size = new Size(300, 46);
             BotonReportes.TabIndex = 6;
             BotonReportes.Text = "Reportes diarios";
             BotonReportes.TextAlign = ContentAlignment.MiddleLeft;
             BotonReportes.UseVisualStyleBackColor = false;
+            BotonReportes.Click += BotonReportes_Click;
             // 
             // BotonComunicados
             // 
@@ -161,6 +162,7 @@ namespace VISUAL
             BotonComunicados.Text = "Comunicados";
             BotonComunicados.TextAlign = ContentAlignment.MiddleLeft;
             BotonComunicados.UseVisualStyleBackColor = false;
+            BotonComunicados.Click += BotonComunicados_Click;
             // 
             // BotonProveedores
             // 
@@ -181,6 +183,7 @@ namespace VISUAL
             BotonProveedores.Text = "Proveedores y compras";
             BotonProveedores.TextAlign = ContentAlignment.MiddleLeft;
             BotonProveedores.UseVisualStyleBackColor = false;
+            BotonProveedores.Click += BotonProveedores_Click;
             // 
             // button10
             // 
@@ -225,7 +228,7 @@ namespace VISUAL
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.MouseOverBackColor = Color.Silver;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(0, 110);
+            button2.Location = new Point(0, 120);
             button2.Margin = new Padding(0, 10, 0, 0);
             button2.Name = "button2";
             button2.Padding = new Padding(40, 0, 0, 0);
@@ -249,7 +252,7 @@ namespace VISUAL
             BotonGestionarPacientes.Margin = new Padding(0, 10, 0, 0);
             BotonGestionarPacientes.Name = "BotonGestionarPacientes";
             BotonGestionarPacientes.Padding = new Padding(40, 0, 0, 0);
-            BotonGestionarPacientes.Size = new Size(300, 30);
+            BotonGestionarPacientes.Size = new Size(300, 40);
             BotonGestionarPacientes.TabIndex = 6;
             BotonGestionarPacientes.Text = "Gestion de pacientes";
             BotonGestionarPacientes.TextAlign = ContentAlignment.MiddleLeft;
@@ -458,9 +461,8 @@ namespace VISUAL
             PanelContenedor.ForeColor = SystemColors.ControlLightLight;
             PanelContenedor.Location = new Point(300, 40);
             PanelContenedor.Name = "PanelContenedor";
-            PanelContenedor.Size = new Size(992, 758);
+            PanelContenedor.Size = new Size(970, 760);
             PanelContenedor.TabIndex = 2;
-            PanelContenedor.Paint += panel4_Paint;
             // 
             // pictureBox2
             // 
@@ -468,7 +470,7 @@ namespace VISUAL
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(295, 260);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(433, 273);
+            pictureBox2.Size = new Size(411, 275);
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
@@ -483,7 +485,7 @@ namespace VISUAL
             PanelTitleBar.Dock = DockStyle.Top;
             PanelTitleBar.Location = new Point(0, 0);
             PanelTitleBar.Name = "PanelTitleBar";
-            PanelTitleBar.Size = new Size(1292, 40);
+            PanelTitleBar.Size = new Size(1270, 40);
             PanelTitleBar.TabIndex = 3;
             PanelTitleBar.MouseDown += PanelTitleBar_MouseDown;
             // 
@@ -495,7 +497,7 @@ namespace VISUAL
             BotonMaximizar.FlatAppearance.BorderSize = 0;
             BotonMaximizar.FlatStyle = FlatStyle.Flat;
             BotonMaximizar.Image = (Image)resources.GetObject("BotonMaximizar.Image");
-            BotonMaximizar.Location = new Point(1206, 5);
+            BotonMaximizar.Location = new Point(1184, 5);
             BotonMaximizar.Name = "BotonMaximizar";
             BotonMaximizar.Size = new Size(40, 29);
             BotonMaximizar.TabIndex = 4;
@@ -511,7 +513,7 @@ namespace VISUAL
             BotonSalir.FlatAppearance.BorderSize = 0;
             BotonSalir.FlatStyle = FlatStyle.Flat;
             BotonSalir.Image = (Image)resources.GetObject("BotonSalir.Image");
-            BotonSalir.Location = new Point(1249, 6);
+            BotonSalir.Location = new Point(1227, 6);
             BotonSalir.Name = "BotonSalir";
             BotonSalir.Size = new Size(40, 29);
             BotonSalir.TabIndex = 3;
@@ -528,7 +530,7 @@ namespace VISUAL
             BotonMinimizar.FlatStyle = FlatStyle.Flat;
             BotonMinimizar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonMinimizar.Image = (Image)resources.GetObject("BotonMinimizar.Image");
-            BotonMinimizar.Location = new Point(1160, 6);
+            BotonMinimizar.Location = new Point(1138, 6);
             BotonMinimizar.Name = "BotonMinimizar";
             BotonMinimizar.Padding = new Padding(0, 8, 0, 8);
             BotonMinimizar.Size = new Size(40, 29);
@@ -563,7 +565,7 @@ namespace VISUAL
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1292, 798);
+            ClientSize = new Size(1270, 800);
             Controls.Add(PanelContenedor);
             Controls.Add(MenuLateral);
             Controls.Add(PanelTitleBar);

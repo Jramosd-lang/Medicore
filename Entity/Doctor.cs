@@ -12,6 +12,7 @@ namespace Entity
 
         public string Especialidad { get; private set; }
         public string NumeroLicencia { get; private set; }
+        public string Password { get; private set; }
 
     
         public Doctor(
@@ -24,7 +25,8 @@ namespace Entity
             string correo,
             string telefono,
             string especialidad,
-            string numeroLicencia)
+            string numeroLicencia,
+            string password)
             : base(id, nombre, apellido, fechaNacimiento, numeroDocumento, tipoDocumento, correo, telefono)
         {
             if (string.IsNullOrWhiteSpace(especialidad))
@@ -34,6 +36,7 @@ namespace Entity
 
             Especialidad = especialidad;
             NumeroLicencia = numeroLicencia;
+            Password = Password;
         }
 
 

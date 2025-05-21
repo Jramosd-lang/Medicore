@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 using Entity;
 
 namespace BLL
@@ -10,7 +11,7 @@ namespace BLL
     public class PacienteService : IService<Paciente>
     {
         //private readonly EspecieRepository repoEspecie;
-        DAL.PacienteRepository repoPaciente = new DAL.PacienteRepository();
+        PacienteRepository repoPaciente = new PacienteRepository();
 
         public PacienteService()
         {
@@ -82,6 +83,9 @@ namespace BLL
         {
             return repoPaciente.BuscarPorNumeroDocumento(numeroDocumento);
         }
+
+
+        
 
     }
 }

@@ -60,6 +60,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 581);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // button3
             // 
@@ -76,6 +77,7 @@
             button3.TabIndex = 15;
             button3.Text = "Confirmar cita";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -95,12 +97,18 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = Color.FromArgb(185, 218, 233);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(39, 275);
+            dataGridView1.Location = new Point(39, 270);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(680, 201);
             dataGridView1.TabIndex = 13;
             // 
@@ -120,6 +128,7 @@
             comboBox1.BackColor = Color.FromArgb(185, 218, 233);
             comboBox1.FlatStyle = FlatStyle.Flat;
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
             comboBox1.Location = new Point(262, 88);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(182, 28);
@@ -143,6 +152,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(182, 20);
             textBox1.TabIndex = 8;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 

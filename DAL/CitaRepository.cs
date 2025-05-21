@@ -228,5 +228,28 @@ namespace DAL
         {
             return Consultar().FirstOrDefault(x => x.IdCita == id);
         }
+
+
+        public void modificarEstado(int id)
+        {
+            string sentencia = "UPDATE citas SET estado_cita = 'CONFIRMADA' WHERE id_cita = @id";
+            using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
+            {
+                cmd.Parameters.AddWithValue("@id",id);
+                try
+                {
+                    AbrirConexion();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de excepciones
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+        }
     }
 }

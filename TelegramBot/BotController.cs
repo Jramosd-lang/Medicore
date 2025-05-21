@@ -6,6 +6,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot.Requests;
 using TelegramBot.Interfaces;
+using Entity;
 
 namespace TelegramBot
 {
@@ -15,17 +16,20 @@ namespace TelegramBot
         private readonly IPacienteService _pacienteSvc;
         private readonly IDoctorService _doctorSvc;
         private readonly IHistorialService _historialSvc;
+        private readonly ICitaService _citaSvc;
 
         public BotController(
             ITelegramBotClient bot,
             IPacienteService pacienteSvc,
             IDoctorService doctorSvc,
-            IHistorialService historialSvc)
+            IHistorialService historialSvc,
+            ICitaService citaSvc)
         {
             _bot = bot;
             _pacienteSvc = pacienteSvc;
             _doctorSvc = doctorSvc;
             _historialSvc = historialSvc;
+            _citaSvc = citaSvc;
         }
 
         public async Task HandleUpdateAsync(
@@ -114,11 +118,17 @@ namespace TelegramBot
                     break;
 
                 case "citas":
+                    var cita = await _citaSvc.GetCitaByPacienteDocument(documento);
                     await _bot.SendRequest(new SendMessageRequest
                     {
                         ChatId = chatId,
-                        Text = "🔔 Próximamente podrás ver y gestionar tus citas desde aquí."
+                        
+                        Text = cita != null? $"tus citas son las siguientes:\n {cita}" : "no tienes ninguna cita"
+
                     });
+
+                    action = "";
+                   
                     break;
 
                 case "actualizar":

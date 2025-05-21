@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="QuestPDF" Version="2025.5.0" />
+    <PackageReference Include="RJCodeAdvance.RJControl2s" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
