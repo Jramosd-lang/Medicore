@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using TelegramBot.Models;
 
 namespace TelegramBot.Interfaces
 {
     public interface ICitaService
     {
-        Task<string?> GetCitaByPacienteDocument(string documento);
+        Task<List<CitaDto>> GetCitasPorPacienteAsync(string numeroDocumento);
     }
 }

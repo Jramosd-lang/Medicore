@@ -84,5 +84,10 @@ namespace BLL
         {
             repoCita.ModificarEstado(id);
         }
+        public List<Cita> ConsultarPorPacienteId(int pacienteId)
+        {
+            return repoCita.Consultar().Where(c => c.PacienteId == pacienteId).ToList();
+        }
+
     }
 }

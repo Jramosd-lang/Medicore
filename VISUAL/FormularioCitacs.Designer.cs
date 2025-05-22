@@ -133,6 +133,7 @@
             label1.Size = new Size(163, 19);
             label1.TabIndex = 24;
             label1.Text = "GESTION DE CITAS";
+            label1.Click += label1_Click;
             // 
             // label2
             // 

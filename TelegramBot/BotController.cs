@@ -6,7 +6,6 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot.Requests;
 using TelegramBot.Interfaces;
-using Entity;
 
 namespace TelegramBot
 {
@@ -14,21 +13,15 @@ namespace TelegramBot
     {
         private readonly ITelegramBotClient _bot;
         private readonly IPacienteService _pacienteSvc;
-        private readonly IDoctorService _doctorSvc;
-        private readonly IHistorialService _historialSvc;
         private readonly ICitaService _citaSvc;
 
         public BotController(
             ITelegramBotClient bot,
             IPacienteService pacienteSvc,
-            IDoctorService doctorSvc,
-            IHistorialService historialSvc,
             ICitaService citaSvc)
         {
             _bot = bot;
             _pacienteSvc = pacienteSvc;
-            _doctorSvc = doctorSvc;
-            _historialSvc = historialSvc;
             _citaSvc = citaSvc;
         }
 
@@ -61,33 +54,20 @@ namespace TelegramBot
             var chatId = msg.Chat.Id;
             var text = msg.Text.Trim();
 
-            // Si el texto es un número, intentamos buscar el paciente
-            if (int.TryParse(text, out _))
+            var paciente = await _pacienteSvc.GetByDocumentoAsync(text);
+            if (paciente == null)
             {
-                var paciente = await _pacienteSvc.GetByDocumentoAsync(text);
-
-                if (paciente == null)
+                await _bot.SendRequest(new SendMessageRequest
                 {
-                    await _bot.SendRequest(new SendMessageRequest
-                    {
-                        ChatId = chatId,
-                        Text = "No se encontró paciente."
-                    });
-                    return;
-                }
-                else
-                {
-                    await MostrarMenuPrincipal(chatId, paciente);
-                    return;
-                }
+                    ChatId = chatId,
+                    Text = "Bienvenido a MediCore. Por favor, ingresa tu número de documento para consultar tus citas."
+                });
+                return;
             }
-
-            // Para cualquier otro texto, responde siempre con la bienvenida y petición de ID
-            await _bot.SendRequest(new SendMessageRequest
+            else
             {
-                ChatId = chatId,
-                Text = "Bienvenido a MediCore.\nIngresa tu ID (número de documento):"
-            });
+                await MostrarMenuPrincipal(chatId, paciente);
+            }
         }
 
         private async Task HandleCallbackAsync(Telegram.Bot.Types.CallbackQuery query)
@@ -99,69 +79,104 @@ namespace TelegramBot
 
             switch (action)
             {
-                case "historial":
-                    var url = await _historialSvc.GetHistorialPdfUrl(documento);
-                    await _bot.SendRequest(new SendMessageRequest
+                case "proximas":
+                    var citasProximas = (await _citaSvc.GetCitasPorPacienteAsync(documento))
+                        .Where(c => c.Fecha >= DateTime.Today)
+                        .OrderBy(c => c.Fecha)
+                        .ToList();
+                    if (citasProximas.Count == 0)
                     {
-                        ChatId = chatId,
-                        Text = $"Tu historial: {url}"
-                    });
+                        await _bot.SendRequest(new SendMessageRequest
+                        {
+                            ChatId = chatId,
+                            Text = "No tienes citas próximas."
+                        });
+                    }
+                    else
+                    {
+                        string msg = "🗓 *Tus próximas citas:*\n\n";
+                        foreach (var cita in citasProximas)
+                        {
+                            msg += $"• {cita.Fecha:dd/MM/yyyy} - {cita.Hora} hs\n  Doctor: {cita.NombreDoctor}\n  Motivo: {cita.Motivo}\n  Estado: {cita.Estado ?? "No especificado"}\n\n";
+                        }
+                        await _bot.SendRequest(new SendMessageRequest
+                        {
+                            ChatId = chatId,
+                            Text = msg,
+                            ParseMode = Telegram.Bot.Types.Enums.ParseMode.Markdown
+                        });
+                    }
                     break;
 
-                case "doctor":
-                    var doc = await _doctorSvc.GetDoctorByPacienteDocumento(documento);
-                    await _bot.SendRequest(new SendMessageRequest
+                case "pasadas":
+                    var citasPasadas = (await _citaSvc.GetCitasPorPacienteAsync(documento))
+                        .Where(c => c.Fecha < DateTime.Today)
+                        .OrderByDescending(c => c.Fecha)
+                        .ToList();
+                    if (citasPasadas.Count == 0)
                     {
-                        ChatId = chatId,
-                        Text = doc != null ? $"Tu doctor: {doc}" : "Doctor no asignado"
-                    });
+                        await _bot.SendRequest(new SendMessageRequest
+                        {
+                            ChatId = chatId,
+                            Text = "No tienes citas anteriores."
+                        });
+                    }
+                    else
+                    {
+                        string msg = "🗓 *Tus citas pasadas:*\n\n";
+                        foreach (var cita in citasPasadas)
+                        {
+                            msg += $"• {cita.Fecha:dd/MM/yyyy} - {cita.Hora} hs\n  Doctor: {cita.NombreDoctor}\n  Motivo: {cita.Motivo}\n  Estado: {cita.Estado ?? "No especificado"}\n\n";
+                        }
+                        await _bot.SendRequest(new SendMessageRequest
+                        {
+                            ChatId = chatId,
+                            Text = msg,
+                            ParseMode = Telegram.Bot.Types.Enums.ParseMode.Markdown
+                        });
+                    }
                     break;
 
-                case "citas":
-                    var cita = await _citaSvc.GetCitaByPacienteDocument(documento);
-                    await _bot.SendRequest(new SendMessageRequest
+                case "datos":
+                    var pacienteDatos = await _pacienteSvc.GetByDocumentoAsync(documento);
+                    if (pacienteDatos == null)
                     {
-                        ChatId = chatId,
-                        
-                        Text = cita != null? $"tus citas son las siguientes:\n {cita}" : "no tienes ninguna cita"
-
-                    });
-
-                    action = "";
-                   
+                        await _bot.SendRequest(new SendMessageRequest
+                        {
+                            ChatId = chatId,
+                            Text = "No se encontraron tus datos."
+                        });
+                    }
+                    else
+                    {
+                        string datosMsg = $"📝 *Tus datos:*\n" +
+                            $"Nombre: {pacienteDatos.Nombre} {pacienteDatos.Apellido}\n" +
+                            $"Correo: {pacienteDatos.Correo}\n" +
+                            $"Teléfono: {pacienteDatos.Telefono}\n" +
+                            $"Ocupación: {pacienteDatos.Ocupacion}\n" +
+                            $"Sexo: {pacienteDatos.Sexo}\n" +
+                            $"Religión: {pacienteDatos.Religion}";
+                        await _bot.SendRequest(new SendMessageRequest
+                        {
+                            ChatId = chatId,
+                            Text = datosMsg,
+                            ParseMode = Telegram.Bot.Types.Enums.ParseMode.Markdown
+                        });
+                    }
                     break;
 
-                case "actualizar":
-                    await _bot.SendRequest(new SendMessageRequest
-                    {
-                        ChatId = chatId,
-                        Text = "Para actualizar tus datos, por favor comunícate con la recepción del consultorio."
-                    });
+                case "volver":
+                    var pacienteV = await _pacienteSvc.GetByDocumentoAsync(documento);
+                    if (pacienteV != null)
+                        await MostrarMenuPrincipal(chatId, pacienteV);
                     break;
 
                 case "ayuda":
                     await _bot.SendRequest(new SendMessageRequest
                     {
                         ChatId = chatId,
-                        Text = "Si tienes dudas, puedes escribirnos a: soporte@medicore.com o llamar al 3106933004."
+                        Text = "¿Necesitas ayuda? Comunícate con nosotros a:\n📞 3106933004\n✉️ recepcion@medicore.com\n¡Estamos para ayudarte!"
                     });
-                    break;
-
-                case "volver":
-                    // Buscar de nuevo el paciente para mostrar el menú principal
-                    var paciente = await _pacienteSvc.GetByDocumentoAsync(documento);
-                    if (paciente != null)
-                    {
-                        await MostrarMenuPrincipal(chatId, paciente);
-                    }
-                    else
-                    {
-                        await _bot.SendRequest(new SendMessageRequest
-                        {
-                            ChatId = chatId,
-                            Text = "Sesión finalizada o paciente no encontrado. Por favor ingresa tu ID nuevamente."
-                        });
-                    }
                     break;
             }
 
@@ -174,38 +189,28 @@ namespace TelegramBot
 
         private async Task MostrarMenuPrincipal(long chatId, Entity.Paciente paciente)
         {
-            await _bot.SendRequest(new SendMessageRequest
-            {
-                ChatId = chatId,
-                Text = $"¡Bienvenido, {paciente.Nombre} {paciente.Apellido}! ¿Qué deseas consultar?"
-            });
-
             var menu = new InlineKeyboardMarkup(new[]
             {
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData("📄 Historial", $"historial|{paciente.NumeroDocumento}"),
-                    InlineKeyboardButton.WithCallbackData("👨‍⚕️ Doctor", $"doctor|{paciente.NumeroDocumento}")
+                    InlineKeyboardButton.WithCallbackData("📅 Próximas citas", $"proximas|{paciente.NumeroDocumento}"),
+                    InlineKeyboardButton.WithCallbackData("📖 Citas pasadas", $"pasadas|{paciente.NumeroDocumento}")
                 },
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData("📅 Próximas citas", $"citas|{paciente.NumeroDocumento}")
+                    InlineKeyboardButton.WithCallbackData("👤 Mis datos", $"datos|{paciente.NumeroDocumento}")
                 },
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData("🔄 Actualizar datos", $"actualizar|{paciente.NumeroDocumento}"),
+                    InlineKeyboardButton.WithCallbackData("🔄 Volver al menú", $"volver|{paciente.NumeroDocumento}"),
                     InlineKeyboardButton.WithCallbackData("❓ Ayuda", $"ayuda|{paciente.NumeroDocumento}")
-                },
-                new[]
-                {
-                    InlineKeyboardButton.WithCallbackData("⬅️ Volver al menú", $"volver|{paciente.NumeroDocumento}")
                 }
             });
 
             await _bot.SendRequest(new SendMessageRequest
             {
                 ChatId = chatId,
-                Text = "Elige una opción:",
+                Text = $"¡Hola, {paciente.Nombre} {paciente.Apellido}! ¿Qué deseas consultar?",
                 ReplyMarkup = menu
             });
         }
