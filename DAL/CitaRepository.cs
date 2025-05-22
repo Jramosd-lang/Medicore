@@ -40,9 +40,7 @@ namespace DAL
             int ordEst = reader.GetOrdinal("estado_cita");
             int ordMot = reader.GetOrdinal("motivo_cita");
             int ordObs = reader.GetOrdinal("observaciones");
-            int ordIdHistorial = reader.GetOrdinal("id_historial");
-            int ordIdHistorialMedico = reader.GetOrdinal("id_historial_medico");
-            int ordIdMedico = reader.GetOrdinal("id_medico");
+       
 
 
 

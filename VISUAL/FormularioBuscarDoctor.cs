@@ -72,7 +72,7 @@ namespace VISUAL
             {
                 var fila = dataGridView1.SelectedRows[0];
 
-                int id = (int)fila.Cells[2].Value;
+                int id = (int)fila.Cells[3].Value;
 
                 Doctor doctor = doctorService.BuscarId(id);
                 return doctor;

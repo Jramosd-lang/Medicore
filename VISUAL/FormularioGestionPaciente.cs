@@ -55,7 +55,7 @@ namespace VISUAL
             ComboBoxTipoDoc.Text = paciente.TipoDocumento;
             txtCorreo.Text = paciente.Correo;
             txtTelefono.Text = paciente.Telefono;
-
+            ComboBoxSexo.Text = paciente.Sexo;
 
         }
 
@@ -67,7 +67,6 @@ namespace VISUAL
             DateTime fechaNac = DateTime.Parse(dateNacimiento.Text);
             string numeroDoc = txtNumDoc.Text;
             string tipoDoc = ComboBoxTipoDoc.Text;
-            string ruta_historia_clinica = " asdfasdfasdfa";
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
             string ocupacion = txtOcupacion.Text;
@@ -154,7 +153,6 @@ namespace VISUAL
             DateTime fechaNac = DateTime.Parse(dateNacimiento.Text);
             string numeroDoc = txtNumDoc.Text;
             string tipoDoc = ComboBoxTipoDoc.Text;
-            string ruta_historia_clinica = " asdfasdfasdfa";
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
             string religion = ComboBoxReligion.Text;

@@ -95,7 +95,7 @@ namespace VISUAL
             {
                 var fila = dataGridView1.SelectedRows[0];
 
-                int id = (int)fila.Cells[1].Value;
+                int id = (int)fila.Cells[2].Value;
 
                 Paciente paciente = pacienteService.BuscarId(id);
                 return paciente;

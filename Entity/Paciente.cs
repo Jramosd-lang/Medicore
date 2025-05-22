@@ -2,7 +2,7 @@
 {
     public class Paciente : Person
     {
-        public string RutaHistorialPdf { get; private set; }
+
 
         public string Ocupacion { get; set; }
         public string Religion { get; set; }
@@ -30,13 +30,6 @@
         }
 
  
-        public void ActualizarRutaHistorialPdf(string nuevaRuta)
-        {
-            if (string.IsNullOrWhiteSpace(nuevaRuta))
-                throw new ArgumentException("La ruta del historial médico no puede estar vacía", nameof(nuevaRuta));
-
-            RutaHistorialPdf = nuevaRuta;
-        }
 
         
     }

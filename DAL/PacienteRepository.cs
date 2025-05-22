@@ -153,11 +153,11 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@fecha_nacimiento", entity.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@tipo_documento", entity.TipoDocumento);
                     cmd.Parameters.AddWithValue("@numero_documento", entity.NumeroDocumento);
-                    cmd.Parameters.AddWithValue("@ruta_historial_pdf", entity.RutaHistorialPdf);
                     cmd.Parameters.AddWithValue("@correo", entity.Correo);
                     cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
                     cmd.Parameters.AddWithValue("@ocupacion", entity.Ocupacion);
                     cmd.Parameters.AddWithValue("@religion", entity.Religion);
+                    cmd.Parameters.AddWithValue("@sexo", entity.Sexo);
 
 
                 try
@@ -207,7 +207,6 @@ namespace DAL
                telefono          = @telefono,
                ocupacion         = @ocupacion,
                religion          = @religion
-               sexo              = @sexo
                WHERE id_paciente      = @id;
                ";
 
@@ -222,7 +221,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@telefono", paciente.Telefono);
             cmd.Parameters.AddWithValue("@ocupacion", paciente.Ocupacion);
             cmd.Parameters.AddWithValue("@religion", paciente.Religion);
-            cmd.Parameters.AddWithValue("@sexo", paciente.Sexo);
+
 
             try
             {

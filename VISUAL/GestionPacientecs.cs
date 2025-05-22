@@ -28,7 +28,7 @@ namespace VISUAL
             {
                 var fila = dataGridView1.SelectedRows[0];
 
-                int id = (int)fila.Cells[1].Value;
+                int id = (int)fila.Cells[2].Value;
                 return id;
 
 
@@ -42,7 +42,7 @@ namespace VISUAL
             {
                 var fila = dataGridView1.SelectedRows[0];
 
-                int id = (int)fila.Cells[1].Value;
+                int id = (int)fila.Cells[2].Value;
 
                 Paciente paciente = ServicePaciente.BuscarId(id);
                 return paciente;

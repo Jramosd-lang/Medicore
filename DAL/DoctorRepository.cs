@@ -85,7 +85,7 @@ namespace DAL
                 ? reader.GetString(ordPas)
                 : string.Empty;
 
-            string sexo = !reader.IsDBNull(ordSex)
+            string ordSexo = !reader.IsDBNull(ordSex)
                 ? reader.GetString(ordSex)
                 : string.Empty;
 
@@ -101,7 +101,7 @@ namespace DAL
                 correo: correo,
                 telefono: telefono,
                 password: contrasena,
-                sexo: sexo
+                sexo: ordSexo
 
             );
         }
@@ -139,7 +139,7 @@ namespace DAL
             if (entity == null || string.IsNullOrWhiteSpace(entity.Nombre))
                 return "Datos inválidos";
 
-            string sentencia = "INSERT INTO doctores (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, especialidad, numero_licencia,correo,telefono,password) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @especialidad, @numero_licencia, @correo, @telefono,@password)";
+            string sentencia = "INSERT INTO doctores (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, especialidad, numero_licencia,correo,telefono,password,sexo) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @especialidad, @numero_licencia, @correo, @telefono,@password,@sexo)";
 
             using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
             {
@@ -153,6 +153,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@correo", entity.Correo);
                 cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
                 cmd.Parameters.AddWithValue("@password", entity.Password);
+                cmd.Parameters.AddWithValue("@sexo", entity.Sexo);
 
                 try
                 {
@@ -215,7 +216,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@numero_licencia", entity.NumeroLicencia);
                 cmd.Parameters.AddWithValue("@correo", entity.Correo);
                 cmd.Parameters.AddWithValue("@telefono", entity.Telefono);
-              
+                cmd.Parameters.AddWithValue("@password", entity.Password);
+                cmd.Parameters.AddWithValue("@sexo", entity.Sexo);
+
 
                 try
                 {

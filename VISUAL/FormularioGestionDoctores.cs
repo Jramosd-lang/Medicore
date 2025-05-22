@@ -77,6 +77,7 @@ namespace VISUAL
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
             string sexo = ComboBoxSexo.Text;
+            string password = numeroDoc;
 
             string numeroLicencia = txtNroLicencia.Text;
 
@@ -91,12 +92,12 @@ namespace VISUAL
                 telefono,
                 especialidad,
                 numeroLicencia,
-                numeroDoc,
+                password,
                 sexo);
 
             DoctorService doctorService = new DoctorService();
 
-            doctorService.Agregar(doctor);
+            MessageBox.Show(doctorService.Agregar(doctor));
 
         }
 
@@ -123,7 +124,7 @@ namespace VISUAL
 
         private void modificar(object sender, EventArgs e)
         {
-            
+
             string nombre = txtPrimerNombre.Text + " " + txtSegundoNombre.Text;
             string apellido = txtPrimerApellido.Text + " " + txtSegundoApellido.Text;
             DateTime fechaNac = DateTime.Parse(dateNacimiento.Text);
@@ -133,7 +134,7 @@ namespace VISUAL
             string numeroLicencia = txtNroLicencia.Text;
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
-            string password = "";
+            string password = numeroDoc;
             string sexo = ComboBoxSexo.Text;
 
 

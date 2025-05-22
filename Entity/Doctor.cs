@@ -37,7 +37,7 @@ namespace Entity
 
             Especialidad = especialidad;
             NumeroLicencia = numeroLicencia;
-            Password = Password;
+            Password = password;
         }
 
 

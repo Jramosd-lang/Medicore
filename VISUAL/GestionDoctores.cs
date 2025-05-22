@@ -28,7 +28,7 @@ namespace VISUAL
             {
                 var fila = dataGridView1.SelectedRows[0];
 
-                int id = (int)fila.Cells[2].Value;
+                int id = (int)fila.Cells[3].Value;
 
                 Doctor doctor = ServiceDoctor.BuscarId(id);
                 return doctor;
@@ -44,7 +44,7 @@ namespace VISUAL
             {
                 var fila = dataGridView1.SelectedRows[0];
 
-                int id = (int)fila.Cells[2].Value;
+                int id = (int)fila.Cells[3].Value;
                 return id;
 
 
@@ -83,10 +83,12 @@ namespace VISUAL
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 91, 103);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-            dataGridView1.Columns[0].FillWeight = 90;
-            dataGridView1.Columns[1].FillWeight = 90;
-            dataGridView1.Columns[2].FillWeight = 20;
 
+          
+            
+            
+            dataGridView1.Columns[6].Visible = false;
+            
 
             // Evita que el usuario cambie el tamaño de las filas
             dataGridView1.AllowUserToResizeRows = false;
@@ -110,7 +112,7 @@ namespace VISUAL
 
         private void BotonModificar_Click(object sender, EventArgs e)
         {
-            Doctor doctor = null;
+            Doctor doctor;
             doctor = btnObtener_Click(sender, e);
             new FormularioGestionDoctores(doctor).ShowDialog();
             CargarDoctores();

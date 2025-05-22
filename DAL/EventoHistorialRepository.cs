@@ -30,13 +30,13 @@ namespace DAL
         private EventoHistorialMedico Mappear(MySqlDataReader reader)
         {
             // Obtén los ordinales una sola vez
-            int ordId = reader.GetOrdinal("id_evento_historial_medico");
+            int ordId = reader.GetOrdinal("id_evento");
             int ordHm = reader.GetOrdinal("id_historial_medico");
             int ordFec = reader.GetOrdinal("fecha");
             int ordDes = reader.GetOrdinal("descripcion");
             int ordOb = reader.GetOrdinal("observaciones");
-            int ordDiag = reader.GetOrdinal("diagnosticos");
-            int ordTra = reader.GetOrdinal("tratamientos");
+            int ordDiag = reader.GetOrdinal("diagnostico");
+            int ordTra = reader.GetOrdinal("tratamiento");
             int ordMedi = reader.GetOrdinal("medicamentos");
             int ordRec = reader.GetOrdinal("recomendaciones");
             int ordEx = reader.GetOrdinal("examenes");
