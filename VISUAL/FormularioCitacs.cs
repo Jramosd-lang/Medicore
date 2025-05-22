@@ -21,7 +21,7 @@ namespace VISUAL
         public FormularioCitacs()
         {
             InitializeComponent();
-            QuestPDF.Settings.License = LicenseType.Community; 
+            QuestPDF.Settings.License = LicenseType.Community;
         }
 
         EspecialidadCitaService especialidadCitaService = new EspecialidadCitaService();
@@ -43,7 +43,7 @@ namespace VISUAL
         private void cargarCitas()
         {
             dataGridView1.DataSource = citaService.Consultar();
-            
+
             dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[3].Visible = false;
@@ -80,6 +80,7 @@ namespace VISUAL
 
         private void botonAgregarCita_Click(object sender, EventArgs e)
         {
+
             AgregarCita();
             citaService.Consultar();
             cargarCitas();
@@ -89,24 +90,23 @@ namespace VISUAL
         {
             try
             {
+                // Validar que PacienteResult y DoctorResult no sean nulos
+                if (PacienteResult == null || DoctorResult == null ||
+                    string.IsNullOrWhiteSpace(comboBox1.Text) ||
+                    string.IsNullOrWhiteSpace(comboBoxHora.Text) ||
+                    string.IsNullOrWhiteSpace(txtMotivo.Text) ||
+                    string.IsNullOrWhiteSpace(richTextBox1.Text))
+                {
+                    MessageBox.Show("No se han completado todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 DateTime fechaSeleccionada = dateTimePicker1.Value;
-                string ruta = "C:\\Users\\jr10p\\source\\repos\\medicore\\PDF-citas\\" + PacienteResult.Id +"-"+fechaSeleccionada.ToString("dd_MM_yyyy")+".pdf";
+                string ruta = "C:\\Users\\jr10p\\source\\repos\\medicoreGithub\\PDF-citas" + PacienteResult.Id + "-" + fechaSeleccionada.ToString("dd_MM_yyyy") + ".pdf";
                 string especialidad = comboBox1.Text;
                 // Buscar la especialidad por nombre y obtener el primer id
                 var especialidades = especialidadCitaService.Consultar().Where(e => e.nombre == especialidad).ToList();
                 int idEspecialidad = especialidades.Any() ? especialidades.First().id : 0;
-
-                // Validar que PacienteResult y DoctorResult no sean nulos
-                if (PacienteResult == null)
-                {
-                    MessageBox.Show("Debe seleccionar un paciente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (DoctorResult == null)
-                {
-                    MessageBox.Show("Debe seleccionar un doctor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
                 Cita cita = new Cita(
                     0,
@@ -141,7 +141,7 @@ namespace VISUAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar la cita: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar la cita, asegúrese de llenar todos los datos");
             }
         }
 
@@ -183,5 +183,27 @@ namespace VISUAL
             citaService.Eliminar(seleccionarPaciente().IdCita);
             cargarCitas();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        
+            string texto = textBox1.Text.Trim();
+            // Obtén la lista completa de citas
+            var todasLasCitas = citaService.Consultar();
+
+            // Filtra solo las citas cuyo paciente tiene un número de documento que contiene el texto
+            var citasFiltradas = string.IsNullOrEmpty(texto)
+                ? todasLasCitas
+                : todasLasCitas.Where(cita =>
+                {
+                    PacienteService pacienteService = new PacienteService();
+                    var paciente = pacienteService.BuscarId(cita.PacienteId);
+                    return paciente != null && paciente.NumeroDocumento.Contains(texto, StringComparison.OrdinalIgnoreCase);
+                }).ToList();
+
+            dataGridView1.DataSource = citasFiltradas;
+        
+        }
+   
     }
 }

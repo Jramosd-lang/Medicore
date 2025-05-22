@@ -37,6 +37,7 @@ namespace VISUAL
             BotonGestionarCItas = new Button();
             BotonAgendaYAtencion = new Button();
             PanelSubmenuGestion = new Panel();
+            button1 = new Button();
             BotonGestionarDoctores = new Button();
             BotonGestionarPacientes = new Button();
             BotonGestionar = new Button();
@@ -51,7 +52,6 @@ namespace VISUAL
             BotonMinimizar = new Button();
             pictureBox3 = new PictureBox();
             label1 = new Label();
-            button1 = new Button();
             MenuLateral.SuspendLayout();
             PanelSubMenuAgenda.SuspendLayout();
             PanelSubmenuGestion.SuspendLayout();
@@ -186,6 +186,27 @@ namespace VISUAL
             PanelSubmenuGestion.TabIndex = 5;
             PanelSubmenuGestion.Paint += PanelSubmenuRegistrarPacientes_Paint;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button1.ForeColor = Color.FromArgb(45, 91, 103);
+            button1.Location = new Point(0, 80);
+            button1.Margin = new Padding(0, 10, 0, 0);
+            button1.Name = "button1";
+            button1.Padding = new Padding(40, 0, 0, 0);
+            button1.Size = new Size(300, 40);
+            button1.TabIndex = 7;
+            button1.Text = "Gestion de citas";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_2;
+            // 
             // BotonGestionarDoctores
             // 
             BotonGestionarDoctores.BackColor = Color.Transparent;
@@ -295,7 +316,7 @@ namespace VISUAL
             // 
             // pictureBox2
             // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(295, 260);
             pictureBox2.Name = "pictureBox2";
@@ -389,27 +410,6 @@ namespace VISUAL
             label1.TabIndex = 0;
             label1.Text = "Medicore";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Transparent;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(202, 225, 231);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.ForeColor = Color.FromArgb(45, 91, 103);
-            button1.Location = new Point(0, 80);
-            button1.Margin = new Padding(0, 10, 0, 0);
-            button1.Name = "button1";
-            button1.Padding = new Padding(40, 0, 0, 0);
-            button1.Size = new Size(300, 40);
-            button1.TabIndex = 7;
-            button1.Text = "Gestion de citas";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_2;
-            // 
             // FormMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -424,6 +424,7 @@ namespace VISUAL
             MinimumSize = new Size(950, 600);
             Name = "FormMenu";
             Text = "A";
+            WindowState = FormWindowState.Maximized;
             MenuLateral.ResumeLayout(false);
             PanelSubMenuAgenda.ResumeLayout(false);
             PanelSubmenuGestion.ResumeLayout(false);

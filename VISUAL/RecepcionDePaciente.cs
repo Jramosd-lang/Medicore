@@ -23,7 +23,7 @@ namespace VISUAL
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            cargarPacientes();
+            cargarCitas();
         }
         private int seleccionarPaciente()
         {
@@ -33,7 +33,7 @@ namespace VISUAL
             {
                 var fila = dataGridView1.SelectedRows[0];
 
-                int id = (int)fila.Cells[1].Value;
+                int id = (int)fila.Cells[0].Value;
 
                
                 return id;
@@ -43,7 +43,7 @@ namespace VISUAL
             return -1;
         }
 
-        private void cargarPacientes()
+        private void cargarCitas()
         {
             dataGridView1.DataSource = citaService.Consultar();
             dataGridView1.Columns[2].Visible = false;
@@ -83,22 +83,22 @@ namespace VISUAL
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             var texto = textBox1.Text.Trim();
+            var tipoSeleccionado = comboBoxTipoDocumento.SelectedItem?.ToString() ?? string.Empty;
 
             var listaPacientes = pacienteService.Consultar();
-
             var todos = citaService.Consultar();
-
-
-
 
             var citasFiltradas = todos
                 .Join(
-                listaPacientes,
-                cita => cita.PacienteId,
-                 paciente => paciente.Id,
-                  (cita, paciente) => new { cita, paciente }
+                    listaPacientes,
+                    cita => cita.PacienteId,
+                    paciente => paciente.Id,
+                    (cita, paciente) => new { cita, paciente }
                 )
-                .Where(x => x.paciente.NumeroDocumento.Contains(texto))
+                .Where(x =>
+                    x.paciente.NumeroDocumento.Contains(texto) &&
+                    (string.IsNullOrEmpty(tipoSeleccionado) || x.paciente.TipoDocumento == tipoSeleccionado)
+                )
                 .Select(x => x.cita)
                 .ToList();
 
@@ -111,7 +111,8 @@ namespace VISUAL
             CitaService citaService = new CitaService();
             citaService.modificarEstado(id);
             MessageBox.Show("Cita confirmada", "Confirmación",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            cargarCitas();
         }
     }
 }

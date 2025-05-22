@@ -82,7 +82,7 @@ namespace BLL
 
         public void modificarEstado(int id)
         {
-            repoCita.modificarEstado(id);
+            repoCita.ModificarEstado(id);
         }
     }
 }

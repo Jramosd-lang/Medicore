@@ -84,11 +84,11 @@ namespace VISUAL
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
 
-          
-            
-            
+
+
+
             dataGridView1.Columns[6].Visible = false;
-            
+
 
             // Evita que el usuario cambie el tamaño de las filas
             dataGridView1.AllowUserToResizeRows = false;
@@ -118,7 +118,7 @@ namespace VISUAL
             CargarDoctores();
         }
 
-     
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -135,6 +135,23 @@ namespace VISUAL
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = textBox1.Text.Trim();
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dataGridView1.DataSource = ServiceDoctor.Consultar();
+            }
+            else
+            {
+                var doctoresFiltrados = ServiceDoctor.Consultar()
+                    .Where(d => d.NumeroDocumento != null && d.NumeroDocumento.Contains(filtro, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+                dataGridView1.DataSource = doctoresFiltrados;
+            }
+            estiloTabla();
         }
     }
 }

@@ -55,17 +55,6 @@ namespace VISUAL
             LblPrimerNombre = new Label();
             groupBox3 = new GroupBox();
             ComboBoxPreTelefono = new ComboBox();
-            groupBox4 = new GroupBox();
-            ComboBoxPreTelefonoEmergencia = new ComboBox();
-            label16 = new Label();
-            txtTelefonoEmergencia = new TextBox();
-            label17 = new Label();
-            label15 = new Label();
-            lblParentesco = new Label();
-            ComboBoxParentesco = new ComboBox();
-            txtNombreEmergencia = new TextBox();
-            label14 = new Label();
-            label13 = new Label();
             label6 = new Label();
             label5 = new Label();
             txtTelefono = new TextBox();
@@ -73,8 +62,6 @@ namespace VISUAL
             txtCorreo = new TextBox();
             LblCorreoElectronico = new Label();
             BotonAgregar = new Button();
-            label18 = new Label();
-            textBox1 = new TextBox();
             groupBox1 = new GroupBox();
             txtNroLicencia = new TextBox();
             label20 = new Label();
@@ -86,22 +73,21 @@ namespace VISUAL
             GroupBoxDocumento.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            groupBox4.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // GroupBoxDocumento
             // 
-            GroupBoxDocumento.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             GroupBoxDocumento.Controls.Add(LblDocumento);
             GroupBoxDocumento.Controls.Add(label10);
             GroupBoxDocumento.Controls.Add(label7);
             GroupBoxDocumento.Controls.Add(ComboBoxTipoDoc);
             GroupBoxDocumento.Controls.Add(label1);
             GroupBoxDocumento.Controls.Add(txtNumDoc);
-            GroupBoxDocumento.Location = new Point(12, 12);
+            GroupBoxDocumento.Dock = DockStyle.Top;
+            GroupBoxDocumento.Location = new Point(0, 0);
             GroupBoxDocumento.Name = "GroupBoxDocumento";
-            GroupBoxDocumento.Size = new Size(998, 98);
+            GroupBoxDocumento.Size = new Size(1043, 98);
             GroupBoxDocumento.TabIndex = 22;
             GroupBoxDocumento.TabStop = false;
             GroupBoxDocumento.Text = "Documento de identidad";
@@ -136,13 +122,13 @@ namespace VISUAL
             // 
             // ComboBoxTipoDoc
             // 
+            ComboBoxTipoDoc.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxTipoDoc.FormattingEnabled = true;
             ComboBoxTipoDoc.Items.AddRange(new object[] { "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            ComboBoxTipoDoc.Location = new Point(203, 42);
+            ComboBoxTipoDoc.Location = new Point(203, 51);
             ComboBoxTipoDoc.Name = "ComboBoxTipoDoc";
             ComboBoxTipoDoc.Size = new Size(268, 28);
             ComboBoxTipoDoc.TabIndex = 19;
-            ComboBoxTipoDoc.Text = "         -elija su tipo de documento-";
             // 
             // label1
             // 
@@ -160,10 +146,10 @@ namespace VISUAL
             txtNumDoc.Name = "txtNumDoc";
             txtNumDoc.Size = new Size(157, 27);
             txtNumDoc.TabIndex = 5;
+            txtNumDoc.KeyPress += txtNumDoc_KeyPress;
             // 
             // groupBox2
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(ComboBoxSexo);
@@ -180,9 +166,10 @@ namespace VISUAL
             groupBox2.Controls.Add(LblPrimerApellido);
             groupBox2.Controls.Add(LblSegundoNombre);
             groupBox2.Controls.Add(LblPrimerNombre);
-            groupBox2.Location = new Point(12, 116);
+            groupBox2.Dock = DockStyle.Top;
+            groupBox2.Location = new Point(0, 98);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(998, 229);
+            groupBox2.Size = new Size(1043, 229);
             groupBox2.TabIndex = 23;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos generales";
@@ -209,13 +196,13 @@ namespace VISUAL
             // 
             // ComboBoxSexo
             // 
+            ComboBoxSexo.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxSexo.FormattingEnabled = true;
             ComboBoxSexo.Items.AddRange(new object[] { "Femenino", "Masculino" });
             ComboBoxSexo.Location = new Point(203, 170);
             ComboBoxSexo.Name = "ComboBoxSexo";
             ComboBoxSexo.Size = new Size(268, 28);
             ComboBoxSexo.TabIndex = 27;
-            ComboBoxSexo.Text = "                     -elija su sexo-";
             // 
             // dateNacimiento
             // 
@@ -331,141 +318,30 @@ namespace VISUAL
             // 
             // groupBox3
             // 
-            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox3.Controls.Add(ComboBoxPreTelefono);
-            groupBox3.Controls.Add(groupBox4);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(label5);
             groupBox3.Controls.Add(txtTelefono);
             groupBox3.Controls.Add(label4);
             groupBox3.Controls.Add(txtCorreo);
             groupBox3.Controls.Add(LblCorreoElectronico);
-            groupBox3.Location = new Point(12, 351);
+            groupBox3.Dock = DockStyle.Top;
+            groupBox3.Location = new Point(0, 327);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(998, 289);
+            groupBox3.Size = new Size(1043, 131);
             groupBox3.TabIndex = 24;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos de contacto";
             // 
             // ComboBoxPreTelefono
             // 
+            ComboBoxPreTelefono.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxPreTelefono.FormattingEnabled = true;
             ComboBoxPreTelefono.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
             ComboBoxPreTelefono.Location = new Point(632, 33);
             ComboBoxPreTelefono.Name = "ComboBoxPreTelefono";
             ComboBoxPreTelefono.Size = new Size(78, 28);
             ComboBoxPreTelefono.TabIndex = 36;
-            ComboBoxPreTelefono.Text = "   +57";
-            // 
-            // groupBox4
-            // 
-            groupBox4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            groupBox4.Controls.Add(ComboBoxPreTelefonoEmergencia);
-            groupBox4.Controls.Add(label16);
-            groupBox4.Controls.Add(txtTelefonoEmergencia);
-            groupBox4.Controls.Add(label17);
-            groupBox4.Controls.Add(label15);
-            groupBox4.Controls.Add(lblParentesco);
-            groupBox4.Controls.Add(ComboBoxParentesco);
-            groupBox4.Controls.Add(txtNombreEmergencia);
-            groupBox4.Controls.Add(label14);
-            groupBox4.Controls.Add(label13);
-            groupBox4.Location = new Point(17, 92);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(975, 175);
-            groupBox4.TabIndex = 25;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Datos de contacto de emergencia";
-            // 
-            // ComboBoxPreTelefonoEmergencia
-            // 
-            ComboBoxPreTelefonoEmergencia.FormattingEnabled = true;
-            ComboBoxPreTelefonoEmergencia.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            ComboBoxPreTelefonoEmergencia.Location = new Point(212, 134);
-            ComboBoxPreTelefonoEmergencia.Name = "ComboBoxPreTelefonoEmergencia";
-            ComboBoxPreTelefonoEmergencia.Size = new Size(78, 28);
-            ComboBoxPreTelefonoEmergencia.TabIndex = 35;
-            ComboBoxPreTelefonoEmergencia.Text = "   +57";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.ForeColor = Color.FromArgb(79, 127, 140);
-            label16.Location = new Point(112, 138);
-            label16.Name = "label16";
-            label16.Size = new Size(25, 20);
-            label16.TabIndex = 34;
-            label16.Text = "(*)";
-            // 
-            // txtTelefonoEmergencia
-            // 
-            txtTelefonoEmergencia.Location = new Point(296, 135);
-            txtTelefonoEmergencia.Name = "txtTelefonoEmergencia";
-            txtTelefonoEmergencia.Size = new Size(219, 27);
-            txtTelefonoEmergencia.TabIndex = 33;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(36, 138);
-            label17.Name = "label17";
-            label17.Size = new Size(67, 20);
-            label17.TabIndex = 32;
-            label17.Text = "Telefono";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.ForeColor = Color.FromArgb(79, 127, 140);
-            label15.Location = new Point(121, 92);
-            label15.Name = "label15";
-            label15.Size = new Size(25, 20);
-            label15.TabIndex = 29;
-            label15.Text = "(*)";
-            // 
-            // lblParentesco
-            // 
-            lblParentesco.AutoSize = true;
-            lblParentesco.Location = new Point(36, 92);
-            lblParentesco.Name = "lblParentesco";
-            lblParentesco.Size = new Size(80, 20);
-            lblParentesco.TabIndex = 31;
-            lblParentesco.Text = "Parentesco";
-            // 
-            // ComboBoxParentesco
-            // 
-            ComboBoxParentesco.FormattingEnabled = true;
-            ComboBoxParentesco.Items.AddRange(new object[] { "hermano/a", "padre", "abuelo", "conyuge" });
-            ComboBoxParentesco.Location = new Point(212, 84);
-            ComboBoxParentesco.Name = "ComboBoxParentesco";
-            ComboBoxParentesco.Size = new Size(303, 28);
-            ComboBoxParentesco.TabIndex = 30;
-            // 
-            // txtNombreEmergencia
-            // 
-            txtNombreEmergencia.Location = new Point(212, 41);
-            txtNombreEmergencia.Name = "txtNombreEmergencia";
-            txtNombreEmergencia.Size = new Size(303, 27);
-            txtNombreEmergencia.TabIndex = 26;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.ForeColor = Color.FromArgb(79, 127, 140);
-            label14.Location = new Point(165, 48);
-            label14.Name = "label14";
-            label14.Size = new Size(25, 20);
-            label14.TabIndex = 18;
-            label14.Text = "(*)";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(36, 48);
-            label13.Name = "label13";
-            label13.Size = new Size(132, 20);
-            label13.TabIndex = 0;
-            label13.Text = "Nombre completo";
             // 
             // label6
             // 
@@ -493,6 +369,7 @@ namespace VISUAL
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(157, 27);
             txtTelefono.TabIndex = 16;
+            txtTelefono.KeyPress += txtNumDoc_KeyPress;
             // 
             // label4
             // 
@@ -521,13 +398,13 @@ namespace VISUAL
             // 
             // BotonAgregar
             // 
-            BotonAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BotonAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonAgregar.BackColor = Color.FromArgb(45, 91, 103);
             BotonAgregar.FlatAppearance.BorderSize = 0;
             BotonAgregar.FlatStyle = FlatStyle.Flat;
             BotonAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonAgregar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonAgregar.Location = new Point(843, 800);
+            BotonAgregar.Location = new Point(840, 595);
             BotonAgregar.Margin = new Padding(0);
             BotonAgregar.Name = "BotonAgregar";
             BotonAgregar.Size = new Size(167, 34);
@@ -536,34 +413,18 @@ namespace VISUAL
             BotonAgregar.UseVisualStyleBackColor = false;
             BotonAgregar.Click += BotonAgregarDoctores_click;
             // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(65, 671);
-            label18.Name = "label18";
-            label18.Size = new Size(93, 20);
-            label18.TabIndex = 36;
-            label18.Text = "Especialidad";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(194, 668);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(303, 27);
-            textBox1.TabIndex = 36;
-            // 
             // groupBox1
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(txtNroLicencia);
             groupBox1.Controls.Add(label20);
             groupBox1.Controls.Add(label19);
             groupBox1.Controls.Add(label25);
             groupBox1.Controls.Add(txtEspecialidad);
             groupBox1.Controls.Add(label27);
-            groupBox1.Location = new Point(12, 671);
+            groupBox1.Dock = DockStyle.Top;
+            groupBox1.Location = new Point(0, 458);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(998, 108);
+            groupBox1.Size = new Size(1043, 108);
             groupBox1.TabIndex = 37;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalles del profesional";
@@ -624,13 +485,13 @@ namespace VISUAL
             // 
             // BotonModificar
             // 
-            BotonModificar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BotonModificar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonModificar.BackColor = Color.FromArgb(45, 91, 103);
             BotonModificar.FlatAppearance.BorderSize = 0;
             BotonModificar.FlatStyle = FlatStyle.Flat;
             BotonModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonModificar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonModificar.Location = new Point(843, 846);
+            BotonModificar.Location = new Point(840, 641);
             BotonModificar.Margin = new Padding(0);
             BotonModificar.Name = "BotonModificar";
             BotonModificar.Size = new Size(167, 34);
@@ -644,11 +505,9 @@ namespace VISUAL
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1043, 1012);
+            ClientSize = new Size(1043, 758);
             Controls.Add(BotonModificar);
             Controls.Add(groupBox1);
-            Controls.Add(textBox1);
-            Controls.Add(label18);
             Controls.Add(BotonAgregar);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -661,12 +520,9 @@ namespace VISUAL
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
 
@@ -698,17 +554,6 @@ namespace VISUAL
         private Label LblSegundoNombre;
         private Label LblPrimerNombre;
         private GroupBox groupBox3;
-        private GroupBox groupBox4;
-        private ComboBox ComboBoxPreTelefonoEmergencia;
-        private Label label16;
-        private TextBox txtTelefonoEmergencia;
-        private Label label17;
-        private Label label15;
-        private Label lblParentesco;
-        private ComboBox ComboBoxParentesco;
-        private TextBox txtNombreEmergencia;
-        private Label label14;
-        private Label label13;
         private Label label6;
         private Label label5;
         private TextBox txtTelefono;
@@ -717,8 +562,6 @@ namespace VISUAL
         private Label LblCorreoElectronico;
         private Button BotonAgregar;
         private ComboBox ComboBoxPreTelefono;
-        private Label label18;
-        private TextBox textBox1;
         private GroupBox groupBox1;
         private Label label25;
         private TextBox txtEspecialidad;

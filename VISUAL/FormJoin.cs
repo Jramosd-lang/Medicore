@@ -50,7 +50,7 @@ namespace VISUAL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            comprobarInicioSesion();
         }
 
         private void comprobarInicioSesion()

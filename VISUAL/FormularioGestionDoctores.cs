@@ -20,7 +20,7 @@ namespace VISUAL
         {
             InitializeComponent();
             BotonModificar.Visible = false;
-            
+
         }
 
         public FormularioGestionDoctores(Doctor doctor)
@@ -31,7 +31,7 @@ namespace VISUAL
             identificacion = doctor.Id;
         }
 
-        
+
         private void mostrarDatos(Doctor doctor)
         {
             string nombre = doctor.Nombre;
@@ -52,7 +52,7 @@ namespace VISUAL
 
         }
 
-        
+
 
 
 
@@ -67,6 +67,23 @@ namespace VISUAL
 
         private void agregarDoctor()
         {
+            // Validación de campos obligatorios
+            if (string.IsNullOrWhiteSpace(txtPrimerNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtSegundoNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtPrimerApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtSegundoApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtNumDoc.Text) ||
+                string.IsNullOrWhiteSpace(ComboBoxTipoDoc.Text) ||
+                string.IsNullOrWhiteSpace(txtEspecialidad.Text) ||
+                string.IsNullOrWhiteSpace(txtNroLicencia.Text) ||
+                string.IsNullOrWhiteSpace(txtCorreo.Text) ||
+                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                string.IsNullOrWhiteSpace(ComboBoxSexo.Text))
+            {
+                MessageBox.Show("Debe completar todos los campos.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int id = 1;
             string nombre = txtPrimerNombre.Text + " " + txtSegundoNombre.Text;
             string apellido = txtPrimerApellido.Text + " " + txtSegundoApellido.Text;
@@ -78,7 +95,6 @@ namespace VISUAL
             string telefono = txtTelefono.Text;
             string sexo = ComboBoxSexo.Text;
             string password = txtNumDoc.Text;
-
             string numeroLicencia = txtNroLicencia.Text;
 
             Doctor doctor = new Doctor(
@@ -98,7 +114,6 @@ namespace VISUAL
             DoctorService doctorService = new DoctorService();
 
             MessageBox.Show(doctorService.Agregar(doctor));
-
         }
 
 
@@ -153,9 +168,9 @@ namespace VISUAL
                 password,
                 sexo);
 
-              DoctorService doctorService = new DoctorService();
+            DoctorService doctorService = new DoctorService();
 
-            
+
 
             doctorService.Modificar(doctor);
             this.Close();
@@ -165,9 +180,17 @@ namespace VISUAL
 
         private void BotonModificar_Click(object sender, EventArgs e)
         {
-            
+
             modificar(sender, e);
-            
+
+        }
+
+        private void txtNumDoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // No se acepta la tecla
+            }
         }
     }
 }

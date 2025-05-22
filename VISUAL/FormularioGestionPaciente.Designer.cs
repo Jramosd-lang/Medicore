@@ -128,6 +128,7 @@
             txtNumDoc.Name = "txtNumDoc";
             txtNumDoc.Size = new Size(157, 27);
             txtNumDoc.TabIndex = 5;
+            txtNumDoc.KeyPress += txtNumDoc_KeyPress;
             // 
             // txtSegundoApellido
             // 
@@ -209,6 +210,7 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(157, 27);
             txtTelefono.TabIndex = 16;
+            txtTelefono.KeyPress += txtNumDoc_KeyPress;
             // 
             // label4
             // 
@@ -241,6 +243,7 @@
             // 
             // ComboBoxTipoDoc
             // 
+            ComboBoxTipoDoc.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxTipoDoc.FormattingEnabled = true;
             ComboBoxTipoDoc.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
             ComboBoxTipoDoc.Location = new Point(203, 51);
@@ -332,6 +335,7 @@
             // 
             // ComboBoxSexo
             // 
+            ComboBoxSexo.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxSexo.FormattingEnabled = true;
             ComboBoxSexo.Items.AddRange(new object[] { "masculino", "femenino" });
             ComboBoxSexo.Location = new Point(203, 170);
@@ -421,6 +425,7 @@
             // 
             // ComboBoxReligion
             // 
+            ComboBoxReligion.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxReligion.FormattingEnabled = true;
             ComboBoxReligion.Items.AddRange(new object[] { "cristianismo", "evangelismo", "testigos de jehova", "mormones" });
             ComboBoxReligion.Location = new Point(212, 84);
@@ -467,19 +472,19 @@
             panel1.ForeColor = Color.Black;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1082, 878);
+            panel1.Size = new Size(1082, 898);
             panel1.TabIndex = 24;
             panel1.Paint += panel1_Paint;
             // 
             // BotonModificar
             // 
-            BotonModificar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BotonModificar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonModificar.BackColor = Color.FromArgb(45, 91, 103);
             BotonModificar.FlatAppearance.BorderSize = 0;
             BotonModificar.FlatStyle = FlatStyle.Flat;
             BotonModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonModificar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonModificar.Location = new Point(838, 658);
+            BotonModificar.Location = new Point(838, 678);
             BotonModificar.Margin = new Padding(0);
             BotonModificar.Name = "BotonModificar";
             BotonModificar.Size = new Size(167, 34);
@@ -490,13 +495,13 @@
             // 
             // BotonAgregar
             // 
-            BotonAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BotonAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonAgregar.BackColor = Color.FromArgb(45, 91, 103);
             BotonAgregar.FlatAppearance.BorderSize = 0;
             BotonAgregar.FlatStyle = FlatStyle.Flat;
             BotonAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonAgregar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonAgregar.Location = new Point(838, 611);
+            BotonAgregar.Location = new Point(838, 631);
             BotonAgregar.Margin = new Padding(0);
             BotonAgregar.Name = "BotonAgregar";
             BotonAgregar.Size = new Size(167, 34);
@@ -509,7 +514,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1082, 878);
+            ClientSize = new Size(1082, 898);
             Controls.Add(panel1);
             Name = "FormularioGestionPaciente";
             Text = "Form2";

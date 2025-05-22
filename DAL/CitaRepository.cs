@@ -12,7 +12,17 @@ namespace DAL
     {
         public List<Cita> Consultar()
         {
-            string sentencia = "SELECT * FROM citas";
+            string sentencia = "SELECT id_cita," +
+                "id_paciente," +
+                "id_doctor," +
+                "fecha_cita, " +
+                "id_especialidad, " +
+                "ruta_cita, " +
+                "fecha_cita, " +
+                "hora_cita," +
+                "estado_cita, " +
+                "motivo_cita, " +
+                "observaciones FROM citas";
 
             MySqlCommand cmd = new MySqlCommand(sentencia, conexion);
             AbrirConexion();
@@ -232,12 +242,12 @@ namespace DAL
         }
 
 
-        public void modificarEstado(int id)
+        public void ModificarEstado(int idCita)
         {
-            string sentencia = "UPDATE citas SET estado_cita = 'CONFIRMADA' WHERE id_cita = @id";
+            string sentencia = "UPDATE citas SET estado_cita = 'CONFIRMADA' WHERE id_cita = @idCita";
             using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
             {
-                cmd.Parameters.AddWithValue("@id",id);
+                cmd.Parameters.AddWithValue("@idCita", idCita);
                 try
                 {
                     AbrirConexion();

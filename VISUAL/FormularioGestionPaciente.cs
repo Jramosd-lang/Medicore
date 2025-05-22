@@ -75,6 +75,12 @@ namespace VISUAL
             string religion = ComboBoxReligion.Text;
             string sexo = ComboBoxSexo.Text;
 
+            if(nombre == "" || apellido == "" || fechaNac == null || numeroDoc == "" || tipoDoc == "" || correo == "" || telefono == "" || ocupacion == "" || religion == "" || sexo == "")
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
             Paciente doctor = new Paciente(
                 identificacion,
                 nombre,
@@ -161,6 +167,12 @@ namespace VISUAL
             string ocupacion = txtOcupacion.Text;
             string sexo = ComboBoxSexo.Text;
 
+            if(nombre == "" || apellido == "" || fechaNac == null || numeroDoc == "" || tipoDoc == "" || correo == "" || telefono == "" || ocupacion == "" || religion == "" || sexo == "")
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
             Paciente paciente = new Paciente(
                 id,
                 nombre,
@@ -187,6 +199,14 @@ namespace VISUAL
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtNumDoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // No se acepta la tecla
+            }
         }
     }
 }

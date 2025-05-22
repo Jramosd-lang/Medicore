@@ -32,10 +32,8 @@
             panel1 = new Panel();
             BotonSalir = new Button();
             panel2 = new Panel();
-            button5 = new Button();
             LblMedicore = new Label();
             pictureBox2 = new PictureBox();
-            button4 = new Button();
             panel3 = new Panel();
             button3 = new Button();
             button2 = new Button();
@@ -82,10 +80,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(45, 91, 103);
-            panel2.Controls.Add(button5);
             panel2.Controls.Add(LblMedicore);
             panel2.Controls.Add(pictureBox2);
-            panel2.Controls.Add(button4);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(SubMenuPaciente);
             panel2.Controls.Add(pictureBox1);
@@ -94,22 +90,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(278, 761);
             panel2.TabIndex = 1;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.Transparent;
-            button5.Dock = DockStyle.Top;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.FromArgb(185, 218, 233);
-            button5.Location = new Point(0, 280);
-            button5.Name = "button5";
-            button5.Size = new Size(278, 39);
-            button5.TabIndex = 6;
-            button5.Text = "Ayuda";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = false;
             // 
             // LblMedicore
             // 
@@ -131,23 +111,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.Transparent;
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.FromArgb(185, 218, 233);
-            button4.Location = new Point(0, 241);
-            button4.Name = "button4";
-            button4.Size = new Size(278, 39);
-            button4.TabIndex = 4;
-            button4.Text = "Horario";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
             // 
             // panel3
             // 
@@ -176,6 +139,7 @@
             button3.Text = "cita";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = true;
+            button3.Visible = false;
             // 
             // button2
             // 
@@ -233,9 +197,9 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(291, 243);
+            pictureBox3.Location = new Point(323, 238);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(411, 275);
             pictureBox3.TabIndex = 1;
@@ -252,6 +216,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormMenuDoctor";
             Text = "FormMenuDoctor";
+            WindowState = FormWindowState.Maximized;
             Load += FormMenuDoctor_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -274,10 +239,8 @@
         private Button BotonSalir;
         private Button button3;
         private Button button2;
-        private Button button4;
         private Label LblMedicore;
         private PictureBox pictureBox2;
-        private Button button5;
         private Panel PanelContenedor;
         private PictureBox pictureBox3;
     }

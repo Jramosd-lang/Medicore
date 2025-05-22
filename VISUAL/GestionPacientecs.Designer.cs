@@ -38,9 +38,6 @@ namespace VISUAL
             button4 = new Button();
             button5 = new Button();
             label3 = new Label();
-            button1 = new Button();
-            comboBox1 = new ComboBox();
-            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -170,56 +167,11 @@ namespace VISUAL
             label3.TabIndex = 8;
             label3.Text = "Lista de pacientes";
             // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.BackColor = Color.FromArgb(165, 197, 213);
-            button1.FlatAppearance.BorderColor = Color.FromArgb(45, 91, 103);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.ForeColor = Color.FromArgb(45, 91, 103);
-            button1.Location = new Point(376, 549);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(133, 34);
-            button1.TabIndex = 9;
-            button1.Text = "consultar datos";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // comboBox1
-            // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            comboBox1.BackColor = Color.FromArgb(185, 218, 233);
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(359, 117);
-            comboBox1.Margin = new Padding(0);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 10;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Font = new Font("Arial", 10.2F, FontStyle.Bold);
-            label4.ForeColor = Color.FromArgb(45, 91, 103);
-            label4.Location = new Point(241, 121);
-            label4.Name = "label4";
-            label4.Size = new Size(112, 19);
-            label4.TabIndex = 11;
-            label4.Text = "Ordenar por:";
-            // 
             // GestionPacientecs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(804, 620);
-            Controls.Add(label4);
-            Controls.Add(comboBox1);
-            Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(button3);
             Controls.Add(button5);
@@ -247,8 +199,5 @@ namespace VISUAL
         private Button button4;
         private Button button5;
         private Label label3;
-        private Button button1;
-        private ComboBox comboBox1;
-        private Label label4;
     }
 }

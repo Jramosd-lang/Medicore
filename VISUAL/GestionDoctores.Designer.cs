@@ -31,14 +31,11 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             label3 = new Label();
-            label4 = new Label();
-            comboBox1 = new ComboBox();
             label2 = new Label();
             textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
             button4 = new Button();
             button5 = new Button();
-            button1 = new Button();
             button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -69,30 +66,6 @@
             label3.TabIndex = 9;
             label3.Text = "Lista de doctores";
             // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Font = new Font("Arial", 10.2F, FontStyle.Bold);
-            label4.ForeColor = Color.FromArgb(45, 91, 103);
-            label4.Location = new Point(315, 91);
-            label4.Name = "label4";
-            label4.Size = new Size(112, 19);
-            label4.TabIndex = 12;
-            label4.Text = "Ordenar por:";
-            // 
-            // comboBox1
-            // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            comboBox1.BackColor = Color.FromArgb(185, 218, 233);
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(430, 87);
-            comboBox1.Margin = new Padding(0);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 13;
-            // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -113,6 +86,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(151, 20);
             textBox1.TabIndex = 15;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // dataGridView1
             // 
@@ -176,24 +150,6 @@
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.BackColor = Color.FromArgb(165, 197, 213);
-            button1.FlatAppearance.BorderColor = Color.FromArgb(45, 91, 103);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.ForeColor = Color.FromArgb(45, 91, 103);
-            button1.Location = new Point(392, 370);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(133, 34);
-            button1.TabIndex = 19;
-            button1.Text = "consultar datos";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // button3
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -217,14 +173,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(881, 470);
             Controls.Add(button3);
-            Controls.Add(button1);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(dataGridView1);
             Controls.Add(textBox1);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
             Name = "GestionDoctores";
@@ -239,14 +192,11 @@
 
         private Label label1;
         private Label label3;
-        private Label label4;
-        private ComboBox comboBox1;
         private Label label2;
         private TextBox textBox1;
         private DataGridView dataGridView1;
         private Button button4;
         private Button button5;
-        private Button button1;
         private Button button3;
     }
 }

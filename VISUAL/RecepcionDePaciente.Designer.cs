@@ -31,10 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecepcionDePaciente));
             panel1 = new Panel();
             button3 = new Button();
-            button4 = new Button();
             dataGridView1 = new DataGridView();
             pictureBox1 = new PictureBox();
-            comboBox1 = new ComboBox();
+            comboBoxTipoDocumento = new ComboBox();
             label3 = new Label();
             textBox1 = new TextBox();
             label2 = new Label();
@@ -47,10 +46,9 @@
             // panel1
             // 
             panel1.Controls.Add(button3);
-            panel1.Controls.Add(button4);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(comboBoxTipoDocumento);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label2);
@@ -79,21 +77,6 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(165, 197, 213);
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button4.ForeColor = Color.FromArgb(45, 91, 103);
-            button4.Location = new Point(74, 194);
-            button4.Margin = new Padding(0);
-            button4.Name = "button4";
-            button4.Size = new Size(132, 34);
-            button4.TabIndex = 2;
-            button4.Text = "Buscar";
-            button4.UseVisualStyleBackColor = false;
-            // 
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -103,36 +86,37 @@
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(39, 270);
+            dataGridView1.Location = new Point(39, 231);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(680, 201);
+            dataGridView1.Size = new Size(680, 240);
             dataGridView1.TabIndex = 13;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(558, 88);
+            pictureBox1.Location = new Point(552, 39);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(161, 158);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
-            // comboBox1
+            // comboBoxTipoDocumento
             // 
-            comboBox1.BackColor = Color.FromArgb(185, 218, 233);
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            comboBox1.Location = new Point(262, 88);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 28);
-            comboBox1.TabIndex = 10;
+            comboBoxTipoDocumento.AutoCompleteCustomSource.AddRange(new string[] { "CC", "TI", "CE", "PP" });
+            comboBoxTipoDocumento.BackColor = Color.FromArgb(185, 218, 233);
+            comboBoxTipoDocumento.FlatStyle = FlatStyle.Flat;
+            comboBoxTipoDocumento.FormattingEnabled = true;
+            comboBoxTipoDocumento.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
+            comboBoxTipoDocumento.Location = new Point(262, 88);
+            comboBoxTipoDocumento.Name = "comboBoxTipoDocumento";
+            comboBoxTipoDocumento.Size = new Size(182, 28);
+            comboBoxTipoDocumento.TabIndex = 10;
             // 
             // label3
             // 
@@ -200,9 +184,8 @@
         private TextBox textBox1;
         private Label label2;
         private PictureBox pictureBox1;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxTipoDocumento;
         private DataGridView dataGridView1;
-        private Button button4;
         private Button button3;
     }
 }

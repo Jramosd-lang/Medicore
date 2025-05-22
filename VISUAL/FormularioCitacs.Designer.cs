@@ -154,6 +154,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(151, 20);
             textBox1.TabIndex = 26;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // botonAgregarCita
             // 
@@ -175,6 +176,7 @@
             // comboBox1
             // 
             comboBox1.BackColor = Color.FromArgb(185, 218, 233);
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FlatStyle = FlatStyle.Flat;
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(102, 185);
@@ -189,11 +191,11 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial", 10F, FontStyle.Bold);
             label3.ForeColor = Color.FromArgb(45, 91, 103);
-            label3.Location = new Point(558, 65);
+            label3.Location = new Point(427, 64);
             label3.Name = "label3";
-            label3.Size = new Size(128, 19);
+            label3.Size = new Size(196, 19);
             label3.TabIndex = 29;
-            label3.Text = "Id del paciente:";
+            label3.Text = "Buscar por documento:";
             // 
             // dateTimePicker1
             // 
@@ -255,6 +257,7 @@
             // 
             // comboBoxHora
             // 
+            comboBoxHora.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxHora.FormattingEnabled = true;
             comboBoxHora.Items.AddRange(new object[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00" });
             comboBoxHora.Location = new Point(135, 276);
