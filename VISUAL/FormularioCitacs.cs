@@ -102,7 +102,8 @@ namespace VISUAL
                 }
 
                 DateTime fechaSeleccionada = dateTimePicker1.Value;
-                string ruta = "C:\\Users\\jr10p\\source\\repos\\medicoreGithub\\PDF-citas" + PacienteResult.Id + "-" + fechaSeleccionada.ToString("dd_MM_yyyy") + ".pdf";
+                string ruta = "C:\\Users\\danie\\source\\repos\\Medicore\\PDF-citas\\" +
+                    "" + PacienteResult.Id + "-" + fechaSeleccionada.ToString("dd_MM_yyyy") + ".pdf";
                 string especialidad = comboBox1.Text;
                 // Buscar la especialidad por nombre y obtener el primer id
                 var especialidades = especialidadCitaService.Consultar().Where(e => e.nombre == especialidad).ToList();

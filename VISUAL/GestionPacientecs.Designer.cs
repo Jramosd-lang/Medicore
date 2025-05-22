@@ -101,6 +101,7 @@ namespace VISUAL
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(151, 20);
             textBox1.TabIndex = 5;
+            textBox1.TextChanged += textBox1_TextChanged_1;
             // 
             // button3
             // 
