@@ -9,15 +9,21 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace VISUAL
 {
     public partial class FormJoin : Form
     {
+        DoctorService doctorService = new DoctorService();  
         public FormJoin()
         {
             InitializeComponent();
         }
+
+        public int id;
+
+
 
         private void BotonSalir_Click(object sender, EventArgs e)
         {
@@ -43,7 +49,7 @@ namespace VISUAL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            comprobarInicioSesion();
+            
         }
 
         private void comprobarInicioSesion()
@@ -55,12 +61,17 @@ namespace VISUAL
                 formMenu.Show();
                 this.Hide();
             }
-            if (txtUserName.Text == "doctor" && txtPassword.Text == "doctor123")
-            {
-                Form FormMenuDoctor = new FormMenuDoctor();
-                FormMenuDoctor.Show();
+            if (doctorService.ValidarCredenciales(txtUserName.Text, txtPassword.Text))
+            { 
+                Form formMenu = new FormMenu();
+                formMenu.Show();
                 this.Hide();
             }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos");
+            }
+          
         }
 
         private void txtUserName_KeyDown(object sender, KeyEventArgs e)

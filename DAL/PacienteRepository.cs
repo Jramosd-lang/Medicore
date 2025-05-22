@@ -48,6 +48,7 @@ namespace DAL
 
 
 
+
             int id = !reader.IsDBNull(ordId)
                     ? reader.GetInt32(ordId)
                     : throw new InvalidOperationException("id_doctor no puede ser nulo");

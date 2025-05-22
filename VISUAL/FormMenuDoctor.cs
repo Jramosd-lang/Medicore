@@ -13,12 +13,14 @@ namespace VISUAL
 {
     public partial class FormMenuDoctor : Form
     {
-        public FormMenuDoctor()
+        public FormMenuDoctor(int id)
         {
             InitializeComponent();
         }
 
         private Form formulario;
+
+        public int id;
 
         private void BotonSalir_Click(object sender, EventArgs e)
         {
@@ -69,7 +71,7 @@ namespace VISUAL
 
         private void button2_Click(object sender, EventArgs e)
         {
-            cambiarPanel(new FormularioHistorial());
+            cambiarPanel(new FormularioHistorial(id));
         }
 
         private void cambiarPanel(Form formularioHijo)

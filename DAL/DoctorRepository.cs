@@ -13,7 +13,7 @@ namespace DAL
     {
         public List<Doctor> Consultar()
         {
-            string sentencia = "SELECT * FROM doctores";
+            string sentencia = "SELECT * FROM citas";
 
             MySqlCommand cmd = new MySqlCommand(sentencia, conexion);
             AbrirConexion();
@@ -28,6 +28,28 @@ namespace DAL
             return lista;
         }
 
+        public bool ValidarCredenciales(string documento, string contrasena)
+        {
+            string sql = @"SELECT 1 
+                   FROM doctores 
+                   WHERE numero_documento = @documento AND password_ = @clave 
+                   LIMIT 1";
+
+       
+            using (var cmd = new MySqlCommand(sql, conexion))
+            {
+                cmd.Parameters.AddWithValue("@documento", documento);
+                cmd.Parameters.AddWithValue("@clave", contrasena);
+
+                conexion.Open();
+                var resultado = cmd.ExecuteScalar();
+                return resultado != null;
+                conexion.Close();
+            }
+            
+        }
+
+
         private Doctor Mappear(MySqlDataReader reader)
         {
             // Obtén los ordinales una sola vez
@@ -41,7 +63,7 @@ namespace DAL
             int ordLic = reader.GetOrdinal("numero_licencia");
             int ordCor = reader.GetOrdinal("correo");
             int ordTel = reader.GetOrdinal("telefono");
-            int ordPas = reader.GetOrdinal("password");
+            int ordPas = reader.GetOrdinal("password_");
             int ordSex = reader.GetOrdinal("sexo"); 
 
             int id = !reader.IsDBNull(ordId)
@@ -139,7 +161,7 @@ namespace DAL
             if (entity == null || string.IsNullOrWhiteSpace(entity.Nombre))
                 return "Datos inválidos";
 
-            string sentencia = "INSERT INTO doctores (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, especialidad, numero_licencia,correo,telefono,password,sexo) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @especialidad, @numero_licencia, @correo, @telefono,@password,@sexo)";
+            string sentencia = "INSERT INTO doctores (nombre, apellido, fecha_nacimiento, tipo_documento, numero_documento, especialidad, numero_licencia,correo,telefono,password_,sexo) VALUES (@nombre, @apellido, @fecha_nacimiento, @tipo_documento, @numero_documento, @especialidad, @numero_licencia, @correo, @telefono,@password,@sexo)";
 
             using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
             {

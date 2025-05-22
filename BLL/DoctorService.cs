@@ -79,5 +79,10 @@ namespace BLL
         {
             return repoDoctor.BuscarPorId(id);
         }
+
+        public bool ValidarCredenciales(string numeroDoc, string password)
+        {
+            return repoDoctor.ValidarCredenciales(numeroDoc, password);
+        }
     }
 }
