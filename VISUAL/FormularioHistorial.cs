@@ -19,10 +19,11 @@ namespace VISUAL
         CitaService citaService = new CitaService();
         PacienteService pacienteService = new PacienteService();
         EventoHistorialService repoHisto = new EventoHistorialService();  // Added instance of EventoHistorialRepository  
-        public int id = 2;
+        public int id;
         public FormularioHistorial(int id)
         {
             InitializeComponent();
+            this.id = id;
         }
 
 
