@@ -102,7 +102,7 @@ namespace VISUAL
             }
         }
 
-
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -138,21 +138,6 @@ namespace VISUAL
         {
             ServicePaciente.Eliminar(btnObtener_ClickId(sender, e));
             cargarPacientes();
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            string filtro = textBox1.Text.Trim();
-            var pacientes = ServicePaciente.Consultar();
-
-            if (!string.IsNullOrEmpty(filtro))
-            {
-                pacientes = pacientes
-                    .Where(p => p.NumeroDocumento != null && p.NumeroDocumento.Contains(filtro, StringComparison.OrdinalIgnoreCase))
-                    .ToList();
-            }
-
-            dataGridView1.DataSource = pacientes;
         }
     }
 }
