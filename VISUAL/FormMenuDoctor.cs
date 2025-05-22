@@ -8,14 +8,16 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entity;
 
 namespace VISUAL
 {
     public partial class FormMenuDoctor : Form
     {
-        public FormMenuDoctor(int id)
+        public FormMenuDoctor(Doctor doctor)
         {
             InitializeComponent();
+            id = doctor.Id;
         }
 
         private Form formulario;

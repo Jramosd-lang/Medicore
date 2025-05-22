@@ -17,6 +17,7 @@ namespace VISUAL
     {
         EventoHistorialService eventoHistorialMedico = new EventoHistorialService();
         CitaService citaService = new CitaService();
+        PacienteService pacienteService = new PacienteService();
         EventoHistorialService repoHisto = new EventoHistorialService();  // Added instance of EventoHistorialRepository  
         public int id = 2;
         public FormularioHistorial(int id)
@@ -32,9 +33,12 @@ namespace VISUAL
 
         private void cargarHistorialMedico()
         {
-          
             List<Cita> citas = citaService.Consultar();
-            var citasDoctor = citas.Where(c => c.DoctorId == id).ToList();
+            MessageBox.Show("Total de citas: " + citas.Count);
+
+            var citasDoctor = citas.Where(c => c.DoctorId == 1).ToList();
+            MessageBox.Show("Citas del doctor: " + citasDoctor.Count);
+
             var pacientesIds = citasDoctor.Select(c => c.PacienteId).Distinct().ToList();
             var listaPacientes = citasDoctor
                 .Where(c => pacientesIds.Contains(c.PacienteId))
@@ -50,8 +54,11 @@ namespace VISUAL
                 })
                 .ToList();
 
-
+            MessageBox.Show("Lista para mostrar: " + listaPacientes.Count);
             dataGridView1.DataSource = listaPacientes;
         }
+
+
+
     }
 }

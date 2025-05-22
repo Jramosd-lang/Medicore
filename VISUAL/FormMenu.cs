@@ -41,13 +41,11 @@ namespace VISUAL
 
 
             Button[] botones = { BotonGestionarDoctores,
-                BotonGestionarImplementos,
-                BotonGestionarDinero,
+
                 BotonGestionarCItas,
                 BotonRecepcion,
-                BotonGestionarPacientes,
-                BotonProveedores,
-                BotonComunicados};
+                BotonGestionarPacientes
+                };
 
 
             foreach (Button btn in botones)
@@ -79,7 +77,7 @@ namespace VISUAL
         }
         private void EsconderMenu()
         {
-            PanelSubMenuApoyo.Visible = false;
+
             PanelSubmenuGestion.Visible = false;
             PanelSubMenuAgenda.Visible = false;
         }
@@ -122,7 +120,7 @@ namespace VISUAL
             MostrarSubMenu(PanelSubMenuAgenda);
         }
 
-       
+
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -194,17 +192,6 @@ namespace VISUAL
 
         }
 
-        private void BotonGestionarImplementos_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Este boton aun no funciona");
-            seleccionarBoton(BotonGestionarImplementos);
-        }
-
-        private void BotonGestionarDinero_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Este boton aun no funciona");
-            seleccionarBoton(BotonGestionarDinero);
-        }
 
         private void PanelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
@@ -218,45 +205,10 @@ namespace VISUAL
 
         private extern static void SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void button1_Click_2(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            MostrarSubMenu(PanelSubMenuApoyo);
-
-        }
-
-        private void PanelSubMenuAgenda_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BotonProveedores_Click(object sender, EventArgs e)
-        {
-            seleccionarBoton(BotonProveedores);
-        }
-
-        private void BotonComunicados_Click(object sender, EventArgs e)
-        {
-            seleccionarBoton(BotonComunicados);
-        }
-
-        private void BotonReportes_Click(object sender, EventArgs e)
-        {
-            seleccionarBoton(BotonReportes);
+            cambiarPanel(new FormularioCitacs());
+            seleccionarBoton(BotonGestionarCItas);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DAL
     {
         public List<Doctor> Consultar()
         {
-            string sentencia = "SELECT * FROM citas";
+            string sentencia = "SELECT * FROM doctores";
 
             MySqlCommand cmd = new MySqlCommand(sentencia, conexion);
             AbrirConexion();
@@ -31,22 +31,31 @@ namespace DAL
         public bool ValidarCredenciales(string documento, string contrasena)
         {
             string sql = @"SELECT 1 
-                   FROM doctores 
-                   WHERE numero_documento = @documento AND password_ = @clave 
-                   LIMIT 1";
+                           FROM doctores 
+                           WHERE numero_documento = @documento AND password_ = @clave 
+                           LIMIT 1";
 
-       
-            using (var cmd = new MySqlCommand(sql, conexion))
+            try
             {
-                cmd.Parameters.AddWithValue("@documento", documento);
-                cmd.Parameters.AddWithValue("@clave", contrasena);
+                AbrirConexion();
+                using (var cmd = new MySqlCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@documento", documento);
+                    cmd.Parameters.AddWithValue("@clave", contrasena);
 
-                conexion.Open();
-                var resultado = cmd.ExecuteScalar();
-                return resultado != null;
-                conexion.Close();
+                    var resultado = cmd.ExecuteScalar();
+                    return resultado != null;
+                }
             }
-            
+            catch (Exception)
+            {
+                // Manejo de errores si es necesario
+                return false;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
         }
 
 
@@ -266,6 +275,11 @@ namespace DAL
         public Doctor BuscarPorId(int id)
         {
             return Consultar().FirstOrDefault(x => x.Id == id);
+        }
+
+        public Doctor BuscarPorNumeroDoc(string numeroDoc)
+        {
+            return Consultar().FirstOrDefault(x => x.NumeroDocumento == numeroDoc);
         }
     }
 }

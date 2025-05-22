@@ -259,16 +259,16 @@
             // 
             // GroupBoxDocumento
             // 
-            GroupBoxDocumento.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             GroupBoxDocumento.Controls.Add(LblDocumento);
             GroupBoxDocumento.Controls.Add(label10);
             GroupBoxDocumento.Controls.Add(label7);
             GroupBoxDocumento.Controls.Add(ComboBoxTipoDoc);
             GroupBoxDocumento.Controls.Add(label1);
             GroupBoxDocumento.Controls.Add(txtNumDoc);
-            GroupBoxDocumento.Location = new Point(26, 26);
+            GroupBoxDocumento.Dock = DockStyle.Top;
+            GroupBoxDocumento.Location = new Point(0, 0);
             GroupBoxDocumento.Name = "GroupBoxDocumento";
-            GroupBoxDocumento.Size = new Size(982, 98);
+            GroupBoxDocumento.Size = new Size(1082, 98);
             GroupBoxDocumento.TabIndex = 21;
             GroupBoxDocumento.TabStop = false;
             GroupBoxDocumento.Text = "Documento de identidad";
@@ -286,7 +286,6 @@
             // 
             // groupBox2
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(ComboBoxSexo);
@@ -303,9 +302,10 @@
             groupBox2.Controls.Add(LblPrimerApellido);
             groupBox2.Controls.Add(LblSegundoNombre);
             groupBox2.Controls.Add(LblPrimerNombre);
-            groupBox2.Location = new Point(26, 157);
+            groupBox2.Dock = DockStyle.Top;
+            groupBox2.Location = new Point(0, 98);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(982, 229);
+            groupBox2.Size = new Size(1082, 229);
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos generales";
@@ -333,7 +333,7 @@
             // ComboBoxSexo
             // 
             ComboBoxSexo.FormattingEnabled = true;
-            ComboBoxSexo.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
+            ComboBoxSexo.Items.AddRange(new object[] { "masculino", "femenino" });
             ComboBoxSexo.Location = new Point(203, 170);
             ComboBoxSexo.Name = "ComboBoxSexo";
             ComboBoxSexo.Size = new Size(268, 28);
@@ -368,7 +368,6 @@
             // 
             // groupBox3
             // 
-            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox3.Controls.Add(groupBox4);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(label5);
@@ -376,9 +375,10 @@
             groupBox3.Controls.Add(label4);
             groupBox3.Controls.Add(txtCorreo);
             groupBox3.Controls.Add(LblCorreoElectronico);
-            groupBox3.Location = new Point(26, 414);
+            groupBox3.Dock = DockStyle.Top;
+            groupBox3.Location = new Point(0, 327);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(982, 260);
+            groupBox3.Size = new Size(1082, 260);
             groupBox3.TabIndex = 23;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos de contacto";
@@ -394,7 +394,7 @@
             groupBox4.Controls.Add(label13);
             groupBox4.Location = new Point(17, 85);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(947, 141);
+            groupBox4.Size = new Size(1047, 141);
             groupBox4.TabIndex = 25;
             groupBox4.TabStop = false;
             groupBox4.Text = "Datos extras";
@@ -422,7 +422,7 @@
             // ComboBoxReligion
             // 
             ComboBoxReligion.FormattingEnabled = true;
-            ComboBoxReligion.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
+            ComboBoxReligion.Items.AddRange(new object[] { "cristianismo", "evangelismo", "testigos de jehova", "mormones" });
             ComboBoxReligion.Location = new Point(212, 84);
             ComboBoxReligion.Name = "ComboBoxReligion";
             ComboBoxReligion.Size = new Size(303, 28);
@@ -469,6 +469,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1082, 878);
             panel1.TabIndex = 24;
+            panel1.Paint += panel1_Paint;
             // 
             // BotonModificar
             // 
@@ -478,12 +479,12 @@
             BotonModificar.FlatStyle = FlatStyle.Flat;
             BotonModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonModificar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonModificar.Location = new Point(841, 808);
+            BotonModificar.Location = new Point(838, 658);
             BotonModificar.Margin = new Padding(0);
             BotonModificar.Name = "BotonModificar";
             BotonModificar.Size = new Size(167, 34);
             BotonModificar.TabIndex = 39;
-            BotonModificar.Text = "+ modificar doctor";
+            BotonModificar.Text = "+ modificar paciente";
             BotonModificar.UseVisualStyleBackColor = false;
             BotonModificar.Click += BotonModificar_Click;
             // 
@@ -495,12 +496,12 @@
             BotonAgregar.FlatStyle = FlatStyle.Flat;
             BotonAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonAgregar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonAgregar.Location = new Point(841, 761);
+            BotonAgregar.Location = new Point(838, 611);
             BotonAgregar.Margin = new Padding(0);
             BotonAgregar.Name = "BotonAgregar";
             BotonAgregar.Size = new Size(167, 34);
             BotonAgregar.TabIndex = 26;
-            BotonAgregar.Text = "+ Nuevo doctor";
+            BotonAgregar.Text = "+ Nuevo paciente";
             BotonAgregar.UseVisualStyleBackColor = false;
             BotonAgregar.Click += BotonAgregar_Click;
             // 

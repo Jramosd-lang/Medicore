@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using Entity;
 
 namespace VISUAL
 {
@@ -61,16 +62,21 @@ namespace VISUAL
                 formMenu.Show();
                 this.Hide();
             }
-            if (doctorService.ValidarCredenciales(txtUserName.Text, txtPassword.Text))
-            { 
-                Form formMenu = new FormMenu();
-                formMenu.Show();
-                this.Hide();
-            }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos");
+                if (doctorService.ValidarCredenciales(txtUserName.Text, txtPassword.Text))
+                {
+                    Doctor doctor = doctorService.BuscarPorNumeroDoc(txtUserName.Text);
+                    Form formMenuDoctor = new FormMenuDoctor(doctor);
+                    formMenuDoctor.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos");
+                }
             }
+            
           
         }
 

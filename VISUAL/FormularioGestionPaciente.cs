@@ -56,6 +56,8 @@ namespace VISUAL
             txtCorreo.Text = paciente.Correo;
             txtTelefono.Text = paciente.Telefono;
             ComboBoxSexo.Text = paciente.Sexo;
+            txtOcupacion.Text = paciente.Ocupacion;
+            ComboBoxReligion.Text = paciente.Religion;
 
         }
 
@@ -179,7 +181,12 @@ namespace VISUAL
 
         private void BotonModificar_Click(object sender, EventArgs e)
         {
-            modificar(sender,e);
+            modificar(sender, e);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

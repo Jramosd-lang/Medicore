@@ -77,7 +77,7 @@ namespace VISUAL
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
             string sexo = ComboBoxSexo.Text;
-            string password = numeroDoc;
+            string password = txtNumDoc.Text;
 
             string numeroLicencia = txtNroLicencia.Text;
 

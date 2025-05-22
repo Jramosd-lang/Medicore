@@ -84,5 +84,11 @@ namespace BLL
         {
             return repoDoctor.ValidarCredenciales(numeroDoc, password);
         }
+
+        public Doctor BuscarPorNumeroDoc(string numeroDoc)
+        {
+            return repoDoctor.BuscarPorNumeroDoc(numeroDoc);
+        }
     }
+
 }
