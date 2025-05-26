@@ -55,29 +55,41 @@ namespace VISUAL
 
         private void comprobarInicioSesion()
         {
+            string usuario = txtUserName.Text.Trim();
+            string contrasena = txtPassword.Text;
 
-            if (txtUserName.Text == "admin" && txtPassword.Text == "admin123")
+            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasena))
+            {
+                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (usuario == "admin" && contrasena == "admin123")
             {
                 Form formMenu = new FormMenu();
                 formMenu.Show();
                 this.Hide();
+                return;
             }
-            else
+
+            if (doctorService.ValidarCredenciales(usuario, contrasena))
             {
-                if (doctorService.ValidarCredenciales(txtUserName.Text, txtPassword.Text))
+                Doctor doctor = doctorService.BuscarPorDocumento(usuario);
+                if (doctor != null)
                 {
-                    Doctor doctor = doctorService.BuscarPorNumeroDoc(txtUserName.Text);
                     Form formMenuDoctor = new FormMenuDoctor(doctor);
                     formMenuDoctor.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña incorrectos");
+                    MessageBox.Show("No se encontró el doctor asociado al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
-          
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtUserName_KeyDown(object sender, KeyEventArgs e)

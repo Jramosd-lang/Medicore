@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             label1 = new Label();
             label2 = new Label();
             textBox1 = new TextBox();
+            BotonAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -44,14 +45,14 @@
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(45, 91, 103);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(185, 218, 233);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(45, 91, 103);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(45, 91, 103);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(185, 218, 233);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(45, 91, 103);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(54, 126);
             dataGridView1.MultiSelect = false;
@@ -61,7 +62,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(701, 200);
             dataGridView1.TabIndex = 17;
-          
             // 
             // label1
             // 
@@ -97,11 +97,29 @@
             textBox1.Size = new Size(172, 20);
             textBox1.TabIndex = 20;
             // 
+            // BotonAgregar
+            // 
+            BotonAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BotonAgregar.BackColor = Color.FromArgb(45, 91, 103);
+            BotonAgregar.FlatAppearance.BorderSize = 0;
+            BotonAgregar.FlatStyle = FlatStyle.Flat;
+            BotonAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BotonAgregar.ForeColor = Color.FromArgb(165, 197, 213);
+            BotonAgregar.Location = new Point(588, 361);
+            BotonAgregar.Margin = new Padding(0);
+            BotonAgregar.Name = "BotonAgregar";
+            BotonAgregar.Size = new Size(167, 34);
+            BotonAgregar.TabIndex = 27;
+            BotonAgregar.Text = "Consultar historial";
+            BotonAgregar.UseVisualStyleBackColor = false;
+            BotonAgregar.Click += BotonAgregar_Click;
+            // 
             // FormularioHistorial
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BotonAgregar);
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -120,5 +138,6 @@
         private Label label1;
         private Label label2;
         private TextBox textBox1;
+        private Button BotonAgregar;
     }
 }

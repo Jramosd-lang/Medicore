@@ -41,6 +41,8 @@ namespace BLL
             }
         }
 
+  
+
         public string Modificar(Doctor entity)
         {
             try
@@ -85,10 +87,12 @@ namespace BLL
             return repoDoctor.ValidarCredenciales(numeroDoc, password);
         }
 
-        public Doctor BuscarPorNumeroDoc(string numeroDoc)
+        public Doctor BuscarPorDocumento(string documento)
         {
-            return repoDoctor.BuscarPorNumeroDoc(numeroDoc);
+            return repoDoctor.BuscarPorNumeroDocumento(documento);
         }
+
+       
     }
 
 }

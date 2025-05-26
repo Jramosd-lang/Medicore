@@ -34,31 +34,26 @@ namespace VISUAL
 
         private void cargarHistorialMedico()
         {
-            List<Cita> citas = citaService.Consultar();
-            MessageBox.Show("Total de citas: " + citas.Count);
-
-            var citasDoctor = citas.Where(c => c.DoctorId == 1).ToList();
-            MessageBox.Show("Citas del doctor: " + citasDoctor.Count);
-
-            var pacientesIds = citasDoctor.Select(c => c.PacienteId).Distinct().ToList();
-            var listaPacientes = citasDoctor
-                .Where(c => pacientesIds.Contains(c.PacienteId))
-                .Select(c => new
-                {
-                    c.PacienteId,
-                    c.IdCita,
-                    c.FechaCita,
-                    c.HoraCita,
-                    c.EstadoCita,
-                    c.MotivoCita,
-                    c.Observaciones
-                })
-                .ToList();
-
-            MessageBox.Show("Lista para mostrar: " + listaPacientes.Count);
-            dataGridView1.DataSource = listaPacientes;
+            DataTable datos = citaService.obtenerCitasConfirmadasHoy(id);
+            dataGridView1.DataSource = datos;
         }
 
+        private void BotonAgregar_Click(object sender, EventArgs e)
+        {
+            int id = seleccionarPaciente().IdCita;
+        }
+
+        private Cita seleccionarPaciente()
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var fila = dataGridView1.SelectedRows[0];
+                int id = (int)fila.Cells[0].Value;
+                Cita cita = citaService.BuscarId(id);
+                return cita;
+            }
+            return null;
+        }
 
 
     }

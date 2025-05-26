@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,44 @@ namespace DAL
             return lista;
         }
 
+        public DataTable ObtenerCitasConfirmadasHoyComoTabla(int idDoctor)
+        {
+            var dt = new DataTable();
+
+            string sql = @"
+            SELECT 
+                p.id_paciente   AS IdPaciente,
+                p.nombre        AS NombrePaciente,
+                p.apellido      AS ApellidoPaciente,
+                c.id_cita       AS IdCita,
+                c.fecha_cita    AS FechaCita,
+                c.hora_cita     AS HoraCita,
+                c.estado_cita   AS EstadoCita
+            FROM pacientes p
+            JOIN citas c 
+              ON p.id_paciente = c.id_paciente
+            WHERE DATE(c.fecha_cita) = CURDATE()
+              AND c.estado_cita = @Estado
+              AND c.id_doctor    = @IdDoctor;
+        ";
+
+            // Abrimos la conexión usando tu método
+            AbrirConexion();
+
+            using (var cmd = new MySqlCommand(sql, conexion))
+            using (var adapter = new MySqlDataAdapter(cmd))
+            {
+                cmd.Parameters.AddWithValue("@Estado", "CONFIRMADA");
+                cmd.Parameters.AddWithValue("@IdDoctor", idDoctor);
+
+                adapter.Fill(dt);
+            }
+
+            // Cerramos la conexión
+            CerrarConexion();
+
+            return dt;
+        }
         private Cita Mappear(MySqlDataReader reader)
         {
             // Obtén los ordinales una sola vez

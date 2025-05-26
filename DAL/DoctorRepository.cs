@@ -277,9 +277,44 @@ namespace DAL
             return Consultar().FirstOrDefault(x => x.Id == id);
         }
 
-        public Doctor BuscarPorNumeroDoc(string numeroDoc)
+
+        public Doctor BuscarPorNumeroDocumento(string numeroDocumento)
         {
-            return Consultar().FirstOrDefault(x => x.NumeroDocumento == numeroDoc);
+            if (string.IsNullOrWhiteSpace(numeroDocumento))
+                throw new ArgumentException("El número de documento no puede ser nulo o vacío.", nameof(numeroDocumento));
+
+            string sentencia = "SELECT * FROM doctores WHERE numero_documento = @numeroDocumento LIMIT 1";
+            try
+            {
+                AbrirConexion();
+                using (var cmd = new MySqlCommand(sentencia, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@numeroDocumento", numeroDocumento);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return Mappear(reader);
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException("No se encontró un doctor con el número de documento proporcionado.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar el doctor por número de documento.", ex);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
         }
+
+
+
+
     }
 }
