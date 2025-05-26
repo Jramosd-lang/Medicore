@@ -16,6 +16,7 @@ namespace VISUAL
     public partial class FormularioHistorial : Form
     {
         EventoHistorialService eventoHistorialMedico = new EventoHistorialService();
+        HistorialMedicoService historialMedicoService = new HistorialMedicoService();
         CitaService citaService = new CitaService();
         PacienteService pacienteService = new PacienteService();
         EventoHistorialService repoHisto = new EventoHistorialService();  // Added instance of EventoHistorialRepository  
@@ -40,19 +41,29 @@ namespace VISUAL
 
         private void BotonAgregar_Click(object sender, EventArgs e)
         {
-            int id = seleccionarPaciente().IdCita;
+            var citaSeleccionada = seleccionarPaciente();
+            if (citaSeleccionada != null)
+            {
+                int id = citaSeleccionada;
+                Cita cita = citaService.Consultar().FirstOrDefault(c => c.PacienteId == id);
+                HistorialMedico historialMedico = historialMedicoService.BuscarId(cita.PacienteId);
+                Form form = new FormularioHistorialMedico(historialMedico);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una cita.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private Cita seleccionarPaciente()
+        private int seleccionarPaciente()
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var fila = dataGridView1.SelectedRows[0];
                 int id = (int)fila.Cells[0].Value;
-                Cita cita = citaService.BuscarId(id);
-                return cita;
+                return id;
             }
-            return null;
+            return 0;
         }
 
 

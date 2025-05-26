@@ -156,6 +156,7 @@ namespace VISUAL
             {
                 FormularioGestionPaciente formulario = new FormularioGestionPaciente(paciente);
                 formulario.ShowDialog();
+                FormularioHistorialCita formularioC = new FormularioHistorialCita(paciente.Id);
                 cargarPacientes();
             }
             else

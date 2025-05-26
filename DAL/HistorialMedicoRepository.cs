@@ -83,7 +83,7 @@ namespace DAL
 
         public HistorialMedico BuscarId(int id)
         {
-            string sentencia = "SELECT * FROM historial_medico WHERE id_historial = @Id";
+            string sentencia = "SELECT * FROM historial_medico WHERE id_historial_medico = @Id";
             MySqlCommand cmd = new MySqlCommand(sentencia, conexion);
             cmd.Parameters.AddWithValue("@Id", id);
             AbrirConexion();
