@@ -35,6 +35,7 @@
             LblMedicore = new Label();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
+            botonChat = new Button();
             button3 = new Button();
             button2 = new Button();
             SubMenuPaciente = new Button();
@@ -115,13 +116,32 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(185, 218, 233);
+            panel3.Controls.Add(botonChat);
             panel3.Controls.Add(button3);
             panel3.Controls.Add(button2);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 183);
             panel3.Name = "panel3";
-            panel3.Size = new Size(278, 58);
+            panel3.Size = new Size(278, 87);
             panel3.TabIndex = 3;
+            // 
+            // botonChat
+            // 
+            botonChat.Dock = DockStyle.Top;
+            botonChat.FlatAppearance.BorderSize = 0;
+            botonChat.FlatStyle = FlatStyle.Flat;
+            botonChat.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            botonChat.ForeColor = Color.FromArgb(45, 91, 103);
+            botonChat.Location = new Point(0, 55);
+            botonChat.Margin = new Padding(0);
+            botonChat.Name = "botonChat";
+            botonChat.Padding = new Padding(40, 0, 0, 0);
+            botonChat.Size = new Size(278, 26);
+            botonChat.TabIndex = 2;
+            botonChat.Text = "Chat";
+            botonChat.TextAlign = ContentAlignment.MiddleLeft;
+            botonChat.UseVisualStyleBackColor = true;
+            botonChat.Click += botonChat_Click;
             // 
             // button3
             // 
@@ -136,10 +156,9 @@
             button3.Padding = new Padding(40, 0, 0, 0);
             button3.Size = new Size(278, 26);
             button3.TabIndex = 1;
-            button3.Text = "cita";
+            button3.Text = "Cita";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = true;
-            button3.Visible = false;
             // 
             // button2
             // 
@@ -216,7 +235,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormMenuDoctor";
             Text = "FormMenuDoctor";
-            WindowState = FormWindowState.Maximized;
             Load += FormMenuDoctor_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -243,5 +261,6 @@
         private PictureBox pictureBox2;
         private Panel PanelContenedor;
         private PictureBox pictureBox3;
+        private Button botonChat;
     }
 }
