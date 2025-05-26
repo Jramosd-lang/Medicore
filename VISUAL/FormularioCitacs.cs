@@ -42,14 +42,39 @@ namespace VISUAL
 
         private void cargarCitas()
         {
-            dataGridView1.DataSource = citaService.Consultar();
+            var pacientes = new PacienteService().Consultar();
+            var doctores = new DoctorService().Consultar();
+            var especialidades = especialidadCitaService.Consultar();
 
-            dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[2].Visible = false;
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[4].Visible = false;
-            dataGridView1.Columns[8].Visible = false;
-            dataGridView1.Columns[9].Visible = false;
+            var citas = citaService.Consultar()
+                .Select(c => new
+                {
+                    Paciente = pacientes.FirstOrDefault(p => p.Id == c.PacienteId) is Paciente p ? $"{p.Nombre} {p.Apellido}" : "Desconocido",
+                    Doctor = doctores.FirstOrDefault(d => d.Id == c.DoctorId) is Doctor d ? $"{d.Nombre} {d.Apellido}" : "Desconocido",
+                    Area = especialidades.FirstOrDefault(e => e.id == c.IdEspecialidad)?.nombre ?? "Desconocida",
+                    Fecha = c.FechaCita,
+                    Hora = c.HoraCita,
+                    Estado = c.EstadoCita
+                })
+                .ToList();
+
+            dataGridView1.DataSource = citas;
+
+            // Personaliza encabezados y formato
+            dataGridView1.Columns["Paciente"].HeaderText = "Paciente";
+            dataGridView1.Columns["Doctor"].HeaderText = "Doctor";
+            dataGridView1.Columns["Area"].HeaderText = "Área";
+            dataGridView1.Columns["Fecha"].HeaderText = "Fecha";
+            dataGridView1.Columns["Hora"].HeaderText = "Hora";
+            dataGridView1.Columns["Estado"].HeaderText = "Estado";
+
+            dataGridView1.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dataGridView1.Columns["Fecha"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns["Hora"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns["Paciente"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns["Doctor"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns["Area"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns["Estado"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void botonBuscarPaciente_Click(object sender, EventArgs e)
@@ -80,7 +105,6 @@ namespace VISUAL
 
         private void botonAgregarCita_Click(object sender, EventArgs e)
         {
-
             AgregarCita();
             citaService.Consultar();
             cargarCitas();
@@ -147,15 +171,33 @@ namespace VISUAL
 
         private Cita seleccionarPaciente()
         {
+            // Como ya no tienes el IdCita en la grilla, puedes buscar por los datos únicos de la fila seleccionada
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var fila = dataGridView1.SelectedRows[0];
-                int id = (int)fila.Cells[0].Value;
-                Cita cita = citaService.BuscarId(id);
+                string pacienteNombre = fila.Cells["Paciente"].Value?.ToString();
+                string doctorNombre = fila.Cells["Doctor"].Value?.ToString();
+                string area = fila.Cells["Area"].Value?.ToString();
+                DateTime fecha = (DateTime)fila.Cells["Fecha"].Value;
+                string hora = fila.Cells["Hora"].Value?.ToString();
+
+                // Buscar la cita original por coincidencia de datos
+                var pacientes = new PacienteService().Consultar();
+                var doctores = new DoctorService().Consultar();
+                var especialidades = especialidadCitaService.Consultar();
+
+                var cita = citaService.Consultar().FirstOrDefault(c =>
+                    $"{pacientes.FirstOrDefault(p => p.Id == c.PacienteId)?.Nombre} {pacientes.FirstOrDefault(p => p.Id == c.PacienteId)?.Apellido}" == pacienteNombre &&
+                    $"{doctores.FirstOrDefault(d => d.Id == c.DoctorId)?.Nombre} {doctores.FirstOrDefault(d => d.Id == c.DoctorId)?.Apellido}" == doctorNombre &&
+                    especialidades.FirstOrDefault(e => e.id == c.IdEspecialidad)?.nombre == area &&
+                    c.FechaCita == fecha &&
+                    c.HoraCita == hora
+                );
                 return cita;
             }
             return null;
         }
+
         private void estiloTabla()
         {
             Color miColor = Color.FromArgb(185, 218, 233);
@@ -170,40 +212,57 @@ namespace VISUAL
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 91, 103);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-            dataGridView1.Columns[0].FillWeight = 90;
-            dataGridView1.Columns[1].FillWeight = 90;
-            dataGridView1.Columns[2].FillWeight = 20;
 
+            // Ajusta el ancho de las columnas principales
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
 
             // Evita que el usuario cambie el tamaño de las filas
             dataGridView1.AllowUserToResizeRows = false;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            citaService.Eliminar(seleccionarPaciente().IdCita);
-            cargarCitas();
+            var cita = seleccionarPaciente();
+            if (cita != null)
+            {
+                citaService.Eliminar(cita.IdCita);
+                cargarCitas();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-        
-            string texto = textBox1.Text.Trim();
-            // Obtén la lista completa de citas
-            var todasLasCitas = citaService.Consultar();
+            string texto = textBox1.Text.Trim().ToLower();
 
-            // Filtra solo las citas cuyo paciente tiene un número de documento que contiene el texto
-            var citasFiltradas = string.IsNullOrEmpty(texto)
-                ? todasLasCitas
-                : todasLasCitas.Where(cita =>
+            var pacientes = new PacienteService().Consultar();
+            var doctores = new DoctorService().Consultar();
+            var especialidades = especialidadCitaService.Consultar();
+
+            var citas = citaService.Consultar()
+                .Select(c => new
                 {
-                    PacienteService pacienteService = new PacienteService();
-                    var paciente = pacienteService.BuscarId(cita.PacienteId);
-                    return paciente != null && paciente.NumeroDocumento.Contains(texto, StringComparison.OrdinalIgnoreCase);
-                }).ToList();
+                    Paciente = pacientes.FirstOrDefault(p => p.Id == c.PacienteId) is Paciente p ? $"{p.Nombre} {p.Apellido}" : "Desconocido",
+                    Doctor = doctores.FirstOrDefault(d => d.Id == c.DoctorId) is Doctor d ? $"{d.Nombre} {d.Apellido}" : "Desconocido",
+                    Area = especialidades.FirstOrDefault(e => e.id == c.IdEspecialidad)?.nombre ?? "Desconocida",
+                    Fecha = c.FechaCita,
+                    Hora = c.HoraCita,
+                    Estado = c.EstadoCita
+                })
+                .Where(c =>
+                    (c.Paciente ?? "").ToLower().Contains(texto) ||
+                    (c.Doctor ?? "").ToLower().Contains(texto) ||
+                    (c.Area ?? "").ToLower().Contains(texto) ||
+                    c.Fecha.ToString("dd/MM/yyyy").Contains(texto) ||
+                    (c.Hora ?? "").ToLower().Contains(texto) ||
+                    (c.Estado ?? "").ToLower().Contains(texto)
+                )
+                .ToList();
 
-            dataGridView1.DataSource = citasFiltradas;
-        
+            dataGridView1.DataSource = citas;
+            estiloTabla();
         }
-   
     }
 }

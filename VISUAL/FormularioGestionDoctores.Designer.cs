@@ -54,7 +54,6 @@ namespace VISUAL
             LblSegundoNombre = new Label();
             LblPrimerNombre = new Label();
             groupBox3 = new GroupBox();
-            ComboBoxPreTelefono = new ComboBox();
             label6 = new Label();
             label5 = new Label();
             txtTelefono = new TextBox();
@@ -86,8 +85,10 @@ namespace VISUAL
             GroupBoxDocumento.Controls.Add(txtNumDoc);
             GroupBoxDocumento.Dock = DockStyle.Top;
             GroupBoxDocumento.Location = new Point(0, 0);
+            GroupBoxDocumento.Margin = new Padding(3, 2, 3, 2);
             GroupBoxDocumento.Name = "GroupBoxDocumento";
-            GroupBoxDocumento.Size = new Size(1043, 98);
+            GroupBoxDocumento.Padding = new Padding(3, 2, 3, 2);
+            GroupBoxDocumento.Size = new Size(913, 74);
             GroupBoxDocumento.TabIndex = 22;
             GroupBoxDocumento.TabStop = false;
             GroupBoxDocumento.Text = "Documento de identidad";
@@ -95,28 +96,29 @@ namespace VISUAL
             // LblDocumento
             // 
             LblDocumento.AutoSize = true;
-            LblDocumento.Location = new Point(501, 54);
+            LblDocumento.Location = new Point(460, 40);
             LblDocumento.Name = "LblDocumento";
-            LblDocumento.Size = new Size(127, 20);
+            LblDocumento.Size = new Size(132, 15);
             LblDocumento.TabIndex = 0;
-            LblDocumento.Text = "N° de documento";
+            LblDocumento.Text = "Numero de documento";
+            LblDocumento.Click += LblDocumento_Click;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.ForeColor = Color.FromArgb(79, 127, 140);
-            label10.Location = new Point(163, 50);
+            label10.Location = new Point(143, 38);
             label10.Name = "label10";
-            label10.Size = new Size(25, 20);
+            label10.Size = new Size(20, 15);
             label10.TabIndex = 16;
             label10.Text = "(*)";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(17, 50);
+            label7.Location = new Point(15, 38);
             label7.Name = "label7";
-            label7.Size = new Size(140, 20);
+            label7.Size = new Size(112, 15);
             label7.TabIndex = 20;
             label7.Text = "Tipo de documento";
             // 
@@ -125,26 +127,28 @@ namespace VISUAL
             ComboBoxTipoDoc.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxTipoDoc.FormattingEnabled = true;
             ComboBoxTipoDoc.Items.AddRange(new object[] { "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            ComboBoxTipoDoc.Location = new Point(203, 51);
+            ComboBoxTipoDoc.Location = new Point(178, 38);
+            ComboBoxTipoDoc.Margin = new Padding(3, 2, 3, 2);
             ComboBoxTipoDoc.Name = "ComboBoxTipoDoc";
-            ComboBoxTipoDoc.Size = new Size(268, 28);
+            ComboBoxTipoDoc.Size = new Size(235, 23);
             ComboBoxTipoDoc.TabIndex = 19;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.FromArgb(79, 127, 140);
-            label1.Location = new Point(628, 54);
+            label1.Location = new Point(600, 40);
             label1.Name = "label1";
-            label1.Size = new Size(25, 20);
+            label1.Size = new Size(20, 15);
             label1.TabIndex = 10;
             label1.Text = "(*)";
             // 
             // txtNumDoc
             // 
-            txtNumDoc.Location = new Point(690, 47);
+            txtNumDoc.Location = new Point(626, 35);
+            txtNumDoc.Margin = new Padding(3, 2, 3, 2);
             txtNumDoc.Name = "txtNumDoc";
-            txtNumDoc.Size = new Size(157, 27);
+            txtNumDoc.Size = new Size(138, 23);
             txtNumDoc.TabIndex = 5;
             txtNumDoc.KeyPress += txtNumDoc_KeyPress;
             // 
@@ -167,9 +171,11 @@ namespace VISUAL
             groupBox2.Controls.Add(LblSegundoNombre);
             groupBox2.Controls.Add(LblPrimerNombre);
             groupBox2.Dock = DockStyle.Top;
-            groupBox2.Location = new Point(0, 98);
+            groupBox2.Location = new Point(0, 74);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1043, 229);
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(913, 172);
             groupBox2.TabIndex = 23;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos generales";
@@ -179,18 +185,18 @@ namespace VISUAL
             // 
             label11.AutoSize = true;
             label11.ForeColor = Color.FromArgb(79, 127, 140);
-            label11.Location = new Point(53, 178);
+            label11.Location = new Point(46, 134);
             label11.Name = "label11";
-            label11.Size = new Size(25, 20);
+            label11.Size = new Size(20, 15);
             label11.TabIndex = 26;
             label11.Text = "(*)";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(17, 178);
+            label12.Location = new Point(15, 134);
             label12.Name = "label12";
-            label12.Size = new Size(41, 20);
+            label12.Size = new Size(31, 15);
             label12.TabIndex = 28;
             label12.Text = "Sexo";
             // 
@@ -199,34 +205,37 @@ namespace VISUAL
             ComboBoxSexo.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxSexo.FormattingEnabled = true;
             ComboBoxSexo.Items.AddRange(new object[] { "Femenino", "Masculino" });
-            ComboBoxSexo.Location = new Point(203, 170);
+            ComboBoxSexo.Location = new Point(178, 128);
+            ComboBoxSexo.Margin = new Padding(3, 2, 3, 2);
             ComboBoxSexo.Name = "ComboBoxSexo";
-            ComboBoxSexo.Size = new Size(268, 28);
+            ComboBoxSexo.Size = new Size(235, 23);
             ComboBoxSexo.TabIndex = 27;
+            ComboBoxSexo.SelectedIndexChanged += ComboBoxSexo_SelectedIndexChanged;
             // 
             // dateNacimiento
             // 
-            dateNacimiento.Location = new Point(203, 127);
+            dateNacimiento.Location = new Point(178, 95);
+            dateNacimiento.Margin = new Padding(3, 2, 3, 2);
             dateNacimiento.Name = "dateNacimiento";
-            dateNacimiento.Size = new Size(268, 27);
+            dateNacimiento.Size = new Size(235, 23);
             dateNacimiento.TabIndex = 25;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.ForeColor = Color.FromArgb(79, 127, 140);
-            label9.Location = new Point(160, 127);
+            label9.Location = new Point(140, 95);
             label9.Name = "label9";
-            label9.Size = new Size(25, 20);
+            label9.Size = new Size(20, 15);
             label9.TabIndex = 15;
             label9.Text = "(*)";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(17, 127);
+            label8.Location = new Point(15, 95);
             label8.Name = "label8";
-            label8.Size = new Size(146, 20);
+            label8.Size = new Size(117, 15);
             label8.TabIndex = 13;
             label8.Text = "Fecha de nacimiento";
             // 
@@ -234,9 +243,9 @@ namespace VISUAL
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(79, 127, 140);
-            label3.Location = new Point(647, 38);
+            label3.Location = new Point(566, 28);
             label3.Name = "label3";
-            label3.Size = new Size(25, 20);
+            label3.Size = new Size(20, 15);
             label3.TabIndex = 12;
             label3.Text = "(*)";
             // 
@@ -244,56 +253,60 @@ namespace VISUAL
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.FromArgb(79, 127, 140);
-            label2.Location = new Point(119, 38);
+            label2.Location = new Point(104, 28);
             label2.Name = "label2";
-            label2.Size = new Size(25, 20);
+            label2.Size = new Size(20, 15);
             label2.TabIndex = 11;
             label2.Text = "(*)";
             // 
             // txtPrimerNombre
             // 
-            txtPrimerNombre.Location = new Point(203, 31);
+            txtPrimerNombre.Location = new Point(178, 23);
+            txtPrimerNombre.Margin = new Padding(3, 2, 3, 2);
             txtPrimerNombre.Name = "txtPrimerNombre";
-            txtPrimerNombre.Size = new Size(268, 27);
+            txtPrimerNombre.Size = new Size(235, 23);
             txtPrimerNombre.TabIndex = 9;
             // 
             // txtSegundoNombre
             // 
-            txtSegundoNombre.Location = new Point(203, 74);
+            txtSegundoNombre.Location = new Point(178, 56);
+            txtSegundoNombre.Margin = new Padding(3, 2, 3, 2);
             txtSegundoNombre.Name = "txtSegundoNombre";
-            txtSegundoNombre.Size = new Size(268, 27);
+            txtSegundoNombre.Size = new Size(235, 23);
             txtSegundoNombre.TabIndex = 8;
             // 
             // txtPrimerApellido
             // 
-            txtPrimerApellido.Location = new Point(716, 31);
+            txtPrimerApellido.Location = new Point(626, 23);
+            txtPrimerApellido.Margin = new Padding(3, 2, 3, 2);
             txtPrimerApellido.Name = "txtPrimerApellido";
-            txtPrimerApellido.Size = new Size(157, 27);
+            txtPrimerApellido.Size = new Size(138, 23);
             txtPrimerApellido.TabIndex = 7;
             // 
             // txtSegundoApellido
             // 
-            txtSegundoApellido.Location = new Point(716, 74);
+            txtSegundoApellido.Location = new Point(626, 56);
+            txtSegundoApellido.Margin = new Padding(3, 2, 3, 2);
             txtSegundoApellido.Name = "txtSegundoApellido";
-            txtSegundoApellido.Size = new Size(157, 27);
+            txtSegundoApellido.Size = new Size(138, 23);
             txtSegundoApellido.TabIndex = 6;
             txtSegundoApellido.TextChanged += textBox2_TextChanged;
             // 
             // LblSegundoApellido
             // 
             LblSegundoApellido.AutoSize = true;
-            LblSegundoApellido.Location = new Point(530, 81);
+            LblSegundoApellido.Location = new Point(464, 61);
             LblSegundoApellido.Name = "LblSegundoApellido";
-            LblSegundoApellido.Size = new Size(127, 20);
+            LblSegundoApellido.Size = new Size(99, 15);
             LblSegundoApellido.TabIndex = 4;
             LblSegundoApellido.Text = "Segundo apellido";
             // 
             // LblPrimerApellido
             // 
             LblPrimerApellido.AutoSize = true;
-            LblPrimerApellido.Location = new Point(530, 38);
+            LblPrimerApellido.Location = new Point(464, 28);
             LblPrimerApellido.Name = "LblPrimerApellido";
-            LblPrimerApellido.Size = new Size(111, 20);
+            LblPrimerApellido.Size = new Size(87, 15);
             LblPrimerApellido.TabIndex = 3;
             LblPrimerApellido.Text = "Primer apellido";
             // 
@@ -301,24 +314,23 @@ namespace VISUAL
             // 
             LblSegundoNombre.AutoSize = true;
             LblSegundoNombre.Font = new Font("Segoe UI", 9F);
-            LblSegundoNombre.Location = new Point(17, 81);
+            LblSegundoNombre.Location = new Point(15, 61);
             LblSegundoNombre.Name = "LblSegundoNombre";
-            LblSegundoNombre.Size = new Size(124, 20);
+            LblSegundoNombre.Size = new Size(99, 15);
             LblSegundoNombre.TabIndex = 2;
             LblSegundoNombre.Text = "Segundo nombre";
             // 
             // LblPrimerNombre
             // 
             LblPrimerNombre.AutoSize = true;
-            LblPrimerNombre.Location = new Point(17, 38);
+            LblPrimerNombre.Location = new Point(15, 28);
             LblPrimerNombre.Name = "LblPrimerNombre";
-            LblPrimerNombre.Size = new Size(108, 20);
+            LblPrimerNombre.Size = new Size(87, 15);
             LblPrimerNombre.TabIndex = 1;
             LblPrimerNombre.Text = "Primer nombre";
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(ComboBoxPreTelefono);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(label5);
             groupBox3.Controls.Add(txtTelefono);
@@ -326,30 +338,22 @@ namespace VISUAL
             groupBox3.Controls.Add(txtCorreo);
             groupBox3.Controls.Add(LblCorreoElectronico);
             groupBox3.Dock = DockStyle.Top;
-            groupBox3.Location = new Point(0, 327);
+            groupBox3.Location = new Point(0, 246);
+            groupBox3.Margin = new Padding(3, 2, 3, 2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1043, 131);
+            groupBox3.Padding = new Padding(3, 2, 3, 2);
+            groupBox3.Size = new Size(913, 98);
             groupBox3.TabIndex = 24;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos de contacto";
-            // 
-            // ComboBoxPreTelefono
-            // 
-            ComboBoxPreTelefono.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboBoxPreTelefono.FormattingEnabled = true;
-            ComboBoxPreTelefono.Items.AddRange(new object[] { "- elija una opcion -", "CC", "TI", "RC", "CE", "PP", "DNI", "NUIP" });
-            ComboBoxPreTelefono.Location = new Point(632, 33);
-            ComboBoxPreTelefono.Name = "ComboBoxPreTelefono";
-            ComboBoxPreTelefono.Size = new Size(78, 28);
-            ComboBoxPreTelefono.TabIndex = 36;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.ForeColor = Color.FromArgb(79, 127, 140);
-            label6.Location = new Point(603, 33);
+            label6.Location = new Point(566, 25);
             label6.Name = "label6";
-            label6.Size = new Size(25, 20);
+            label6.Size = new Size(20, 15);
             label6.TabIndex = 18;
             label6.Text = "(*)";
             // 
@@ -357,42 +361,44 @@ namespace VISUAL
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.FromArgb(79, 127, 140);
-            label5.Location = new Point(155, 33);
+            label5.Location = new Point(136, 25);
             label5.Name = "label5";
-            label5.Size = new Size(25, 20);
+            label5.Size = new Size(20, 15);
             label5.TabIndex = 17;
             label5.Text = "(*)";
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(716, 33);
+            txtTelefono.Location = new Point(628, 25);
+            txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(157, 27);
+            txtTelefono.Size = new Size(136, 23);
             txtTelefono.TabIndex = 16;
             txtTelefono.KeyPress += txtNumDoc_KeyPress;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(530, 33);
+            label4.Location = new Point(464, 25);
             label4.Name = "label4";
-            label4.Size = new Size(67, 20);
+            label4.Size = new Size(53, 15);
             label4.TabIndex = 15;
             label4.Text = "Telefono";
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(203, 26);
+            txtCorreo.Location = new Point(178, 20);
+            txtCorreo.Margin = new Padding(3, 2, 3, 2);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(268, 27);
+            txtCorreo.Size = new Size(235, 23);
             txtCorreo.TabIndex = 14;
             // 
             // LblCorreoElectronico
             // 
             LblCorreoElectronico.AutoSize = true;
-            LblCorreoElectronico.Location = new Point(17, 33);
+            LblCorreoElectronico.Location = new Point(15, 25);
             LblCorreoElectronico.Name = "LblCorreoElectronico";
-            LblCorreoElectronico.Size = new Size(132, 20);
+            LblCorreoElectronico.Size = new Size(105, 15);
             LblCorreoElectronico.TabIndex = 13;
             LblCorreoElectronico.Text = "Correo Electronico";
             // 
@@ -404,12 +410,12 @@ namespace VISUAL
             BotonAgregar.FlatStyle = FlatStyle.Flat;
             BotonAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonAgregar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonAgregar.Location = new Point(840, 595);
+            BotonAgregar.Location = new Point(758, 441);
             BotonAgregar.Margin = new Padding(0);
             BotonAgregar.Name = "BotonAgregar";
-            BotonAgregar.Size = new Size(167, 34);
+            BotonAgregar.Size = new Size(146, 26);
             BotonAgregar.TabIndex = 25;
-            BotonAgregar.Text = "+ Nuevo doctor";
+            BotonAgregar.Text = "+ Registrar";
             BotonAgregar.UseVisualStyleBackColor = false;
             BotonAgregar.Click += BotonAgregarDoctores_click;
             // 
@@ -422,9 +428,11 @@ namespace VISUAL
             groupBox1.Controls.Add(txtEspecialidad);
             groupBox1.Controls.Add(label27);
             groupBox1.Dock = DockStyle.Top;
-            groupBox1.Location = new Point(0, 458);
+            groupBox1.Location = new Point(0, 344);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1043, 108);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(913, 81);
             groupBox1.TabIndex = 37;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalles del profesional";
@@ -432,54 +440,56 @@ namespace VISUAL
             // 
             // txtNroLicencia
             // 
-            txtNroLicencia.Location = new Point(182, 68);
+            txtNroLicencia.Location = new Point(159, 51);
+            txtNroLicencia.Margin = new Padding(3, 2, 3, 2);
             txtNroLicencia.Name = "txtNroLicencia";
-            txtNroLicencia.Size = new Size(185, 27);
+            txtNroLicencia.Size = new Size(162, 23);
             txtNroLicencia.TabIndex = 21;
             // 
             // label20
             // 
             label20.AutoSize = true;
             label20.ForeColor = Color.FromArgb(79, 127, 140);
-            label20.Location = new Point(132, 68);
+            label20.Location = new Point(133, 51);
             label20.Name = "label20";
-            label20.Size = new Size(25, 20);
+            label20.Size = new Size(20, 15);
             label20.TabIndex = 20;
             label20.Text = "(*)";
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(27, 68);
+            label19.Location = new Point(24, 51);
             label19.Name = "label19";
-            label19.Size = new Size(109, 20);
+            label19.Size = new Size(110, 15);
             label19.TabIndex = 19;
-            label19.Text = "Nro de licencia";
+            label19.Text = "Numero de licencia";
             label19.Click += label19_Click;
             // 
             // label25
             // 
             label25.AutoSize = true;
             label25.ForeColor = Color.FromArgb(79, 127, 140);
-            label25.Location = new Point(115, 30);
+            label25.Location = new Point(133, 22);
             label25.Name = "label25";
-            label25.Size = new Size(25, 20);
+            label25.Size = new Size(20, 15);
             label25.TabIndex = 18;
             label25.Text = "(*)";
             // 
             // txtEspecialidad
             // 
-            txtEspecialidad.Location = new Point(182, 30);
+            txtEspecialidad.Location = new Point(159, 22);
+            txtEspecialidad.Margin = new Padding(3, 2, 3, 2);
             txtEspecialidad.Name = "txtEspecialidad";
-            txtEspecialidad.Size = new Size(185, 27);
+            txtEspecialidad.Size = new Size(162, 23);
             txtEspecialidad.TabIndex = 16;
             // 
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(26, 30);
+            label27.Location = new Point(23, 22);
             label27.Name = "label27";
-            label27.Size = new Size(93, 20);
+            label27.Size = new Size(72, 15);
             label27.TabIndex = 15;
             label27.Text = "Especialidad";
             // 
@@ -491,29 +501,30 @@ namespace VISUAL
             BotonModificar.FlatStyle = FlatStyle.Flat;
             BotonModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonModificar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonModificar.Location = new Point(840, 641);
+            BotonModificar.Location = new Point(758, 441);
             BotonModificar.Margin = new Padding(0);
             BotonModificar.Name = "BotonModificar";
-            BotonModificar.Size = new Size(167, 34);
+            BotonModificar.Size = new Size(146, 26);
             BotonModificar.TabIndex = 38;
-            BotonModificar.Text = "+ modificar doctor";
+            BotonModificar.Text = "+ Modificar";
             BotonModificar.UseVisualStyleBackColor = false;
             BotonModificar.Click += BotonModificar_Click;
             // 
             // FormularioGestionDoctores
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1043, 758);
+            ClientSize = new Size(913, 485);
             Controls.Add(BotonModificar);
             Controls.Add(groupBox1);
             Controls.Add(BotonAgregar);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(GroupBoxDocumento);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormularioGestionDoctores";
-            Text = "FormularioGestionDoctores";
+            Text = "Registro de Doctores";
             GroupBoxDocumento.ResumeLayout(false);
             GroupBoxDocumento.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -561,7 +572,6 @@ namespace VISUAL
         private TextBox txtCorreo;
         private Label LblCorreoElectronico;
         private Button BotonAgregar;
-        private ComboBox ComboBoxPreTelefono;
         private GroupBox groupBox1;
         private Label label25;
         private TextBox txtEspecialidad;

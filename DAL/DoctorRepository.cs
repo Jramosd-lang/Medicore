@@ -232,7 +232,8 @@ namespace DAL
                               "correo = @correo, " +
                               "telefono = @telefono, " +
                               "especialidad = @especialidad, " +
-                              "numero_licencia = @numero_licencia "+
+                              "numero_licencia = @numero_licencia, "+
+                              "sexo = @sexo " +
                               "WHERE id_doctor = @id";
 
             using (MySqlCommand cmd = new MySqlCommand(sentencia, conexion))
