@@ -207,7 +207,9 @@ namespace DAL
                correo            = @correo,
                telefono          = @telefono,
                ocupacion         = @ocupacion,
-               religion          = @religion
+               religion          = @religion,
+               sexo              = @sexo
+
                WHERE id_paciente      = @id;
                ";
 
@@ -222,6 +224,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@telefono", paciente.Telefono);
             cmd.Parameters.AddWithValue("@ocupacion", paciente.Ocupacion);
             cmd.Parameters.AddWithValue("@religion", paciente.Religion);
+            cmd.Parameters.AddWithValue("@sexo", paciente.Sexo);
 
 
             try

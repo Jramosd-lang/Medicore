@@ -59,12 +59,12 @@
             botonBuscarPaciente.FlatStyle = FlatStyle.Flat;
             botonBuscarPaciente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             botonBuscarPaciente.ForeColor = Color.FromArgb(165, 197, 213);
-            botonBuscarPaciente.Location = new Point(31, 90);
+            botonBuscarPaciente.Location = new Point(27, 68);
             botonBuscarPaciente.Margin = new Padding(0);
             botonBuscarPaciente.Name = "botonBuscarPaciente";
-            botonBuscarPaciente.Size = new Size(310, 34);
+            botonBuscarPaciente.Size = new Size(271, 26);
             botonBuscarPaciente.TabIndex = 21;
-            botonBuscarPaciente.Text = "Buscar paciente";
+            botonBuscarPaciente.Text = "Asignar paciente";
             botonBuscarPaciente.UseVisualStyleBackColor = false;
             botonBuscarPaciente.Click += botonBuscarPaciente_Click;
             // 
@@ -75,12 +75,12 @@
             botonBuscarDoctor.FlatStyle = FlatStyle.Flat;
             botonBuscarDoctor.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             botonBuscarDoctor.ForeColor = Color.FromArgb(165, 197, 213);
-            botonBuscarDoctor.Location = new Point(31, 134);
+            botonBuscarDoctor.Location = new Point(27, 100);
             botonBuscarDoctor.Margin = new Padding(0);
             botonBuscarDoctor.Name = "botonBuscarDoctor";
-            botonBuscarDoctor.Size = new Size(310, 34);
+            botonBuscarDoctor.Size = new Size(271, 26);
             botonBuscarDoctor.TabIndex = 22;
-            botonBuscarDoctor.Text = "Buscar doctor";
+            botonBuscarDoctor.Text = "Asignar doctor";
             botonBuscarDoctor.UseVisualStyleBackColor = false;
             botonBuscarDoctor.Click += botonBuscarDoctor_Click;
             // 
@@ -109,7 +109,8 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(364, 90);
+            dataGridView1.Location = new Point(318, 68);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
@@ -118,7 +119,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(45, 91, 103);
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(416, 425);
+            dataGridView1.Size = new Size(638, 506);
             dataGridView1.TabIndex = 23;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -126,14 +127,13 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial", 10F, FontStyle.Bold);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(45, 91, 103);
-            label1.Location = new Point(31, 23);
+            label1.Location = new Point(27, 17);
             label1.Name = "label1";
-            label1.Size = new Size(163, 19);
+            label1.Size = new Size(159, 19);
             label1.TabIndex = 24;
             label1.Text = "GESTION DE CITAS";
-           
             // 
             // label2
             // 
@@ -141,9 +141,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Arial", 10F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(45, 91, 103);
-            label2.Location = new Point(42, 189);
+            label2.Location = new Point(37, 142);
             label2.Name = "label2";
-            label2.Size = new Size(51, 19);
+            label2.Size = new Size(43, 16);
             label2.TabIndex = 25;
             label2.Text = "Area:";
             // 
@@ -151,9 +151,11 @@
             // 
             textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(629, 64);
+            textBox1.Location = new Point(794, 39);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(151, 20);
+            textBox1.RightToLeft = RightToLeft.No;
+            textBox1.Size = new Size(162, 16);
             textBox1.TabIndex = 26;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -165,10 +167,10 @@
             botonAgregarCita.FlatStyle = FlatStyle.Flat;
             botonAgregarCita.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             botonAgregarCita.ForeColor = Color.FromArgb(165, 197, 213);
-            botonAgregarCita.Location = new Point(613, 542);
+            botonAgregarCita.Location = new Point(810, 593);
             botonAgregarCita.Margin = new Padding(0);
             botonAgregarCita.Name = "botonAgregarCita";
-            botonAgregarCita.Size = new Size(167, 34);
+            botonAgregarCita.Size = new Size(146, 26);
             botonAgregarCita.TabIndex = 27;
             botonAgregarCita.Text = "Agregar cita";
             botonAgregarCita.UseVisualStyleBackColor = false;
@@ -180,10 +182,10 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FlatStyle = FlatStyle.Flat;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(102, 185);
+            comboBox1.Location = new Point(118, 139);
             comboBox1.Margin = new Padding(0);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(239, 28);
+            comboBox1.Size = new Size(181, 23);
             comboBox1.TabIndex = 28;
             // 
             // label3
@@ -192,24 +194,26 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial", 10F, FontStyle.Bold);
             label3.ForeColor = Color.FromArgb(45, 91, 103);
-            label3.Location = new Point(427, 64);
+            label3.Location = new Point(318, 39);
             label3.Name = "label3";
-            label3.Size = new Size(196, 19);
+            label3.Size = new Size(87, 16);
             label3.TabIndex = 29;
-            label3.Text = "Buscar por documento:";
+            label3.Text = "Filtrar tabla";
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(135, 228);
+            dateTimePicker1.Location = new Point(118, 171);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(206, 27);
+            dateTimePicker1.Size = new Size(181, 23);
             dateTimePicker1.TabIndex = 30;
             // 
             // txtMotivo
             // 
-            txtMotivo.Location = new Point(135, 329);
+            txtMotivo.Location = new Point(118, 247);
+            txtMotivo.Margin = new Padding(3, 2, 3, 2);
             txtMotivo.Name = "txtMotivo";
-            txtMotivo.Size = new Size(206, 27);
+            txtMotivo.Size = new Size(181, 23);
             txtMotivo.TabIndex = 32;
             // 
             // label4
@@ -218,17 +222,18 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Arial", 10F, FontStyle.Bold);
             label4.ForeColor = Color.FromArgb(45, 91, 103);
-            label4.Location = new Point(42, 236);
+            label4.Location = new Point(37, 177);
             label4.Name = "label4";
-            label4.Size = new Size(62, 19);
+            label4.Size = new Size(54, 16);
             label4.TabIndex = 34;
             label4.Text = "Fecha:";
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(42, 425);
+            richTextBox1.Location = new Point(37, 319);
+            richTextBox1.Margin = new Padding(3, 2, 3, 2);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(299, 120);
+            richTextBox1.Size = new Size(262, 91);
             richTextBox1.TabIndex = 35;
             richTextBox1.Text = "";
             // 
@@ -238,9 +243,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Arial", 10F, FontStyle.Bold);
             label5.ForeColor = Color.FromArgb(45, 91, 103);
-            label5.Location = new Point(42, 337);
+            label5.Location = new Point(37, 253);
             label5.Name = "label5";
-            label5.Size = new Size(76, 19);
+            label5.Size = new Size(68, 16);
             label5.TabIndex = 36;
             label5.Text = "Motivos:";
             // 
@@ -250,9 +255,9 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Arial", 10F, FontStyle.Bold);
             label6.ForeColor = Color.FromArgb(45, 91, 103);
-            label6.Location = new Point(42, 382);
+            label6.Location = new Point(37, 286);
             label6.Name = "label6";
-            label6.Size = new Size(132, 19);
+            label6.Size = new Size(118, 16);
             label6.TabIndex = 37;
             label6.Text = "Observaciones:";
             // 
@@ -261,9 +266,10 @@
             comboBoxHora.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxHora.FormattingEnabled = true;
             comboBoxHora.Items.AddRange(new object[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00" });
-            comboBoxHora.Location = new Point(135, 276);
+            comboBoxHora.Location = new Point(118, 207);
+            comboBoxHora.Margin = new Padding(3, 2, 3, 2);
             comboBoxHora.Name = "comboBoxHora";
-            comboBoxHora.Size = new Size(206, 28);
+            comboBoxHora.Size = new Size(181, 23);
             comboBoxHora.TabIndex = 38;
             // 
             // label7
@@ -272,9 +278,9 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Arial", 10F, FontStyle.Bold);
             label7.ForeColor = Color.FromArgb(45, 91, 103);
-            label7.Location = new Point(42, 285);
+            label7.Location = new Point(37, 214);
             label7.Name = "label7";
-            label7.Size = new Size(53, 19);
+            label7.Size = new Size(44, 16);
             label7.TabIndex = 39;
             label7.Text = "Hora:";
             // 
@@ -286,10 +292,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.FromArgb(165, 197, 213);
-            button1.Location = new Point(364, 542);
+            button1.Location = new Point(640, 593);
             button1.Margin = new Padding(0);
             button1.Name = "button1";
-            button1.Size = new Size(167, 34);
+            button1.Size = new Size(146, 26);
             button1.TabIndex = 40;
             button1.Text = "x Eliminar cita";
             button1.UseVisualStyleBackColor = false;
@@ -297,9 +303,9 @@
             // 
             // FormularioCitacs
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(831, 620);
+            ClientSize = new Size(1001, 652);
             Controls.Add(button1);
             Controls.Add(label7);
             Controls.Add(comboBoxHora);
@@ -319,6 +325,7 @@
             Controls.Add(botonBuscarDoctor);
             Controls.Add(botonBuscarPaciente);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormularioCitacs";
             Text = "FormularioCitacs";
             Load += FormularioCitacs_Load;
