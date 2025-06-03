@@ -15,6 +15,7 @@ namespace VISUAL
     {
         public FormularioHistorialCita(int id)
         {
+
             InitializeComponent();
         }
 
