@@ -38,6 +38,7 @@ namespace VISUAL
             cargarCitas();
             comboBox1.DataSource = especialidadCitaService.ConsultarNombre();
             estiloTabla();
+            dateTimePicker1.MinDate = DateTime.Today;
         }
 
         private void cargarCitas()
@@ -85,7 +86,7 @@ namespace VISUAL
                 {
                     Paciente paciente = form.PacienteResult;
                     PacienteResult = paciente;
-                    MessageBox.Show(paciente.Id + "");
+                    MessageBox.Show("Paciente elegido satisfactoriamente");
                 }
             }
         }
@@ -98,7 +99,7 @@ namespace VISUAL
                 {
                     Doctor doctor = form.DoctorResult;
                     DoctorResult = doctor;
-                    MessageBox.Show(doctor.Id + "");
+                    MessageBox.Show("Doctor elegido satisfactoriamente");
                 }
             }
         }
