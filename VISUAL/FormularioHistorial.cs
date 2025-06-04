@@ -16,6 +16,7 @@ namespace VISUAL
     public partial class FormularioHistorial : Form
     {
         EventoHistorialService eventoHistorialMedico = new EventoHistorialService();
+        HistorialMedicoService historialMedicoService = new HistorialMedicoService();
         CitaService citaService = new CitaService();
         PacienteService pacienteService = new PacienteService();
         EventoHistorialService repoHisto = new EventoHistorialService();  // Added instance of EventoHistorialRepository  
@@ -34,31 +35,36 @@ namespace VISUAL
 
         private void cargarHistorialMedico()
         {
-            List<Cita> citas = citaService.Consultar();
-            MessageBox.Show("Total de citas: " + citas.Count);
-
-            var citasDoctor = citas.Where(c => c.DoctorId == 1).ToList();
-            MessageBox.Show("Citas del doctor: " + citasDoctor.Count);
-
-            var pacientesIds = citasDoctor.Select(c => c.PacienteId).Distinct().ToList();
-            var listaPacientes = citasDoctor
-                .Where(c => pacientesIds.Contains(c.PacienteId))
-                .Select(c => new
-                {
-                    c.PacienteId,
-                    c.IdCita,
-                    c.FechaCita,
-                    c.HoraCita,
-                    c.EstadoCita,
-                    c.MotivoCita,
-                    c.Observaciones
-                })
-                .ToList();
-
-            MessageBox.Show("Lista para mostrar: " + listaPacientes.Count);
-            dataGridView1.DataSource = listaPacientes;
+            DataTable datos = citaService.obtenerCitasConfirmadasHoy(id);
+            dataGridView1.DataSource = datos;
         }
 
+        private void BotonAgregar_Click(object sender, EventArgs e)
+        {
+            var citaSeleccionada = seleccionarPaciente();
+            if (citaSeleccionada != null)
+            {
+                int id = citaSeleccionada;
+                Cita cita = citaService.Consultar().FirstOrDefault(c => c.PacienteId == id);
+                HistorialMedico historialMedico = historialMedicoService.BuscarId(cita.PacienteId);
+                Form form = new FormularioHistorialMedico(historialMedico);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una cita.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private int seleccionarPaciente()
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var fila = dataGridView1.SelectedRows[0];
+                int id = (int)fila.Cells[0].Value;
+                return id;
+            }
+            return 0;
+        }
 
 
     }

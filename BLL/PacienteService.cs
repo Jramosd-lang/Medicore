@@ -41,6 +41,18 @@ namespace BLL
             }
         }
 
+        public List<Paciente> filtrarPacientePorCitaHoy()
+        {
+            try
+            {
+                return repoPaciente.filtrarPacientePorCitaHoy();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al filtrar pacientes por cita de hoy: {ex.Message}");
+            }
+        }
+
         public string Modificar(Paciente entity)
         {
             try

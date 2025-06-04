@@ -69,6 +69,12 @@ namespace VISUAL
         private void FormMenuDoctor_Load(object sender, EventArgs e)
         {
             EsconderMenu();
+            var wa = Screen.FromControl(this).WorkingArea;
+
+            // 2) Sin bordes y ajustado exactamente al área útil
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Location = wa.Location;
+            this.Size = wa.Size;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -100,6 +106,21 @@ namespace VISUAL
         private void button4_Click(object sender, EventArgs e)
         {
             cambiarPanel(new FormularioCitaDoctor());
+        }
+
+        private void botonChat_Click(object sender, EventArgs e)
+        {
+            cambiarPanel(new FormChat());
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form formJoin = new FormJoin();
+            formJoin.ShowDialog();
+            if (formJoin.DialogResult == DialogResult.OK)
+            {
+                this.Hide();
+            }
         }
     }
 }

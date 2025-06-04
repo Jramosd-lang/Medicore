@@ -29,7 +29,7 @@ namespace VISUAL
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             label1 = new Label();
             label2 = new Label();
@@ -49,22 +49,23 @@ namespace VISUAL
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(45, 91, 103);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(165, 197, 213);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(45, 91, 103);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(45, 91, 103);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(165, 197, 213);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(45, 91, 103);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(36, 182);
+            dataGridView1.Location = new Point(32, 136);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(726, 291);
+            dataGridView1.Size = new Size(635, 218);
             dataGridView1.TabIndex = 2;
             // 
             // label1
@@ -74,9 +75,9 @@ namespace VISUAL
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 178);
             label1.ForeColor = Color.FromArgb(45, 91, 103);
-            label1.Location = new Point(36, 62);
+            label1.Location = new Point(31, 60);
             label1.Name = "label1";
-            label1.Size = new Size(249, 24);
+            label1.Size = new Size(204, 19);
             label1.TabIndex = 3;
             label1.Text = "GESTION DE PACIENTES";
             // 
@@ -86,9 +87,9 @@ namespace VISUAL
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 10F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(45, 91, 103);
-            label2.Location = new Point(527, 120);
+            label2.Location = new Point(461, 106);
             label2.Name = "label2";
-            label2.Size = new Size(71, 19);
+            label2.Size = new Size(60, 16);
             label2.TabIndex = 4;
             label2.Text = "Buscar:";
             label2.Click += label2_Click;
@@ -97,10 +98,12 @@ namespace VISUAL
             // 
             textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(611, 120);
+            textBox1.Location = new Point(535, 106);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(151, 20);
+            textBox1.Size = new Size(132, 16);
             textBox1.TabIndex = 5;
+            textBox1.TextChanged += textBox1_TextChanged_1;
             // 
             // button3
             // 
@@ -110,10 +113,10 @@ namespace VISUAL
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.FromArgb(165, 197, 213);
-            button3.Location = new Point(595, 549);
+            button3.Location = new Point(521, 412);
             button3.Margin = new Padding(0);
             button3.Name = "button3";
-            button3.Size = new Size(167, 34);
+            button3.Size = new Size(146, 26);
             button3.TabIndex = 7;
             button3.Text = "+ Nuevo paciente";
             button3.UseVisualStyleBackColor = false;
@@ -127,10 +130,10 @@ namespace VISUAL
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button4.ForeColor = Color.FromArgb(45, 91, 103);
-            button4.Location = new Point(35, 549);
+            button4.Location = new Point(31, 412);
             button4.Margin = new Padding(0);
             button4.Name = "button4";
-            button4.Size = new Size(132, 34);
+            button4.Size = new Size(116, 26);
             button4.TabIndex = 1;
             button4.Text = "Modificar";
             button4.UseVisualStyleBackColor = false;
@@ -145,10 +148,10 @@ namespace VISUAL
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button5.ForeColor = Color.FromArgb(45, 91, 103);
-            button5.Location = new Point(204, 549);
+            button5.Location = new Point(178, 412);
             button5.Margin = new Padding(0);
             button5.Name = "button5";
-            button5.Size = new Size(133, 34);
+            button5.Size = new Size(116, 26);
             button5.TabIndex = 6;
             button5.Text = "Eliminar";
             button5.UseVisualStyleBackColor = false;
@@ -161,17 +164,17 @@ namespace VISUAL
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
             label3.ForeColor = Color.FromArgb(45, 91, 103);
-            label3.Location = new Point(36, 120);
+            label3.Location = new Point(31, 106);
             label3.Name = "label3";
-            label3.Size = new Size(151, 19);
+            label3.Size = new Size(135, 16);
             label3.TabIndex = 8;
             label3.Text = "Lista de pacientes";
             // 
             // GestionPacientecs
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(804, 620);
+            ClientSize = new Size(704, 465);
             Controls.Add(label3);
             Controls.Add(button3);
             Controls.Add(button5);
@@ -180,6 +183,7 @@ namespace VISUAL
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(button4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "GestionPacientecs";
             Text = "GestionPacientecs";
             Load += GestionPacientecs_Load;

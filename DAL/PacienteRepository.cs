@@ -207,7 +207,9 @@ namespace DAL
                correo            = @correo,
                telefono          = @telefono,
                ocupacion         = @ocupacion,
-               religion          = @religion
+               religion          = @religion,
+               sexo              = @sexo
+
                WHERE id_paciente      = @id;
                ";
 
@@ -222,6 +224,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@telefono", paciente.Telefono);
             cmd.Parameters.AddWithValue("@ocupacion", paciente.Ocupacion);
             cmd.Parameters.AddWithValue("@religion", paciente.Religion);
+            cmd.Parameters.AddWithValue("@sexo", paciente.Sexo);
 
 
             try
@@ -261,11 +264,25 @@ namespace DAL
 
             }
 
+        public List<Paciente> filtrarPacientePorCitaHoy()
+        {
+            string sentencia = "SELECT p.id_paciente, p.nombre, p.apellido, c.id_cita, c.fecha_cita, c.hora_cita, c.estado_cita FROM pacientes p JOIN citas c ON p.id_paciente = c.id_paciente " +
+                "WHERE DATE(c.fecha_cita) = CURDATE()  AND c.estado_cita = 'CONFIRMADA'  AND c.id_doctor = @doctor_id;";
 
-        
+            MySqlCommand cmd = new MySqlCommand(sentencia, conexion);
+            AbrirConexion();
+            MySqlDataReader reader = cmd.ExecuteReader();
 
+            List<Paciente> lista = new List<Paciente>();
+            while (reader.Read())
+            {
+                lista.Add(Mappear(reader));
 
-
+            }
+            reader.Close();
+            CerrarConexion();
+            return lista;
+        }
     }
     
 }

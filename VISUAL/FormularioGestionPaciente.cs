@@ -22,7 +22,7 @@ namespace VISUAL
         public FormularioGestionPaciente()
         {
             InitializeComponent();
-            BotonModificar.Visible = false;
+            BotonModificar1.Visible = false;
 
         }
 

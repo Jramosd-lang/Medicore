@@ -34,13 +34,14 @@ namespace VISUAL
 
         private void mostrarDatos(Doctor doctor)
         {
-            string nombre = doctor.Nombre;
-            txtPrimerNombre.Text = nombre.Split(' ')[0];
-            txtSegundoNombre.Text = nombre.Split(' ')[1];
-            string apellido = doctor.Apellido.Split(' ')[0];
-            string segundoApellido = doctor.Apellido.Split(' ')[1];
-            txtPrimerApellido.Text = apellido;
-            txtSegundoApellido.Text = segundoApellido;
+            // Manejo seguro de nombres y apellidos con posibles espacios faltantes
+            string[] nombres = doctor.Nombre?.Split(' ', StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+            string[] apellidos = doctor.Apellido?.Split(' ', StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+
+            txtPrimerNombre.Text = nombres.Length > 0 ? nombres[0] : string.Empty;
+            txtSegundoNombre.Text = nombres.Length > 1 ? nombres[1] : string.Empty;
+            txtPrimerApellido.Text = apellidos.Length > 0 ? apellidos[0] : string.Empty;
+            txtSegundoApellido.Text = apellidos.Length > 1 ? apellidos[1] : string.Empty;
             dateNacimiento.Value = doctor.FechaNacimiento;
             txtNumDoc.Text = doctor.NumeroDocumento;
             ComboBoxTipoDoc.Text = doctor.TipoDocumento;
@@ -49,7 +50,6 @@ namespace VISUAL
             txtCorreo.Text = doctor.Correo;
             txtTelefono.Text = doctor.Telefono;
             ComboBoxSexo.Text = doctor.Sexo;
-
         }
 
 
@@ -191,6 +191,21 @@ namespace VISUAL
             {
                 e.Handled = true; // No se acepta la tecla
             }
+        }
+
+        private void LblDocumento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxPreTelefono_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxSexo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

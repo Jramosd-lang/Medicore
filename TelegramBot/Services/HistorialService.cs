@@ -18,7 +18,8 @@ namespace TelegramBot.Services
                 return "Paciente no encontrado.";
 
             // Retorna la ruta real al PDF (puede ser una URL o una ruta local)
-            return await Task.FromResult(paciente.RutaHistorialPdf);
+            //return await Task.FromResult(paciente.RutaHistorialPdf);
+            return await Task.FromResult("Historial PDF no disponible en este momento.");
         }
     }
 }

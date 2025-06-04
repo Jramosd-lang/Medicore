@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,12 @@ namespace BLL
                 return $"Error al guardar especie: {ex.Message}";
             }
         }
+
+        public DataTable obtenerCitasConfirmadasHoy(int doctor)
+        {
+            return repoCita.ObtenerCitasConfirmadasHoyComoTabla(doctor);
+        }
+
 
         public string Modificar(Cita entity)
         {
@@ -84,5 +91,10 @@ namespace BLL
         {
             repoCita.ModificarEstado(id);
         }
+        public List<Cita> ConsultarPorPacienteId(int pacienteId)
+        {
+            return repoCita.Consultar().Where(c => c.PacienteId == pacienteId).ToList();
+        }
+
     }
 }

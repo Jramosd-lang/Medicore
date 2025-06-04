@@ -21,10 +21,8 @@ namespace TelegramBot
             var controller = new BotController(
             botClient,
             new TelegramPacienteService(),
-            new TelegramDoctorService(),
-            new HistorialService(),
-            new CitaServiceBot()
-);
+            new TelegramCitaService()
+            );
 
 
             // Recibe TODO tipo de actualizaciones
