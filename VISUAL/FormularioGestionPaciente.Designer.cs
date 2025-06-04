@@ -67,6 +67,23 @@
             label14 = new Label();
             label13 = new Label();
             panel1 = new Panel();
+            groupBox1 = new GroupBox();
+            txtVacunas = new TextBox();
+            label21 = new Label();
+            button4 = new Button();
+            txtAntecedentesFamiliares = new TextBox();
+            label20 = new Label();
+            button3 = new Button();
+            txtMedicamentosActuales = new TextBox();
+            label19 = new Label();
+            button2 = new Button();
+            txtEnfermedadesCronicas = new TextBox();
+            label18 = new Label();
+            button1 = new Button();
+            txtAlergias = new TextBox();
+            label17 = new Label();
+            label16 = new Label();
+            comboBox1 = new ComboBox();
             BotonModificar = new Button();
             BotonAgregar = new Button();
             GroupBoxDocumento.SuspendLayout();
@@ -74,6 +91,7 @@
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // LblDocumento
@@ -463,6 +481,7 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(BotonModificar);
             panel1.Controls.Add(BotonAgregar);
             panel1.Controls.Add(groupBox3);
@@ -473,8 +492,196 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1082, 898);
-            panel1.TabIndex = 24;
-            panel1.Paint += panel1_Paint;
+            panel1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(txtVacunas);
+            groupBox1.Controls.Add(label21);
+            groupBox1.Controls.Add(button4);
+            groupBox1.Controls.Add(txtAntecedentesFamiliares);
+            groupBox1.Controls.Add(label20);
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(txtMedicamentosActuales);
+            groupBox1.Controls.Add(label19);
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(txtEnfermedadesCronicas);
+            groupBox1.Controls.Add(label18);
+            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(txtAlergias);
+            groupBox1.Controls.Add(label17);
+            groupBox1.Controls.Add(label16);
+            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Dock = DockStyle.Top;
+            groupBox1.Location = new Point(0, 587);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1082, 191);
+            groupBox1.TabIndex = 40;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Historial Medico";
+            // 
+            // txtVacunas
+            // 
+            txtVacunas.Location = new Point(652, 130);
+            txtVacunas.Name = "txtVacunas";
+            txtVacunas.Size = new Size(198, 27);
+            txtVacunas.TabIndex = 52;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(584, 130);
+            label21.Name = "label21";
+            label21.Size = new Size(62, 20);
+            label21.TabIndex = 51;
+            label21.Text = "Vacunas";
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button4.BackColor = Color.FromArgb(45, 91, 103);
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.FromArgb(165, 197, 213);
+            button4.Location = new Point(530, 123);
+            button4.Margin = new Padding(0);
+            button4.Name = "button4";
+            button4.Size = new Size(30, 34);
+            button4.TabIndex = 50;
+            button4.Text = "+";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // txtAntecedentesFamiliares
+            // 
+            txtAntecedentesFamiliares.Location = new Point(253, 127);
+            txtAntecedentesFamiliares.Name = "txtAntecedentesFamiliares";
+            txtAntecedentesFamiliares.Size = new Size(263, 27);
+            txtAntecedentesFamiliares.TabIndex = 49;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(53, 134);
+            label20.Name = "label20";
+            label20.Size = new Size(168, 20);
+            label20.TabIndex = 48;
+            label20.Text = "Antecedentes familiares";
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.BackColor = Color.FromArgb(45, 91, 103);
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(165, 197, 213);
+            button3.Location = new Point(843, 72);
+            button3.Margin = new Padding(0);
+            button3.Name = "button3";
+            button3.Size = new Size(30, 34);
+            button3.TabIndex = 47;
+            button3.Text = "+";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // txtMedicamentosActuales
+            // 
+            txtMedicamentosActuales.Location = new Point(628, 76);
+            txtMedicamentosActuales.Name = "txtMedicamentosActuales";
+            txtMedicamentosActuales.Size = new Size(198, 27);
+            txtMedicamentosActuales.TabIndex = 46;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(453, 73);
+            label19.Name = "label19";
+            label19.Size = new Size(165, 20);
+            label19.TabIndex = 45;
+            label19.Text = "Medicamentos actuales";
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.BackColor = Color.FromArgb(45, 91, 103);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(165, 197, 213);
+            button2.Location = new Point(896, 29);
+            button2.Margin = new Padding(0);
+            button2.Name = "button2";
+            button2.Size = new Size(30, 34);
+            button2.TabIndex = 44;
+            button2.Text = "+";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // txtEnfermedadesCronicas
+            // 
+            txtEnfermedadesCronicas.Location = new Point(628, 31);
+            txtEnfermedadesCronicas.Name = "txtEnfermedadesCronicas";
+            txtEnfermedadesCronicas.Size = new Size(252, 27);
+            txtEnfermedadesCronicas.TabIndex = 43;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(453, 34);
+            label18.Name = "label18";
+            label18.Size = new Size(164, 20);
+            label18.TabIndex = 42;
+            label18.Text = "Enfermedades Cronicas";
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.BackColor = Color.FromArgb(45, 91, 103);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.FromArgb(165, 197, 213);
+            button1.Location = new Point(352, 69);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Size = new Size(30, 34);
+            button1.TabIndex = 41;
+            button1.Text = "+";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // txtAlergias
+            // 
+            txtAlergias.Location = new Point(182, 73);
+            txtAlergias.Name = "txtAlergias";
+            txtAlergias.Size = new Size(151, 27);
+            txtAlergias.TabIndex = 3;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(55, 76);
+            label17.Name = "label17";
+            label17.Size = new Size(63, 20);
+            label17.TabIndex = 2;
+            label17.Text = "Alergias";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(53, 29);
+            label16.Name = "label16";
+            label16.Size = new Size(108, 20);
+            label16.TabIndex = 1;
+            label16.Text = "Tipo de sangre";
+            // 
+            // comboBox1
+            // 
+            comboBox1.AutoCompleteCustomSource.AddRange(new string[] { "A +", "", "A –", "", "B +", "", "B –", "", "AB +", "", "AB –", "", "O +", "", "O –" });
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(182, 26);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 0;
             // 
             // BotonModificar
             // 
@@ -484,7 +691,7 @@
             BotonModificar.FlatStyle = FlatStyle.Flat;
             BotonModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonModificar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonModificar.Location = new Point(838, 678);
+            BotonModificar.Location = new Point(814, 839);
             BotonModificar.Margin = new Padding(0);
             BotonModificar.Name = "BotonModificar";
             BotonModificar.Size = new Size(167, 34);
@@ -501,7 +708,7 @@
             BotonAgregar.FlatStyle = FlatStyle.Flat;
             BotonAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonAgregar.ForeColor = Color.FromArgb(165, 197, 213);
-            BotonAgregar.Location = new Point(838, 631);
+            BotonAgregar.Location = new Point(814, 792);
             BotonAgregar.Margin = new Padding(0);
             BotonAgregar.Name = "BotonAgregar";
             BotonAgregar.Size = new Size(167, 34);
@@ -528,6 +735,8 @@
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             panel1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -574,5 +783,22 @@
         private ComboBox ComboBoxReligion;
         private Button BotonAgregar;
         private Button BotonModificar;
+        private GroupBox groupBox1;
+        private Label label17;
+        private Label label16;
+        private ComboBox comboBox1;
+        private TextBox txtEnfermedadesCronicas;
+        private Label label18;
+        private Button button1;
+        private TextBox txtAlergias;
+        private Button button3;
+        private TextBox txtMedicamentosActuales;
+        private Label label19;
+        private Button button2;
+        private TextBox txtVacunas;
+        private Label label21;
+        private Button button4;
+        private TextBox txtAntecedentesFamiliares;
+        private Label label20;
     }
 }

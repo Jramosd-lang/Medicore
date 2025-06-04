@@ -8,6 +8,7 @@ namespace VISUAL
     public partial class FormularioGestionPaciente : Form
     {
         private int identificacion;
+        private List<string> alergias = new List<string>();
 
         public FormularioGestionPaciente(Paciente paciente)
         {
@@ -75,7 +76,7 @@ namespace VISUAL
             string religion = ComboBoxReligion.Text;
             string sexo = ComboBoxSexo.Text;
 
-            if(nombre == "" || apellido == "" || fechaNac == null || numeroDoc == "" || tipoDoc == "" || correo == "" || telefono == "" || ocupacion == "" || religion == "" || sexo == "")
+            if (nombre == "" || apellido == "" || fechaNac == null || numeroDoc == "" || tipoDoc == "" || correo == "" || telefono == "" || ocupacion == "" || religion == "" || sexo == "")
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
@@ -167,7 +168,7 @@ namespace VISUAL
             string ocupacion = txtOcupacion.Text;
             string sexo = ComboBoxSexo.Text;
 
-            if(nombre == "" || apellido == "" || fechaNac == null || numeroDoc == "" || tipoDoc == "" || correo == "" || telefono == "" || ocupacion == "" || religion == "" || sexo == "")
+            if (nombre == "" || apellido == "" || fechaNac == null || numeroDoc == "" || tipoDoc == "" || correo == "" || telefono == "" || ocupacion == "" || religion == "" || sexo == "")
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
@@ -196,10 +197,7 @@ namespace VISUAL
             modificar(sender, e);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void txtNumDoc_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -207,6 +205,26 @@ namespace VISUAL
             {
                 e.Handled = true; // No se acepta la tecla
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            agregarAlergias(txtAlergias.Text);
+        }
+
+        private void agregarAlergias(string alergia)
+        {
+            if(!string.IsNullOrWhiteSpace(alergia))
+            {
+                alergias.Add(alergia);
+                txtAlergias.Text = string.Empty; // Limpiar el campo de texto
+                MessageBox.Show("Alergia agregada: " + alergia);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese una alergia válida.");
+            }
+
         }
     }
 }

@@ -120,7 +120,7 @@
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 183);
             panel3.Name = "panel3";
-            panel3.Size = new Size(278, 58);
+            panel3.Size = new Size(278, 65);
             panel3.TabIndex = 3;
             // 
             // button3
