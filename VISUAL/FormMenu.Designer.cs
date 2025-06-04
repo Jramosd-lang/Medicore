@@ -31,6 +31,7 @@ namespace VISUAL
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             MenuLateral = new Panel();
+            btnCerrarSesion1 = new Button();
             PanelSubMenuAgenda = new Panel();
             button2 = new Button();
             BotonRecepcion = new Button();
@@ -68,6 +69,7 @@ namespace VISUAL
             MenuLateral.AutoScroll = true;
             MenuLateral.BackColor = Color.FromArgb(45, 91, 103);
             MenuLateral.BackgroundImageLayout = ImageLayout.Center;
+            MenuLateral.Controls.Add(btnCerrarSesion1);
             MenuLateral.Controls.Add(PanelSubMenuAgenda);
             MenuLateral.Controls.Add(BotonAgendaYAtencion);
             MenuLateral.Controls.Add(PanelSubmenuGestion);
@@ -77,8 +79,26 @@ namespace VISUAL
             MenuLateral.Location = new Point(0, 30);
             MenuLateral.Margin = new Padding(3, 2, 3, 2);
             MenuLateral.Name = "MenuLateral";
-            MenuLateral.Size = new Size(262, 570);
+            MenuLateral.Size = new Size(238, 570);
             MenuLateral.TabIndex = 0;
+            // 
+            // btnCerrarSesion1
+            // 
+            btnCerrarSesion1.Dock = DockStyle.Bottom;
+            btnCerrarSesion1.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion1.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCerrarSesion1.ForeColor = Color.FromArgb(185, 218, 233);
+            btnCerrarSesion1.Location = new Point(0, 541);
+            btnCerrarSesion1.Margin = new Padding(3, 2, 3, 2);
+            btnCerrarSesion1.Name = "btnCerrarSesion1";
+            btnCerrarSesion1.Padding = new Padding(35, 0, 0, 0);
+            btnCerrarSesion1.Size = new Size(238, 29);
+            btnCerrarSesion1.TabIndex = 9;
+            btnCerrarSesion1.Text = "Cerrar Sesion";
+            btnCerrarSesion1.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion1.UseVisualStyleBackColor = true;
+            btnCerrarSesion1.Click += btnCerrarSesion1_Click;
             // 
             // PanelSubMenuAgenda
             // 
@@ -91,7 +111,7 @@ namespace VISUAL
             PanelSubMenuAgenda.Location = new Point(0, 249);
             PanelSubMenuAgenda.Margin = new Padding(3, 2, 3, 2);
             PanelSubMenuAgenda.Name = "PanelSubMenuAgenda";
-            PanelSubMenuAgenda.Size = new Size(262, 34);
+            PanelSubMenuAgenda.Size = new Size(238, 34);
             PanelSubMenuAgenda.TabIndex = 7;
             // 
             // button2
@@ -106,7 +126,7 @@ namespace VISUAL
             button2.Margin = new Padding(0, 8, 0, 0);
             button2.Name = "button2";
             button2.Padding = new Padding(35, 0, 0, 0);
-            button2.Size = new Size(262, 0);
+            button2.Size = new Size(238, 0);
             button2.TabIndex = 7;
             button2.Text = "Gestion de capital";
             button2.TextAlign = ContentAlignment.MiddleLeft;
@@ -127,7 +147,7 @@ namespace VISUAL
             BotonRecepcion.Margin = new Padding(0, 8, 0, 0);
             BotonRecepcion.Name = "BotonRecepcion";
             BotonRecepcion.Padding = new Padding(35, 0, 0, 0);
-            BotonRecepcion.Size = new Size(262, 30);
+            BotonRecepcion.Size = new Size(238, 30);
             BotonRecepcion.TabIndex = 5;
             BotonRecepcion.Text = "Recepcion de pacientes";
             BotonRecepcion.TextAlign = ContentAlignment.MiddleLeft;
@@ -168,7 +188,7 @@ namespace VISUAL
             BotonAgendaYAtencion.Margin = new Padding(0, 8, 0, 0);
             BotonAgendaYAtencion.Name = "BotonAgendaYAtencion";
             BotonAgendaYAtencion.Padding = new Padding(18, 0, 0, 0);
-            BotonAgendaYAtencion.Size = new Size(262, 30);
+            BotonAgendaYAtencion.Size = new Size(238, 30);
             BotonAgendaYAtencion.TabIndex = 6;
             BotonAgendaYAtencion.Text = "Atencion";
             BotonAgendaYAtencion.TextAlign = ContentAlignment.MiddleLeft;
@@ -185,7 +205,7 @@ namespace VISUAL
             PanelSubmenuGestion.Location = new Point(0, 124);
             PanelSubmenuGestion.Margin = new Padding(3, 2, 3, 2);
             PanelSubmenuGestion.Name = "PanelSubmenuGestion";
-            PanelSubmenuGestion.Size = new Size(262, 95);
+            PanelSubmenuGestion.Size = new Size(238, 95);
             PanelSubmenuGestion.TabIndex = 5;
             PanelSubmenuGestion.Paint += PanelSubmenuRegistrarPacientes_Paint;
             // 
@@ -203,7 +223,7 @@ namespace VISUAL
             button1.Margin = new Padding(0, 8, 0, 0);
             button1.Name = "button1";
             button1.Padding = new Padding(35, 0, 0, 0);
-            button1.Size = new Size(262, 30);
+            button1.Size = new Size(238, 30);
             button1.TabIndex = 7;
             button1.Text = "Gestion de citas";
             button1.TextAlign = ContentAlignment.MiddleLeft;
@@ -224,7 +244,7 @@ namespace VISUAL
             BotonGestionarDoctores.Margin = new Padding(0, 8, 0, 0);
             BotonGestionarDoctores.Name = "BotonGestionarDoctores";
             BotonGestionarDoctores.Padding = new Padding(35, 0, 0, 0);
-            BotonGestionarDoctores.Size = new Size(262, 30);
+            BotonGestionarDoctores.Size = new Size(238, 30);
             BotonGestionarDoctores.TabIndex = 1;
             BotonGestionarDoctores.Text = "Gestion de doctores";
             BotonGestionarDoctores.TextAlign = ContentAlignment.MiddleLeft;
@@ -245,7 +265,7 @@ namespace VISUAL
             BotonGestionarPacientes.Margin = new Padding(0, 8, 0, 0);
             BotonGestionarPacientes.Name = "BotonGestionarPacientes";
             BotonGestionarPacientes.Padding = new Padding(35, 0, 0, 0);
-            BotonGestionarPacientes.Size = new Size(262, 30);
+            BotonGestionarPacientes.Size = new Size(238, 30);
             BotonGestionarPacientes.TabIndex = 6;
             BotonGestionarPacientes.Text = "Gestion de pacientes";
             BotonGestionarPacientes.TextAlign = ContentAlignment.MiddleLeft;
@@ -266,7 +286,7 @@ namespace VISUAL
             BotonGestionar.Margin = new Padding(0, 8, 0, 0);
             BotonGestionar.Name = "BotonGestionar";
             BotonGestionar.Padding = new Padding(18, 0, 0, 0);
-            BotonGestionar.Size = new Size(262, 30);
+            BotonGestionar.Size = new Size(238, 30);
             BotonGestionar.TabIndex = 1;
             BotonGestionar.Text = "Gestión ";
             BotonGestionar.TextAlign = ContentAlignment.MiddleLeft;
@@ -282,7 +302,7 @@ namespace VISUAL
             PanelLogo.Location = new Point(0, 0);
             PanelLogo.Margin = new Padding(3, 2, 3, 2);
             PanelLogo.Name = "PanelLogo";
-            PanelLogo.Size = new Size(262, 94);
+            PanelLogo.Size = new Size(238, 94);
             PanelLogo.TabIndex = 0;
             PanelLogo.Paint += panel1_Paint;
             // 
@@ -314,17 +334,17 @@ namespace VISUAL
             PanelContenedor.Controls.Add(pictureBox2);
             PanelContenedor.Dock = DockStyle.Fill;
             PanelContenedor.ForeColor = SystemColors.ControlLightLight;
-            PanelContenedor.Location = new Point(262, 30);
+            PanelContenedor.Location = new Point(238, 30);
             PanelContenedor.Margin = new Padding(3, 2, 3, 2);
             PanelContenedor.Name = "PanelContenedor";
-            PanelContenedor.Size = new Size(849, 570);
+            PanelContenedor.Size = new Size(873, 570);
             PanelContenedor.TabIndex = 2;
             // 
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(258, 195);
+            pictureBox2.Location = new Point(270, 195);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(439, 273);
@@ -478,5 +498,6 @@ namespace VISUAL
         private Button BotonSalir;
         private PictureBox pictureBox2;
         private Button button1;
+        private Button btnCerrarSesion1;
     }
 }

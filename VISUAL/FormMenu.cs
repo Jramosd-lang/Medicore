@@ -210,5 +210,24 @@ namespace VISUAL
             cambiarPanel(new FormularioCitacs());
             seleccionarBoton(BotonGestionarCItas);
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            {
+                
+            }
+        }
+
+        private void btnCerrarSesion1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                FormJoin loginForm = new FormJoin();
+                loginForm.ShowDialog();
+                Application.Exit();
+            }
+        }
     }
 }

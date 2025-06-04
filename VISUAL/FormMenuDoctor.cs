@@ -115,11 +115,13 @@ namespace VISUAL
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Form formJoin = new FormJoin();
-            formJoin.ShowDialog();
-            if (formJoin.DialogResult == DialogResult.OK)
+            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 this.Hide();
+                FormJoin loginForm = new FormJoin();
+                loginForm.ShowDialog();
+                Application.Exit();
             }
         }
     }
