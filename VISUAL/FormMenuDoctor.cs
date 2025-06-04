@@ -112,5 +112,15 @@ namespace VISUAL
         {
             cambiarPanel(new FormChat());
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form formJoin = new FormJoin();
+            formJoin.ShowDialog();
+            if (formJoin.DialogResult == DialogResult.OK)
+            {
+                this.Hide();
+            }
+        }
     }
 }

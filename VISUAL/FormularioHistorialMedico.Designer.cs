@@ -42,10 +42,9 @@
             comboBoxEnfermedadesCronicas = new ComboBox();
             comboBoxAlergias = new ComboBox();
             groupBox2 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            groupBox3 = new GroupBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -172,15 +171,15 @@
             // 
             comboBoxAlergias.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBoxAlergias.FormattingEnabled = true;
-            comboBoxAlergias.Location = new Point(458, 72);
+            comboBoxAlergias.Location = new Point(526, 72);
             comboBoxAlergias.Name = "comboBoxAlergias";
-            comboBoxAlergias.Size = new Size(338, 28);
+            comboBoxAlergias.Size = new Size(270, 28);
             comboBoxAlergias.TabIndex = 12;
             // 
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Controls.Add(dataGridView1);
+            groupBox2.Controls.Add(groupBox3);
             groupBox2.Location = new Point(12, 322);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(818, 310);
@@ -188,15 +187,14 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
             // 
-            // dataGridView1
+            // groupBox3
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(5, 26);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(807, 278);
-            dataGridView1.TabIndex = 0;
+            groupBox3.Location = new Point(6, 26);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(806, 278);
+            groupBox3.TabIndex = 0;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "groupBox3";
             // 
             // FormularioHistorialMedico
             // 
@@ -211,7 +209,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -231,6 +228,6 @@
         private ComboBox comboBoxEnfermedadesCronicas;
         private ComboBox comboBoxAlergias;
         private GroupBox groupBox2;
-        private DataGridView dataGridView1;
+        private GroupBox groupBox3;
     }
 }
