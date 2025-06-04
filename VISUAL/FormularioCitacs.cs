@@ -161,7 +161,14 @@ namespace VISUAL
                     return;
                 }
                 var documento = new CitaPdf(citaPdf, paciente, DoctorResult, especialidadPdf);
+
+
                 documento.GeneratePdf(ruta);
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = ruta,
+                    UseShellExecute = true
+                });
             }
             catch (Exception ex)
             {

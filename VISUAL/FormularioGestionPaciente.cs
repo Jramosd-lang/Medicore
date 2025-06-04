@@ -9,6 +9,9 @@ namespace VISUAL
     {
         private int identificacion;
         private List<string> alergias = new List<string>();
+        private List<string> antecedentesF = new List<string>();
+        private List<string> enfermedadesCronicas = new List<string>();
+        private List<string> medicamentosActuales = new List<string>();
 
         public FormularioGestionPaciente(Paciente paciente)
         {
@@ -22,7 +25,7 @@ namespace VISUAL
         public FormularioGestionPaciente()
         {
             InitializeComponent();
-            BotonModificar1.Visible = false;
+            BotonModificar.Visible = false;
 
         }
 
@@ -197,7 +200,7 @@ namespace VISUAL
             modificar(sender, e);
         }
 
-        
+
 
         private void txtNumDoc_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -214,17 +217,55 @@ namespace VISUAL
 
         private void agregarAlergias(string alergia)
         {
-            if(!string.IsNullOrWhiteSpace(alergia))
+            if (!string.IsNullOrWhiteSpace(alergia))
             {
                 alergias.Add(alergia);
                 txtAlergias.Text = string.Empty; // Limpiar el campo de texto
                 MessageBox.Show("Alergia agregada: " + alergia);
             }
-            else
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            agregarAntecendentesFamiliarees(txtAntecedentesFamiliares.Text);
+        }
+
+        private void agregarAntecendentesFamiliarees(string AntecedentesFamiliares)
+        {
+            if (!string.IsNullOrEmpty(AntecedentesFamiliares))
             {
-                MessageBox.Show("Por favor, ingrese una alergia válida.");
+                antecedentesF.Add(AntecedentesFamiliares);
+                txtAntecedentesFamiliares.Text = string.Empty;
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            agregarEnfermadesCronicas(txtEnfermedadesCronicas.Text);
+        }
+
+        private void agregarEnfermadesCronicas(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                enfermedadesCronicas.Add(text);
+                txtEnfermedadesCronicas.Text = string.Empty;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            agregarMedicamentosActuales(txtMedicamentosActuales.Text);
+        }
+
+        private void agregarMedicamentosActuales(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text)) { 
+                
+            }
         }
     }
 }
