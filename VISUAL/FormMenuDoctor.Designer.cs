@@ -32,7 +32,7 @@
             panel1 = new Panel();
             BotonSalir = new Button();
             panel2 = new Panel();
-            button1 = new Button();
+            btnCerrarSesion1 = new Button();
             LblMedicore = new Label();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
@@ -58,8 +58,9 @@
             panel1.Controls.Add(BotonSalir);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1270, 39);
+            panel1.Size = new Size(1111, 29);
             panel1.TabIndex = 0;
             panel1.MouseDown += panel1_MouseDown_1;
             // 
@@ -72,9 +73,10 @@
             BotonSalir.FlatAppearance.BorderSize = 0;
             BotonSalir.FlatStyle = FlatStyle.Flat;
             BotonSalir.Image = (Image)resources.GetObject("BotonSalir.Image");
-            BotonSalir.Location = new Point(1218, 7);
+            BotonSalir.Location = new Point(1066, 5);
+            BotonSalir.Margin = new Padding(3, 2, 3, 2);
             BotonSalir.Name = "BotonSalir";
-            BotonSalir.Size = new Size(40, 29);
+            BotonSalir.Size = new Size(35, 22);
             BotonSalir.TabIndex = 7;
             BotonSalir.UseVisualStyleBackColor = false;
             BotonSalir.Click += BotonSalir_Click;
@@ -82,52 +84,55 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(45, 91, 103);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(btnCerrarSesion1);
             panel2.Controls.Add(LblMedicore);
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(SubMenuPaciente);
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 39);
+            panel2.Location = new Point(0, 29);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(278, 761);
+            panel2.Size = new Size(243, 571);
             panel2.TabIndex = 1;
             // 
-            // button1
+            // btnCerrarSesion1
             // 
-            button1.Dock = DockStyle.Bottom;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.FromArgb(185, 218, 233);
-            button1.Location = new Point(0, 732);
-            button1.Name = "button1";
-            button1.Padding = new Padding(40, 0, 0, 0);
-            button1.Size = new Size(278, 29);
-            button1.TabIndex = 4;
-            button1.Text = "Cerrar Sesion";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            btnCerrarSesion1.Dock = DockStyle.Bottom;
+            btnCerrarSesion1.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion1.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCerrarSesion1.ForeColor = Color.FromArgb(185, 218, 233);
+            btnCerrarSesion1.Location = new Point(0, 541);
+            btnCerrarSesion1.Margin = new Padding(3, 2, 3, 2);
+            btnCerrarSesion1.Name = "btnCerrarSesion1";
+            btnCerrarSesion1.Padding = new Padding(35, 0, 0, 0);
+            btnCerrarSesion1.Size = new Size(243, 30);
+            btnCerrarSesion1.TabIndex = 4;
+            btnCerrarSesion1.Text = "Cerrar Sesion";
+            btnCerrarSesion1.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion1.UseVisualStyleBackColor = true;
+            btnCerrarSesion1.Click += button1_Click_1;
             // 
             // LblMedicore
             // 
             LblMedicore.AutoSize = true;
             LblMedicore.Font = new Font("Century", 18F, FontStyle.Bold);
             LblMedicore.ForeColor = Color.FromArgb(185, 218, 233);
-            LblMedicore.Location = new Point(96, 83);
+            LblMedicore.Location = new Point(84, 62);
             LblMedicore.Name = "LblMedicore";
-            LblMedicore.Size = new Size(157, 35);
+            LblMedicore.Size = new Size(129, 28);
             LblMedicore.TabIndex = 1;
             LblMedicore.Text = "MediCore";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(27, 29);
+            pictureBox2.Location = new Point(24, 22);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(113, 79);
+            pictureBox2.Size = new Size(99, 59);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -139,9 +144,10 @@
             panel3.Controls.Add(button3);
             panel3.Controls.Add(button2);
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(0, 183);
+            panel3.Location = new Point(0, 137);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(278, 65);
+            panel3.Size = new Size(243, 76);
             panel3.TabIndex = 3;
             // 
             // botonChat
@@ -151,11 +157,11 @@
             botonChat.FlatStyle = FlatStyle.Flat;
             botonChat.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             botonChat.ForeColor = Color.FromArgb(45, 91, 103);
-            botonChat.Location = new Point(0, 56);
+            botonChat.Location = new Point(0, 42);
             botonChat.Margin = new Padding(0);
             botonChat.Name = "botonChat";
-            botonChat.Padding = new Padding(46, 0, 0, 0);
-            botonChat.Size = new Size(278, 35);
+            botonChat.Padding = new Padding(40, 0, 0, 0);
+            botonChat.Size = new Size(243, 26);
             botonChat.TabIndex = 2;
             botonChat.Text = "Chat";
             botonChat.TextAlign = ContentAlignment.MiddleLeft;
@@ -169,11 +175,11 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button3.ForeColor = Color.FromArgb(45, 91, 103);
-            button3.Location = new Point(0, 29);
+            button3.Location = new Point(0, 22);
             button3.Margin = new Padding(0);
             button3.Name = "button3";
-            button3.Padding = new Padding(40, 0, 0, 0);
-            button3.Size = new Size(278, 27);
+            button3.Padding = new Padding(35, 0, 0, 0);
+            button3.Size = new Size(243, 20);
             button3.TabIndex = 1;
             button3.Text = "Cita";
             button3.TextAlign = ContentAlignment.MiddleLeft;
@@ -189,8 +195,8 @@
             button2.Location = new Point(0, 0);
             button2.Margin = new Padding(0);
             button2.Name = "button2";
-            button2.Padding = new Padding(40, 0, 0, 0);
-            button2.Size = new Size(278, 29);
+            button2.Padding = new Padding(35, 0, 0, 0);
+            button2.Size = new Size(243, 22);
             button2.TabIndex = 0;
             button2.Text = "Historial";
             button2.TextAlign = ContentAlignment.MiddleLeft;
@@ -205,9 +211,10 @@
             SubMenuPaciente.FlatStyle = FlatStyle.Flat;
             SubMenuPaciente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SubMenuPaciente.ForeColor = Color.FromArgb(185, 218, 233);
-            SubMenuPaciente.Location = new Point(0, 144);
+            SubMenuPaciente.Location = new Point(0, 108);
+            SubMenuPaciente.Margin = new Padding(3, 2, 3, 2);
             SubMenuPaciente.Name = "SubMenuPaciente";
-            SubMenuPaciente.Size = new Size(278, 39);
+            SubMenuPaciente.Size = new Size(243, 29);
             SubMenuPaciente.TabIndex = 2;
             SubMenuPaciente.Text = "Gestion paciente";
             SubMenuPaciente.TextAlign = ContentAlignment.MiddleLeft;
@@ -218,8 +225,9 @@
             // 
             pictureBox1.Dock = DockStyle.Top;
             pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(278, 144);
+            pictureBox1.Size = new Size(243, 108);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -228,30 +236,33 @@
             PanelContenedor.BackColor = Color.White;
             PanelContenedor.Controls.Add(pictureBox3);
             PanelContenedor.Dock = DockStyle.Fill;
-            PanelContenedor.Location = new Point(278, 39);
+            PanelContenedor.Location = new Point(243, 29);
+            PanelContenedor.Margin = new Padding(3, 2, 3, 2);
             PanelContenedor.Name = "PanelContenedor";
-            PanelContenedor.Size = new Size(992, 761);
+            PanelContenedor.Size = new Size(868, 571);
             PanelContenedor.TabIndex = 2;
             // 
             // pictureBox3
             // 
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(323, 237);
+            pictureBox3.Location = new Point(277, 179);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(477, 335);
+            pictureBox3.Size = new Size(417, 251);
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
             // 
             // FormMenuDoctor
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1270, 800);
+            ClientSize = new Size(1111, 600);
             Controls.Add(PanelContenedor);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMenuDoctor";
             Text = "FormMenuDoctor";
             Load += FormMenuDoctor_Load;
@@ -281,6 +292,6 @@
         private Panel PanelContenedor;
         private PictureBox pictureBox3;
         private Button botonChat;
-        private Button button1;
+        private Button btnCerrarSesion1;
     }
 }
